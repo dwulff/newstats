@@ -1,0 +1,360 @@
+---
+title: "Assignments"
+author: "Einführung in die moderne Datenanalyse mit R<br>
+  <a href='https://therbootcamp.github.io'>
+    The R Bootcamp
+  </a>
+  <br>
+  <a href='https://therbootcamp.github.io/I2R_2021Aug/'>
+    <i class='fas fa-clock' style='font-size:.9em;'></i>
+  </a>&#8239; 
+  <a href='https://therbootcamp.github.io'>
+    <i class='fas fa-home' style='font-size:.9em;' ></i>
+  </a>&#8239;
+  <a href='mailto:therbootcamp@gmail.com'>
+    <i class='fas fa-envelope' style='font-size: .9em;'></i>
+  </a>&#8239;
+  <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
+    <i class='fab fa-linkedin' style='font-size: .9em;'></i>
+  </a>"
+date: "August 2021"
+output:
+  xaringan::moon_reader:
+    css: ["default", "baselrbootcamp.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+layout: true
+
+<div class="my-footer">
+  <span style="text-align:center">
+    <span> 
+      <img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/>
+    </span>
+    <a href="https://therbootcamp.github.io/">
+      <span style="padding-left:82px"> 
+        <font color="#7E7E7E">
+          www.therbootcamp.com
+        </font>
+      </span>
+    </a>
+    <a href="https://therbootcamp.github.io/">
+      <font color="#7E7E7E">
+      Einführung in die moderne Datenanalyse mit R | August 2021
+      </font>
+    </a>
+    </span>
+  </div> 
+
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+# see: https://github.com/yihui/xaringan
+# install.packages("xaringan")
+# see: 
+# https://github.com/yihui/xaringan/wiki
+# https://github.com/gnab/remark/wiki/Markdown
+options(width=110)
+options(digits = 4)
+
+require(tidyverse)
+```
+
+
+.pull-left4[
+
+# Agenda
+
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span><high>Assignments</high><br></span></li>
+  <ul class="level">
+    <li><span>Objekt <mono><-</mono> Funktion</span></li>
+    <li><span><mono><-</mono> kreiert Objekte</span></li>
+    <li><span><mono><-</mono> verändert Objekte</span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+<br><br>
+<p align = "center">
+<img src="image/goodcode.png" height=500px><br>
+<font style="font-size:10px">from <a href="https://xkcd.com//">xkcd.com</a></font>
+</p>
+
+]
+
+---
+
+# Objekt <mono><-</mono> Funktion
+
+.pull-left5[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span>Assignments<br></span></li>
+  <ul class="level">
+    <li><span><high>Objekt <mono><-</mono> Funktion</high></span></li>
+    <li><span><mono><-</mono> kreiert Objekte</span></li>
+    <li><span><mono><-</mono> verändert Objekte</span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+<p align="center">
+  <img src="image/assignment.png">
+</p>
+
+
+]
+
+---
+
+# <mono><-</mono> kreiert Objekte
+
+.pull-left5[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span>Assignments<br></span></li>
+  <ul class="level">
+    <li><span>Objekt <mono><-</mono> Funktion</span></li>
+    <li><span><high><mono><-</mono> kreiert Objekte</high></span></li>
+    <li><span><mono><-</mono> verändert Objekte</span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+```{r}
+# ein Objekt namens eins_zwei_drei
+eins_zwei_drei <- c(1, 2, 3)
+
+# Printe das Objekt
+print(eins_zwei_drei)
+
+# Printe das Objekt
+eins_zwei_drei
+
+```
+
+]
+
+---
+
+# <mono><-</mono> kreiert Objekte
+
+.pull-left5[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span>Assignments<br></span></li>
+  <ul class="level">
+    <li><span>Objekt <mono><-</mono> Funktion</span></li>
+    <li><span><high><mono><-</mono> kreiert Objekte</high></span></li>
+    <li><span><mono><-</mono> verändert Objekte</span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+```{r}
+# ein Objekt namens eins_zwei_drei
+eins_zwei_drei <- c(1, 2, 3)
+
+# Berechne den Mittelwert
+mean(eins_zwei_drei)
+```
+
+]
+
+---
+
+# <mono><-</mono> kreiert Objekte
+
+.pull-left5[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span>Assignments<br></span></li>
+  <ul class="level">
+    <li><span>Objekt <mono><-</mono> Funktion</span></li>
+    <li><span><high><mono><-</mono> kreiert Objekte</high></span></li>
+    <li><span><mono><-</mono> verändert Objekte</span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+```{r}
+# ein Objekt namens eins_zwei_drei
+eins_zwei_drei <- c(1, 2, 3)
+
+# Berechne den Mittelwert
+ergebnis <- mean(eins_zwei_drei)
+
+# Printe Ergebnis
+ergebnis
+```
+
+]
+
+---
+
+# <mono><-</mono> kreiert Objekte
+
+.pull-left5[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span>Assignments<br></span></li>
+  <ul class="level">
+    <li><span>Objekt <mono><-</mono> Funktion</span></li>
+    <li><span><high><mono><-</mono> kreiert Objekte</high></span></li>
+    <li><span><mono><-</mono> verändert Objekte</span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+```{r}
+# ein Objekt namens eins_zwei_drei
+eins_zwei_drei <- c(1, 2, 3)
+
+# Berechne den Mittelwert
+ergebnis <- mean(eins_zwei_drei)
+
+# Benutze Ergebnis
+ergebnis * 10
+```
+
+]
+
+
+---
+
+# <mono><-</mono> verändert Objekte
+
+.pull-left5[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span>Assignments<br></span></li>
+  <ul class="level">
+    <li><span>Objekt <mono><-</mono> Funktion</span></li>
+    <li><span><mono><-</mono> kreiert Objekte</span></li>
+    <li><span><high><mono><-</mono> verändert Objekte</high></span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+```{r}
+# ein Objekt namens eins_zwei_drei
+eins_zwei_drei <- c(1, 2, 3)
+
+# Printe das Objekt
+eins_zwei_drei
+
+# Printe das Objekt
+eins_zwei_drei + 100
+
+# Printe das Objekt
+eins_zwei_drei
+
+```
+
+]
+
+
+---
+
+# <mono><-</mono> verändert Objekte
+
+.pull-left5[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2"><span>Assignments<br></span></li>
+  <ul class="level">
+    <li><span>Objekt <mono><-</mono> Funktion</span></li>
+    <li><span><mono><-</mono> kreiert Objekte</span></li>
+    <li><span><high><mono><-</mono> verändert Objekte</high></span></li>
+  </ul>
+  </span><br>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4g"><span>Data I/O</a></span></li>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+```{r}
+# ein Objekt namens eins_zwei_drei
+eins_zwei_drei <- c(1, 2, 3)
+
+# Printe das Objekt
+eins_zwei_drei
+
+# Printe das Objekt
+eins_zwei_drei <- eins_zwei_drei + 100
+
+# Printe das Objekt
+eins_zwei_drei
+
+```
+
+]
+
+
+---
+
+class: middle, center
+
+<h1><high>Interactive</high></h1>

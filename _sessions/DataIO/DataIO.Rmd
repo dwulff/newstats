@@ -1,0 +1,528 @@
+---
+title: "Data IO"
+author: "Einführung in die moderne Datenanalyse mit R<br>
+  <a href='https://therbootcamp.github.io'>
+    The R Bootcamp
+  </a>
+  <br>
+  <a href='https://therbootcamp.github.io/I2R_2021Aug/'>
+    <i class='fas fa-clock' style='font-size:.9em;'></i>
+  </a>&#8239; 
+  <a href='https://therbootcamp.github.io'>
+    <i class='fas fa-home' style='font-size:.9em;' ></i>
+  </a>&#8239;
+  <a href='mailto:therbootcamp@gmail.com'>
+    <i class='fas fa-envelope' style='font-size: .9em;'></i>
+  </a>&#8239;
+  <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
+    <i class='fab fa-linkedin' style='font-size: .9em;'></i>
+  </a>"
+date: "August 2021"
+output:
+  xaringan::moon_reader:
+    css: ["default", "baselrbootcamp.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+layout: true
+
+<div class="my-footer">
+  <span style="text-align:center">
+    <span> 
+      <img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/>
+    </span>
+    <a href="https://therbootcamp.github.io/">
+      <span style="padding-left:82px"> 
+        <font color="#7E7E7E">
+          www.therbootcamp.com
+        </font>
+      </span>
+    </a>
+    <a href="https://therbootcamp.github.io/">
+      <font color="#7E7E7E">
+      Einführung in die moderne Datenanalyse mit R | August 2021
+      </font>
+    </a>
+    </span>
+  </div> 
+
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+# see: https://github.com/yihui/xaringan
+# install.packages("xaringan")
+# see: 
+# https://github.com/yihui/xaringan/wiki
+# https://github.com/gnab/remark/wiki/Markdown
+options(width=110)
+options(digits = 4)
+
+require(tidyverse)
+```
+
+
+# Agenda
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span><high>Data I/O</high></a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+<p align = "center">
+<img src="image/fixing.png"><br>
+<font style="font-size:10px">from <a href="https://xkcd.com//">xkcd.com</a></font>
+</p>
+
+]
+
+---
+
+# Daten von Festplatte lesen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span><high>Daten von Festplatte lesen</high></span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=50)
+```
+
+```{r}
+# Lese Daten ein
+read.csv('1_Data/Tourismus.csv')
+```
+]
+
+---
+
+# Daten von Festplatte lesen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span><high>Daten von Festplatte lesen</high></span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=50)
+```
+
+```{r}
+# Lese Daten in ein Objekt ein
+daten <- read.csv('1_Data/Tourismus.csv')
+
+# Printe Daten
+daten
+
+```
+]
+
+
+---
+
+# Daten von Festplatte lesen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span><high>Daten von Festplatte lesen</high></span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+<p align = "center">
+<img src="image/autocompl1.png">
+</p>
+
+]
+
+---
+
+# Daten von Festplatte lesen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span><high>Daten von Festplatte lesen</high></span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+<p align = "center">
+<img src="image/autocompl2a.png">
+</p>
+
+]
+
+
+---
+
+# Daten von Festplatte lesen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span><high>Daten von Festplatte lesen</high></span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+<p align = "center">
+<img src="image/autocompl2b.png">
+</p>
+
+]
+
+---
+
+# Daten leben in <mono>data.frames</mono>
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span><high>Daten leben in <mono>data.frames</span></high></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=20,width=40)
+```
+
+```{r}
+# Lese Daten in ein Objekt ein
+daten <- read.csv('1_Data/Tourismus.csv')
+
+# Klasse der Daten
+class(daten)
+
+dim(daten) # Dimensionen
+
+names(daten) # Variablennamen
+
+```
+]
+
+
+---
+
+# 3 + 1 Datentypen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span><high>3 + 1 Datentypen</high></span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+<p align = "center">
+<img src="image/types.png"><br>
+</p>
+
+]
+
+---
+
+# 3 + 1 Datentypen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span><high>3 + 1 Datentypen</high></span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=80,width=40)
+```
+
+```{r}
+# Lese Daten in ein Objekt ein
+daten <- read.csv('1_Data/Tourismus.csv')
+
+# Extrahiere Dauer mit $
+daten$Dauer
+
+```
+]
+
+---
+
+# 3 + 1 Datentypen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span><high>3 + 1 Datentypen</high></span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=80,width=40)
+```
+
+```{r}
+# Lese Daten in ein Objekt ein
+daten <- read.csv('1_Data/Tourismus.csv')
+
+# Extrahiere Dauer mit $
+class(daten$Dauer)
+
+```
+]
+
+
+---
+
+# 3 + 1 Datentypen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span><high>3 + 1 Datentypen</high></span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=20,width=40)
+```
+
+```{r}
+# Lese Daten in ein Objekt ein
+daten <- read.csv('1_Data/Tourismus.csv')
+
+# Extrahiere Land mit $
+daten$Land
+
+```
+]
+
+---
+
+# 3 + 1 Datentypen
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span><high>3 + 1 Datentypen</high></span></li>
+    <li><span>Daten auf die Festplatte schreiben</span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=20,width=40)
+```
+
+```{r}
+# Lese Daten in ein Objekt ein
+daten <- read.csv('1_Data/Tourismus.csv')
+
+# Klasse der Land Variable
+class(daten$Land)
+
+```
+]
+
+---
+
+# Daten auf die Festplatte schreiben
+
+.pull-left4[
+
+<ul>
+  <li class="m1g"><span>R(Studio)</span></li>
+  <li class="m2g"><span>Assignments<br></span></li>
+  <li class="m3g"><span>Funktionen</span></li>
+  <li class="m4"><span>Data I/O</a></span></li>
+  <ul class="level">
+    <li><span>Daten von Festplatte lesen</span></li>
+    <li><span>Daten leben in <mono>data.frames</span></li>
+    <li><span>3 + 1 Datentypen</span></li>
+    <li><span><high>Daten auf die Festplatte schreiben</high></span></li>
+  </ul><br>
+  <li class="m5g"><span>Analyse</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+```{r, echo = F}
+options(max.print=80,width=40)
+```
+
+```{r}
+# Schreibe Daten auf die Festplatte als csv
+write.csv(daten, '1_Data/Tourismus_neu.csv')
+
+# Schreibe Daten auf die Festplatte als RDS
+saveRDS(daten, '1_Data/Tourismus_neu.RDS')
+
+```
+]
+
+---
+
+class: middle, center
+
+<h1><high>Interactive</high></h1>
+

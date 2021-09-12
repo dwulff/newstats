@@ -1,0 +1,54 @@
+Crisis
+
+what are the proposals
+  better theories
+  focus on estimation rather than testing
+    (be confident, know where effect is)
+  more rigorous study planning
+
+three views on inferential statistics
+  use them to talk about power analysis, optional stopping, and bayes
+
+
+Fisherian
+
+  logic
+
+  p(D|H0)
+
+problems with p
+  what is p?
+
+
+Neyman pearson
+
+  logic
+  p(D|H0) vs p(D|H1)
+
+  power analysis
+  optional stopping
+
+
+
+
+Bayes
+
+  logic
+  p(H|D)
+
+  Different approaches
+    p, BayesFactor, ROPE
+
+
+Judgment under uncertainty
+  induction / inductive bias
+
+Statistics are tools
+  Bayes is probably the best tool
+
+Best statistic is no statistic
+
+  Focus on qualitative patterns
+    more specific models
+
+  Use visualization

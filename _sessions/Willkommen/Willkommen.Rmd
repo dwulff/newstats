@@ -1,0 +1,162 @@
+---
+title: "Willkommen!"
+author: "Einführung in die moderne Datenanalyse mit R<br>
+  <a href='https://therbootcamp.github.io'>
+    The R Bootcamp
+  </a>
+  <br>
+  <a href='https://therbootcamp.github.io/I2R_2021Aug/'>
+    <i class='fas fa-clock' style='font-size:.9em;'></i>
+  </a>&#8239; 
+  <a href='https://therbootcamp.github.io'>
+    <i class='fas fa-home' style='font-size:.9em;' ></i>
+  </a>&#8239;
+  <a href='mailto:therbootcamp@gmail.com'>
+    <i class='fas fa-envelope' style='font-size: .9em;'></i>
+  </a>&#8239;
+  <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
+    <i class='fab fa-linkedin' style='font-size: .9em;'></i>
+  </a>"
+date: "August 2021"
+output:
+  xaringan::moon_reader:
+    css: ["default", "baselrbootcamp.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+layout: true
+
+<div class="my-footer">
+  <span style="text-align:center">
+    <span> 
+      <img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/>
+    </span>
+    <a href="https://therbootcamp.github.io/">
+      <span style="padding-left:82px"> 
+        <font color="#7E7E7E">
+          www.therbootcamp.com
+        </font>
+      </span>
+    </a>
+    <a href="https://therbootcamp.github.io/">
+      <font color="#7E7E7E">
+      Einführung in die moderne Datenanalyse mit R | August 2021
+      </font>
+    </a>
+    </span>
+  </div> 
+
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(width=110)
+options(digits = 4)
+
+knitr::opts_chunk$set(fig.align = 'center')
+```
+
+<!---
+
+.pull-left45[
+<br><br><br><br><br>
+# Materialien
+
+Klicke auf <high>"....running..."</high> auf unserer Website!
+
+<font style="font-size:28px"><a href="www.therbootcamp.com"><b>www.therbootcamp.com</b></a></font>
+
+]
+
+.pull-right5[
+
+<br><br>
+<iframe src="https://therbootcamp.github.io" width="500" height="500"></iframe>
+
+]
+
+--->
+
+.pull-left6[
+
+<br><br><br><br><br>
+
+
+# Ziel
+
+
+>###Das Ziel dieses Kurses ist es Euch die Grundlagen der Programmiersprache R und einen Überblick über Einsatzmäglichkeiten zu bieten. 
+
+]
+
+.pull-right4[
+
+<br><br><br><br>
+<p align="center"><img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/target.png" height="350"></p>
+
+]
+
+---
+
+.pull-left45[
+
+<br>
+# Schedule 
+
+<ul>
+  <li class="m1"><span>Der Workshop beinhaltet fünf <high>halbstündige R Blöcke</high> (in grau).</span></li>
+  <li class="m2"><span>Blöcke</span></li>
+  <ul class="level">
+    <li><span>Folien-basierten <high>Einführung (10min)</high></span></li> 
+    <li><span>Selbsständige <high>Übung (15min)</high></span></li> 
+    <li><span>Interaktive <high>Lösungen (5min)</high></span></li> 
+  </ul>
+</ul>
+
+
+]
+
+.pull-right4[
+<br><br>
+<img src="image/schedule.png" height="525" align="center" style="padding-top:16px">
+
+]
+
+´
+
+---
+
+# Vorstellungsrunde
+
+.pull-left5[
+
+<ul>
+  <li class="m1"><span>Wer bist du?</span></li>
+  <li class="m2"><span>Warum möchtest Du R lernen?</span></li>
+</ul>
+
+
+]
+
+.pull-right45[
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/introductions.jpg" height="360px">
+<br>
+<font style="font-size:10px">from <a href="www.artofmanliness.com">artofmanliness.com</a></font>
+</p>
+
+]
+
+---
+class: middle, center
+
+<h1><a href=https://therbootcamp.github.io/I2R_2020Aug/index.html>Schedule</a></h1>
+
+

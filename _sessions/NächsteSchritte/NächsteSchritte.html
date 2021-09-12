@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Nächste Schritte</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Einführung in die moderne Datenanalyse mit R   The R Bootcamp                  " />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="baselrbootcamp.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Nächste Schritte
+### Einführung in die moderne Datenanalyse mit R<br> <a href='https://therbootcamp.github.io'> The R Bootcamp </a> <br> <a href='https://therbootcamp.github.io/I2R_2021Aug/'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a>  <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a>
+### August 2021
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+  &lt;span style="text-align:center"&gt;
+    &lt;span&gt; 
+      &lt;img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/&gt;
+    &lt;/span&gt;
+    &lt;a href="https://therbootcamp.github.io/"&gt;
+      &lt;span style="padding-left:82px"&gt; 
+        &lt;font color="#7E7E7E"&gt;
+          www.therbootcamp.com
+        &lt;/font&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="https://therbootcamp.github.io/"&gt;
+      &lt;font color="#7E7E7E"&gt;
+      Einführung in die moderne Datenanalyse mit R | August 2021
+      &lt;/font&gt;
+    &lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/div&gt; 
+
+---
+
+
+
+
+.pull-left45[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+# Hallo Base R Experten
+
+Nach einem Nachmittag kennt Ihr die Grundlagen von R!
+
+]
+
+.pull-right4[
+
+&lt;img src="image/schedule.png" height="580" align="center" style="padding-top:16px"&gt;
+]
+
+---
+
+# R kann viel mehr
+
+.pull-left5[
+
+&lt;font size = 6&gt;
+
+1. `tidyverse` Kern&lt;br&gt;
+2. `tidyverse` erweitert&lt;br&gt;
+3. Statistik&lt;br&gt;
+4. Maschinelles Lernen&lt;br&gt;
+5. Reporting&lt;br&gt;
+
+&lt;/font&gt;
+
+
+]
+
+
+
+.pull-right5[
+&lt;p align="center"&gt;&lt;img border="0" alt="W3Schools" src="https://www.oreilly.com/library/view/the-art-of/9781593273842/httpatomoreillycomsourcenostarchimages915868.png.jpg" width="400px"&gt;&lt;/p&gt;
+]
+
+
+---
+
+# `tidyverse` Kern
+
+Das [`tidyverse`](https://www.tidyverse.org/) ist im Kern eine Sammlung hoch-performanter, nutzerfreundlicher Pakete, die speziell für eine effizientere Datenanalyse entwickelt wurden. 
+1. `ggplot2` für Grafiken.
+2. `dplyr` für Datenverarbeitung.
+3. `tidyr` für Datenverarbeitung.
+4. `readr` für Daten I/O.
+5. `purrr` für funktionales Programmieren.
+6. `tibble` für moderne `data.frame`s.
+&lt;br&gt;&lt;br&gt;
+
+&lt;img src="http://d33wubrfki0l68.cloudfront.net/0ab849ed51b0b866ef6895c253d3899f4926d397/dbf0f/images/hex-ggplot2.png" height="200px" /&gt;&lt;img src="http://d33wubrfki0l68.cloudfront.net/071952491ec4a6a532a3f70ecfa2507af4d341f9/c167c/images/hex-dplyr.png" height="200px" /&gt;&lt;img src="http://d33wubrfki0l68.cloudfront.net/5f8c22ec53a1ac61684f3e8d59c623d09227d6b9/b15de/images/hex-tidyr.png" height="200px" /&gt;&lt;img src="http://d33wubrfki0l68.cloudfront.net/66d3133b4a19949d0b9ddb95fc48da074b69fb07/7dfb6/images/hex-readr.png" height="200px" /&gt;&lt;img src="http://d33wubrfki0l68.cloudfront.net/9221ddead578362bd17bafae5b85935334984429/37a68/images/hex-purrr.png" height="200px" /&gt;&lt;img src="http://d33wubrfki0l68.cloudfront.net/f55c43407ae8944b985e2547fe868e5e2b3f9621/720bb/images/hex-tibble.png" height="200px" /&gt;
+
+---
+
+# `ggplot2`
+
+.pull-left45[
+
+
+```r
+library(tidyverse) ; library(ggrepel)
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus.csv') 
+
+# Erstelle Plot mit ggplot2
+ggplot(data = tour,
+       mapping = aes(x = Besucher, 
+                     y = Dauer,
+                     label = Land)) +
+  scale_x_continuous(trans = 'log2') + 
+  geom_point(size=2) 
+```
+
+]
+
+.pull-right45[
+
+![](NächsteSchritte_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+]
+
+
+---
+
+# `ggplot2`
+
+.pull-left45[
+
+
+```r
+library(tidyverse) ; library(ggrepel)
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus_18.csv') 
+
+# Plotte Dauer gegen Besucher
+ggplot(data = tour,
+       mapping = aes(x = Besucher, 
+                     y = Dauer,
+                     label = Land)) +
+  scale_x_continuous(trans = 'log2') + 
+  geom_point(size=2) + 
+  geom_label_repel(size = 2,
+                   label.padding = 0.1) +
+  theme_bw() 
+```
+
+]
+
+.pull-right45[
+
+![](NächsteSchritte_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+]
+
+
+
+---
+
+# `ggplot2`
+
+.pull-left45[
+
+
+```r
+library(tidyverse) ; library(ggrepel)
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus.csv') 
+
+# Plotte Dauer gegen Besucher
+ggplot(data = tour,
+       mapping = aes(x = Besucher, 
+                     y = Dauer,
+                     label = Land)) +
+  scale_x_continuous(trans = 'log2') + 
+  geom_point(size=2) + 
+  geom_label_repel(size = 2,
+                   label.padding = 0.1) +
+  theme_bw() +
+  facet_grid(Region ~ .)
+```
+
+]
+
+.pull-right45[
+
+![](NächsteSchritte_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+# `dplyr`
+
+.pull-left45[
+
+
+```r
+library(tidyverse) 
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus.csv') 
+
+# Zeige Top 10 Länder
+tour %&gt;%
+  mutate(Nächte = Besucher * Dauer) %&gt;%
+  arrange(desc(Nächte)) %&gt;%
+  select(Land,  Nächte) %&gt;%
+  top_n(10)
+```
+
+]
+
+.pull-right45[
+
+
+```
+## # A tibble: 10 × 2
+##    Land                   Nächte
+##    &lt;chr&gt;                   &lt;dbl&gt;
+##  1 Deutschland             18059
+##  2 Vereinigte Staaten      15353
+##  3 Vereinigtes Königreich   7981
+##  4 Frankreich               5288
+##  5 Italien                  3224
+##  6 Spanien                  2294
+##  7 Niederlande              2069
+##  8 Kanada                   2006
+##  9 Österreich               1683
+## 10 Indien                   1622
+```
+
+]
+
+---
+
+# `dplyr`
+
+.pull-left45[
+
+
+```r
+library(tidyverse) 
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus.csv') 
+
+# Berechne Nächte per Region
+tour %&gt;%
+  mutate(Nächte = Besucher * Dauer) %&gt;%
+  group_by(Region) %&gt;%
+  summarize(
+    Nächte_mittel = mean(Nächte),
+    Nächte_summe = sum(Nächte),    
+  )
+```
+
+]
+
+.pull-right45[
+
+
+```
+## # A tibble: 5 × 3
+##   Region     Nächte_mittel Nächte_summe
+##   &lt;chr&gt;              &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Afrika              259          1036
+## 2 Amerika            2435.        19479
+## 3 Asien               464.         9278
+## 4 Australien          580          1160
+## 5 Europa             1415.        52353
+```
+
+]
+
+---
+
+# `dplyr`
+
+.pull-left45[
+
+
+```r
+library(tidyverse) ; library(ggrepel)
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus.csv') 
+europa &lt;- read_csv('1_Data/Europa.csv') 
+
+# Verbinde Nächte mit Äquivalenzeinkommen
+tour %&gt;%
+  mutate(Nächte = Besucher * Dauer) %&gt;%
+  left_join(europa) %&gt;%
+  ggplot(aes(x = Äquivalenzeinkommen, 
+             y = Nächte,
+             label = Land)) +
+  scale_y_continuous(trans = 'log2') + 
+  geom_point() +
+  geom_label_repel(size = 2) +
+  theme_bw() 
+```
+
+]
+
+.pull-right45[
+
+![](NächsteSchritte_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+]
+
+
+---
+
+# `tidyverse` erweitert
+
+Das Umfeld des [`tidyverse`](https://www.tidyverse.org/) beinhaltet eine Sammlung weiterer hoch-performanter, nutzerfreundlicher Pakete, die den tidyverse Kern ergänzen. 
+1. `xlm2` für die Verarbeitung von XML und HTML Dateien.
+2. `rvest` für Web Scraping.
+3. `haven` für SPSS, SAS, und Stata Dateien.
+4. `readxl` für Excel Dateien.
+5. `lubridate` für Zeitvariablen.
+6. `tidytext` für Textverarbeitung.
+&lt;br&gt;&lt;br&gt;
+
+&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/rvest.png" height="200px" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/haven.png" height="200px" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/readxl.png" height="200px" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/lubridate.png" height="200px" /&gt;&lt;img src="https://pbs.twimg.com/media/DeacLnGU0AAlmS9.png" height="200px" /&gt;
+
+
+---
+
+# Web Scraping
+
+
+
+
+```r
+# Tabelle laden von Wikipedia (Pakete nicht vergessen)
+read_html("https://en.wikipedia.org/wiki/R_(programming_language)") %&gt;%
+  html_node(xpath = '//*[@id="mw-content-text"]/div[1]/table[2]') %&gt;%
+  html_table() %&gt;% as_tibble()
+```
+
+```
+## # A tibble: 22 × 3
+##    Release Date        Description                                                        
+##    &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                                                              
+##  1 0.16    ""          "This is the last alpha version developed primarily by Ihaka and G…
+##  2 0.49    "1997-04-2… "This is the oldest source release which is currently available on…
+##  3 0.60    "1997-12-0… "R becomes an official part of the GNU Project. The code is hosted…
+##  4 0.65.1  "1999-10-0… "First versions of update.packages and install.packages functions …
+##  5 1.0     "2000-02-2… "Considered by its developers stable enough for production use.[57…
+##  6 1.4     "2001-12-1… "S4 methods are introduced and the first version for Mac OS X is m…
+##  7 1.8     "2003-10-0… "Introduced a flexible condition handling mechanism for signalling…
+##  8 2.0     "2004-10-0… "Introduced lazy loading, which enables fast loading of data with …
+##  9 2.1     "2005-04-1… "Support for UTF-8 encoding, and the beginnings of internationaliz…
+## 10 2.6.2   "2008-02-0… "Last version to support Windows 95, 98, Me and NT 4.0[58]"        
+## # … with 12 more rows
+```
+
+
+---
+
+# Textanalyse
+
+.pull-left5[
+
+
+```r
+library(tidytext) ; library(wordcloud)
+library(dplyr) ; library(stringr)
+
+# Wörter zählen
+counts &lt;- 
+  read_html(".../R_(programming_language)") %&gt;%
+  html_text() %&gt;%
+  tibble() %&gt;%
+  unnest_tokens(w, ".") %&gt;%
+  filter(!str_detect(w, '[:digit:]')) %&gt;%
+  anti_join(stop_words) %&gt;%
+  count(word, sort = TRUE) %&gt;%
+  top_n(100) 
+
+# Wordwolke
+wordcloud(counts$word, 
+          counts$n)
+```
+
+]
+
+.pull-right4[
+
+![](NächsteSchritte_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+# Statistik
+
+
+.pull-left45[
+
+
+```r
+library(tidyverse)
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus.csv')
+länd &lt;- read_csv('1_Data/Länder.csv')                 
+
+# verbinde Daten
+data &lt;- tour %&gt;% 
+  inner_join(länd) %&gt;%
+  mutate(Nächte = Besucher * Dauer)
+
+# Regressionsanalyse
+model = lm(Nächte ~ Bevölkerung + 
+                    Dichte + BIP,
+           data = data)
+```
+
+]
+
+.pull-right45[
+
+
+
+```r
+# Bestimmtheitsmass
+summary(model)$r.squared
+```
+
+```
+## [1] 0.05719
+```
+
+
+
+```r
+# Koeffizienten
+summary(model)$coef[,-2]
+```
+
+
+```
+##               Estimate  t value Pr(&gt;|t|)
+## (Intercept)  1.213e+01  0.01294   0.9897
+## Bevölkerung  2.379e-06  1.36594   0.1775
+## Dichte      -3.381e-01 -0.82598   0.4124
+## BIP          2.988e+01  1.50779   0.1373
+```
+]
+
+---
+
+.pull-left45[
+
+# Maschinelles Lernen
+
+
+```r
+library(tidyverse) ; library(rpart)
+
+# Lade Tourismus Daten
+tour &lt;- read_csv('1_Data/Tourismus.csv')
+länd &lt;- read_csv('1_Data/Länder.csv')                 
+
+# verbinde Daten
+data &lt;- tour %&gt;% 
+  inner_join(länd) %&gt;%
+  mutate(Nächte = Besucher * Dauer)
+
+# Regressionsanalyse
+rpart(
+  formula = Besucher ~ Bevölkerung + 
+                       Dichte + BIP,
+  data = data) 
+```
+
+]
+
+.pull-right45[
+
+&lt;br&gt;&lt;br&gt;
+
+![](NächsteSchritte_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+
+]
+---
+
+# Reporting Werkzeuge
+
+R und RStudio bieten auch exzellente Werkzeuge zum erstellen von &lt;high&gt;Berichten&lt;/high&gt;, &lt;high&gt;Slides&lt;/high&gt;, und sogar &lt;high&gt;Webseiten&lt;/high&gt;. 
+1. `rmarkdown` für dynamische PDF Dokumente.
+2. `xaringan` für Slides.
+3. `shiny` für Webseiten und Cockpits.
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/rmarkdown.png" height="200px" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/xaringan.png" height="200px" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/shiny.png" height="200px" /&gt;
+
+
+
+---
+
+.pull-left45[
+
+# `rmarkdown`
+
+&lt;p align="left"&gt;&lt;img style="height:440px" src="image/markdown.png"&gt;&lt;/p&gt;
+]
+
+.pull-right5[
+&lt;br&gt;&lt;br&gt;
+&lt;p align="center"&gt;&lt;img style="height:510px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" src="image/markdown2.png"&gt;&lt;/p&gt;
+]
+
+---
+
+&lt;iframe width="1000" height="600" src="https://vac-lshtm.shinyapps.io/ncov_tracker/?_ga=2.157815026.975657143.1601587486-2064892133.1598629448" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+# Nächste Schritte
+
+.pull-left5[
+&lt;font size = 4&gt;&lt;i&gt;
+&lt;font size = 6&gt;
+1. Anwenden&lt;br&gt;
+2. Bücher&lt;br&gt;
+3. Webseiten&lt;br&gt;
+4. Hilfe &amp; Consulting&lt;br&gt;
+5. Weiterführende Kurse&lt;br&gt;
+]
+
+&lt;/font&gt;
+&lt;br&gt;
+
+.pull-right5[
+&lt;p align="center"&gt;&lt;img border="0" alt="W3Schools" src="http://www.theunmanageableemployee.com/wp-content/uploads/2011/07/5cs-stones-cropped-11052730.jpg?w=112"&gt;&lt;/p&gt;
+]
+
+---
+
+# Bücher  
+
+Hier ist eine unvollständige Liste guter Bücher über R lose geordnet nach vorausgesetzter Erfahrung.&lt;br&gt;&lt;br&gt;
+
+&lt;table width="80%" style="cellspacing:0; cellpadding:0; border:none;"&gt;
+
+  &lt;tr&gt;    
+
+  &lt;td&gt; 
+  &lt;a href="http://r4ds.had.co.nz/"&gt;&lt;img border="0" alt="W3Schools" src="http://r4ds.had.co.nz/cover.png" height="180"&gt;&lt;/a&gt;
+  &lt;/td&gt;
+
+  &lt;td&gt;
+  &lt;a href="https://covers.oreillystatic.com/images/0636920028574/cat.gif"&gt;&lt;img border="0" alt="W3Schools" src="https://covers.oreillystatic.com/images/0636920028574/cat.gif" height="180"&gt;&lt;/a&gt;
+  &lt;/td&gt;
+
+  &lt;td&gt; 
+  &lt;a href="https://ggplot2-book.org/"&gt;&lt;img border="0" alt="W3Schools" src="https://images-na.ssl-images-amazon.com/images/I/31uoy-qmhEL._SX331_BO1,204,203,200_.jpg" height="180"&gt;&lt;/a&gt;
+  &lt;/td&gt;
+
+  &lt;td&gt;
+  &lt;a href="https://www.springer.com/de/book/9783540799979"&gt;&lt;img border="0" alt="W3Schools" src="https://images.springer.com/sgw/books/medium/9783540799979.jpg" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;a href="https://bookdown.org/ndphillips/YaRrr/"&gt;&lt;img border="0" alt="W3Schools" src="https://bookdown.org/ndphillips/YaRrr/images/YaRrr_Cover.jpg" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;a href="https://www.orellfuessli.ch/shop/home/artikeldetails/ID35367941.html?ProvID=10917736&amp;gclid=Cj0KCQiAg_HhBRDNARIsAGHLV5238Q26gQmFttHRnYGjcAhz4CslStb-3qBegvuZS5gnCpWSLNlQvF0aAgfOEALw_wcB"&gt;&lt;img border="0" alt="W3Schools" src="https://assets.thalia.media/img/35367941-00-00.jpg" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+  
+  &lt;/tr&gt;
+  
+
+  &lt;tr style="background-color:#ffffff"&gt;
+
+  &lt;td&gt;
+  &lt;a href="http://appliedpredictivemodeling.com/"&gt;&lt;img border="0" alt="W3Schools" src="http://static1.squarespace.com/static/51156277e4b0b8b2ffe11c00/t/51157487e4b0b8b2ffe16829/1509217882069/?format=1500w" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;a href="http://www-bcf.usc.edu/~gareth/ISL/ISLR%20First%20Printing.pdf"&gt;&lt;img border="0" alt="W3Schools" src="https://images-na.ssl-images-amazon.com/images/I/41EaH4W9LVL._SX332_BO1,204,203,200_.jpg" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;a href="https://www.manning.com/books/deep-learning-with-r"&gt;&lt;img border="0" alt="W3Schools" src="https://images-na.ssl-images-amazon.com/images/I/51h5d4dYaoL._SX396_BO1,204,203,200_.jpg" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+
+
+  &lt;td&gt;
+  &lt;a href="https://csgillespie.github.io/efficientR/"&gt;&lt;img border="0" alt="W3Schools" src="https://csgillespie.github.io/efficientR/figures/f0_web.png" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+
+  &lt;td&gt;
+  &lt;a href="www.rcpp.org/"&gt;&lt;img border="0" alt="W3Schools" src="https://images-na.ssl-images-amazon.com/images/I/31Y8QSFEMJL._SX328_BO1,204,203,200_.jpg" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+  
+  
+  &lt;td&gt;
+  &lt;a href="http://adv-r.had.co.nz/"&gt;&lt;img border="0" alt="W3Schools" src="https://images-na.ssl-images-amazon.com/images/I/41RJLhZ32VL._SX329_BO1,204,203,200_.jpg" height="180" &gt;&lt;/a&gt;
+  &lt;/td&gt;
+
+
+  &lt;/tr&gt;
+  
+
+
+&lt;/table&gt;
+&lt;br&gt;
+
+
+---
+
+.pull-left4[
+
+# Webseiten
+
+Das Netz ist vll. der beste Ort für Informationen über R.
+
+&lt;font size = 4&gt;&lt;i&gt;Beginnt eure Suche mit:&lt;/i&gt;&lt;/font&gt;
+
+[Google](www.google.com). Stellt sicher, dass ihr *R* oder *Rproject* mit in eurer Suche habt. 
+
+&lt;br&gt;
+&lt;font size = 4&gt;&lt;i&gt;Meistens werdet ihr dann weitergeleitet zu:&lt;/i&gt;&lt;/font&gt;
+
+[R-bloggers](www.r-bloggers.com) informiert euch über die neusten R Entwicklungen. Meldet euch für den Newsletter an.
+
+[Stackoverflow](https://stackoverflow.com/questions/tagged/r) ist eine Seite für R Probleme und Lösungen. Versucht selbst mal ein Problem zu posten. Oft bekommt ihr erstaunlich schnell Antwort.
+
+]
+
+.pull-right5[
+&lt;p align="left" style="padding: 0 0px"&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+    &lt;a href="https://www.google.com/"&gt;&lt;img border="0" alt="W3Schools" src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/google.png" height="100"&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;br2&gt;
+    &lt;a href="https://www.r-bloggers.com/"&gt;&lt;img border="0" alt="W3Schools" src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/rbloggers.png" height="105" style="margin-bottom:10px"&gt;&lt;/a&gt;&lt;br&gt;
+  &lt;a href="https://stackoverflow.com/"&gt;&lt;img border="0" alt="W3Schools" src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/stackoverflow.png" height="105"&gt;&lt;/a&gt;
+&lt;/p&gt;
+]
+
+---
+
+# Hilfe &amp; Consulting
+
+&lt;table class="tg"  style="cellspacing:0; cellpadding:0; border:none"&gt;
+  &lt;col width="22%"&gt;
+  &lt;col width="22%"&gt;
+  &lt;col width="22%"&gt;
+  &lt;tr&gt;
+    &lt;th class="tg-yw4l" valign='top'&gt;
+    &lt;p align="center"&gt;&lt;br&gt;
+    &lt;a href="www.dirkwulff.org"&gt;&lt;img border="0" alt="W3Schools" src="https://therbootcamp.github.io/img/team/1.png" height="230" style="border-radius:50%"&gt;&lt;/a&gt;&lt;br&gt;
+    &lt;p align="center"&gt;
+    &lt;font size = 5&gt;Dr. Dirk Wulff&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;a href="www.dirkwulff.org"&gt;&lt;b&gt;dirkwulff.org&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+    &lt;a href="https://github.com/dwulff"&gt;&lt;b&gt;github.com/dwulff&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+    &lt;font size=4&gt;&lt;i&gt;packages: &lt;/i&gt;&lt;/font&gt; 
+    &lt;a href="https://cran.r-project.org/web/packages/cstab/index.html"&gt;&lt;b&gt;cstab&lt;/b&gt;&lt;/a&gt;, &lt;a href="https://github.com/dwulff/text2sdg"&gt;&lt;b&gt;text2sdg&lt;/b&gt;&lt;/a&gt;, &lt;br&gt;
+    &lt;a href="https://cran.r-project.org/web/packages/mousetrap/index.html"&gt;&lt;b&gt;mousetrap&lt;/b&gt;&lt;/a&gt;, &lt;a href="https://cran.r-project.org/web/packages/memnet/index.html"&gt;&lt;b&gt;memnet&lt;/b&gt;, &lt;a href="https://github.com/dwulff/choicepp"&gt;&lt;b&gt;choicepp&lt;/b&gt;
+    &lt;/p&gt;  
+  &lt;/th&gt;
+  
+  &lt;th class="tg-yw4l" valign='top'&gt;&lt;p align="center"&gt;&lt;br&gt;
+    &lt;a href="https://psychologie.unibas.ch/en/persons/markus-steiner/about-me/"&gt;&lt;img border="0" alt="W3Schools" src="https://therbootcamp.github.io/img/team/2.png" height="230" style="border-radius:50%"&gt;&lt;/a&gt;&lt;br&gt;
+    &lt;p align="center"&gt;
+    &lt;font size = 5&gt;Markus Steiner&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;a href="https://github.com/mdsteiner"&gt;&lt;b&gt;github.com/mdsteiner&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+    &lt;font size=4&gt;&lt;i&gt;packages: &lt;/i&gt;&lt;/font&gt; 
+    &lt;a href="https://github.com/mdsteiner/ShinyPsych"&gt;&lt;b&gt;ShinyPsych&lt;/b&gt;&lt;/a&gt;, &lt;br&gt;
+    &lt;a href="https://github.com/mdsteiner/EFAdiff"&gt;&lt;b&gt;EFAdiff&lt;/b&gt;&lt;/a&gt; &lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+  &lt;/th&gt;
+  
+  &lt;th class="tg-yw4l" valign='top'&gt;
+    &lt;p align="center"&gt;
+    &lt;p align="center"&gt;&lt;br&gt;
+    &lt;a href="https://www.schulte-mecklenbeck.com/"&gt;&lt;img border="0" alt="W3Schools" src="https://therbootcamp.github.io/img/team/3.png" height="230" style="border-radius:50%"&gt;&lt;/a&gt;&lt;br&gt;
+    &lt;p align="center"&gt;
+    &lt;font size = 5&gt;Dr. Michael Schulte-&lt;br&gt;Mecklenbeck&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;a href="www.schulte-mecklenbeck.com"&gt;&lt;b&gt;schulte-mecklenbeck.com&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+    &lt;a href="https://github.com/schultem"&gt;&lt;b&gt;github.com/schultem&lt;/b&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+  &lt;/th&gt;
+
+
+&lt;/tr&gt;
+
+&lt;/table&gt;
+---
+
+
+# Weiterführende Kurse
+
+
+&lt;table class="tg"  style="cellspacing:0; cellpadding:0; border:none;"&gt;
+&lt;tr valign="top"&gt;
+  &lt;col width="20%"&gt;
+  &lt;col width="20%"&gt;
+  &lt;col width="20%"&gt;
+  &lt;col width="20%"&gt;
+  &lt;col width="20%"&gt;
+  &lt;td&gt;
+    &lt;p align="center"&gt;
+      &lt;a class="project-link" href="https://therbootcamp.github.io/#courses" align="center"&gt;
+      &lt;font style="font-size:20px;weight:700"&gt;&lt;br&gt;Einführung in die moderne Datenanalyse mit R&lt;/font&gt;&lt;br&gt;
+      &lt;br&gt;
+      &lt;img src="https://therbootcamp.github.io/img/courses/0.png" height="180px" style="border-radius:50%;border:10px solid #E9ECEF"&gt;&lt;/img&gt;&lt;br&gt;&lt;br&gt;
+      &lt;high&gt;Okt 15,&lt;br&gt;2020&lt;/high&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+    &lt;p align="center"&gt;
+      &lt;a class="project-link" href="https://therbootcamp.github.io/#courses" align="center"&gt;
+      &lt;font style="font-size:20px;weight:700"&gt;&lt;br&gt;Explorative Datenanalyse mit R&lt;br&gt;&lt;/font&gt;&lt;br&gt;
+      &lt;br&gt;
+      &lt;img src="https://therbootcamp.github.io/img/courses/1.png" height="180px" style="border-radius:50%;border:10px solid #E9ECEF"&gt;&lt;/img&gt;&lt;br&gt;&lt;br&gt;
+      &lt;high&gt;Sep 24-25,&lt;br&gt;2020&lt;/high&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+    &lt;p align="center"&gt;
+      &lt;a class="project-link" href="https://therbootcamp.github.io/#courses" align="center"&gt;
+      &lt;font style="font-size:20px;weight:700"&gt;&lt;br&gt;Statistik mit R&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;br&gt;
+      &lt;br&gt;
+      &lt;img src="https://therbootcamp.github.io/img/courses/2.png" height="180px" style="border-radius:50%;border:10px solid #E9ECEF"&gt;&lt;/img&gt;&lt;br&gt;&lt;br&gt;
+      &lt;high&gt;Oct 22-23,&lt;br&gt;2021&lt;/high&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+      &lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+    &lt;p align="center"&gt;
+      &lt;a class="project-link" href="https://therbootcamp.github.io/#courses" align="center"&gt;
+      &lt;font style="font-size:20px;weight:700"&gt;&lt;br&gt;Maschinelles Lernen mit R&lt;br&gt;&lt;/font&gt;&lt;br&gt;
+      &lt;br&gt;
+      &lt;img src="https://therbootcamp.github.io/img/courses/3.png" height="180px" style="border-radius:50%;border:10px solid #E9ECEF"&gt;&lt;/img&gt;&lt;br&gt;&lt;br&gt;
+      &lt;high&gt;Nov 19-20,&lt;br&gt;2021&lt;/high&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+      &lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+    &lt;p align="center"&gt;
+      &lt;a class="project-link" href="https://therbootcamp.github.io/#courses" align="center"&gt;
+      &lt;font style="font-size:20px;weight:700"&gt;&lt;br&gt;Reporting mit R&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;br&gt;
+      &lt;br&gt;
+      &lt;img src="https://therbootcamp.github.io/img/courses/4.png" height="180px" style="border-radius:50%;border:10px solid #E9ECEF"&gt;&lt;/img&gt;&lt;br&gt;&lt;br&gt;
+      &lt;high&gt;tba&lt;br&gt;2021&lt;/high&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+      &lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/td&gt;
+  &lt;/tr&gt;
+
+
+---
+
+.pull-left45[
+# Bitte gebt uns Feedback
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+  &lt;img src="image/feedback.png" height=350px&gt;&lt;/img&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://cdn-images-1.medium.com/max/1600/1*5OZNYAfzDZfM1lwJBZEuHQ.png"&gt;medium.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right45[
+
+&lt;p align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4Gq0mmRTzj-3f3MktA2L74myXhywXU1k6d3N0T0vLbibuog/viewform?embedded=true" width="430" height="550" frameborder="0" marginheight="0" marginwidth="0"&gt;Loading…&lt;/iframe&gt;&lt;/p&gt;
+
+]
+  
+---
+
+class: center, middle
+
+# Thank you!
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

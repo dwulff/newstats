@@ -1,2 +1,5 @@
-# newstats
-The (Bayesian) New Statistics workshop @ BEACON Conf, Uni Basel
+# Applied ML @ Basel January 2019
+
+Notes (aka todo):
+
+Everything!

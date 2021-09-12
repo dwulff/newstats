@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Warum R?</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Einführung in die moderne Datenanalyse mit R   The R Bootcamp                  " />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="baselrbootcamp.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Warum R?
+### Einführung in die moderne Datenanalyse mit R<br> <a href='https://therbootcamp.github.io'> The R Bootcamp </a> <br> <a href='https://therbootcamp.github.io/I2R_2021Aug/'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a>  <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a>
+### August 2021
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+  &lt;span style="text-align:center"&gt;
+    &lt;span&gt; 
+      &lt;img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/&gt;
+    &lt;/span&gt;
+    &lt;a href="https://therbootcamp.github.io/"&gt;
+      &lt;span style="padding-left:82px"&gt; 
+        &lt;font color="#7E7E7E"&gt;
+          www.therbootcamp.com
+        &lt;/font&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="https://therbootcamp.github.io/"&gt;
+      &lt;font color="#7E7E7E"&gt;
+      Einführung in die moderne Datenanalyse mit R | August 2021
+      &lt;/font&gt;
+    &lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/div&gt; 
+
+---
+
+
+
+
+#  Die Datenrevolution
+
+.pull-left4[
+
+&lt;i&gt;"Fuel of the future - Data is giving rise to a new economy."&lt;/i&gt;&lt;br&gt;
+
+The Economist, May 2017
+&lt;br&gt;&lt;br&gt;
+
+&lt;i&gt;"Wie Big Data die Finanzmärkte verändern könnte"&lt;/i&gt;&lt;br&gt;
+
+NZZ, August 2018
+&lt;br&gt;&lt;br&gt;
+
+&lt;i&gt;"Machine learning will be the engine of global growth."&lt;/i&gt;&lt;br&gt;
+
+Financial times, July 2018
+
+]
+
+.pull-right55[
+
+&lt;p align = "center"&gt;
+  &lt;img src="image/dataworld_sm.png" height = 375px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://www.shutterstock.com/video/clip-19206613-world-map-shining-flying-stars-particles-create"&gt;shutterstock.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left2[
+
+#  Datenanalysten gesucht
+
+]
+
+.pull-right7[
+
+&lt;p align = "center"&gt;
+  &lt;br&gt;&lt;br&gt;
+  &lt;img src="image/jobs2022.png" height = 520px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://www.weforum.org/agenda/2018/09/future-of-jobs-2018-things-to-know/"&gt;weforum.org&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+&lt;!---
+
+#  Daten revolutionieren die Medizin
+
+&lt;p align = "center" style="padding-top:30px"&gt;
+  &lt;img src="image/cancer.png" height = 400px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://www.researchgate.net/publication/333228756_End-to-end_lung_cancer_screening_with_three-dimensional_deep_learning_on_low-dose_chest_computed_tomography"&gt;Ardila et al. (2019)&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+
+#  Daten treiben Verkauf
+
+&lt;p align = "center" style="padding-top:30px"&gt;
+  &lt;img src="image/skin.png" height = 400px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://venturebeat.com/2018/07/19/how-olay-used-ai-to-double-its-conversion-rate/"&gt;venturebeat.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+
+#  Daten dringen in unsere Privatssphäre ein
+
+&lt;p align = "center" style="padding-top:30px"&gt;
+  &lt;img src="image/personality.png" height = 400px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://www.pnas.org/content/112/4/1036"&gt;Youyou, Kosinski, &amp; Stillwell (2019)&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+
+#  Daten haben klare Vorteile
+
+&lt;br&gt;
+&lt;table class="tg"  style="cellspacing:0; cellpadding:0; border:none;"&gt;
+&lt;tr valign="top"&gt;
+  &lt;td style="padding:10px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Präzise&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/clockwork.png" height = 225px width=300px style="border-radius:20%"&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://stock.adobe.com/ee/search/images?k=clockwork"&gt;stock.adobe.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Reproduzierbar&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/bottles.png" height = 225px width=300px style="border-radius:20%"&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://www.dreamstime.com/beer-filling-brewery-conveyor-belt-glass-bottles-machine-image106996530"&gt;dreamstime.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Objektiv&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/datastartrek.png" height = 225px width=300px style="border-radius:20%"&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://memory-alpha.fandom.com/wiki/Data"&gt;memory-alpha.fandom.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+---&gt;
+
+---
+
+# Die 3 Säulen der Datenrevolution
+
+&lt;table class="tg"  style="cellspacing:0; cellpadding:0; border:none;"&gt;
+&lt;tr valign="top"&gt;
+  &lt;td style="padding:10px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Data&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/data.png" height = 260px width=300px style="border-radius:20%"&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://www.rathenau.nl/en/digital-society/data-driven-cities"&gt;rathenau.nl&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Computing&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/server.png" height = 260px width=300px style="border-radius:20%"&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://cei.org/file/internet-server-farm"&gt;cei.org&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Tools&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/code.png" height = 260px width=300px style="border-radius:20%"&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://www.ionos.de/digitalguide/websites/web-entwicklung/code-editoren/"&gt;ionos.de&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;!---
+
+.pull-left3[
+
+# Die Datenmenge wächst rasant
+
+]
+
+.pull-right65[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p align = "center"&gt;
+  &lt;img src="image/bigdatagrowth.png" height = 480px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://blog.siib.ac.in/changing-world-development-of-artificial-intelligence/"&gt;blog.siib.ac.in&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+# Computing wird rasant schneller und billiger 
+
+&lt;table class="tg"  style="cellspacing:0; cellpadding:0; border:none;"&gt;
+&lt;tr valign="top"&gt;
+  &lt;td style="padding-bottom:60px;padding-right:50px;vertical-align:bottom"&gt;
+  &lt;p align = "center"&gt;
+  &lt;img src="image/kurzweil.png" height = 360px &gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;Ray Kurzweil, adapted from &lt;a href="https://www.wsj.com/articles/ray-kurzweil-looks-into-the-future-1401490952"&gt;wsj.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td style="padding-bottom:60px;padding-left:50px;vertical-align:bottom"&gt;
+  &lt;p align = "center"&gt;
+  &lt;img src="image/kurzweilcurve.png" height = 420px &gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="http://www.americanprof.net/apn-ai/index.php/tool-box/ray-kurzweil"&gt;americanprof.net&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+---&gt;
+
+---
+
+# Immer mehr (gute) tools
+
+
+&lt;p align = "center"&gt;
+  &lt;img src="image/bigdatalandscape.png" height = 460px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://mattturck.com/data2019/"&gt;mattturck.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+
+---
+
+# Point-and-click tools
+&lt;br&gt;
+&lt;table style="cellspacing:0; cellpadding:0; border:none; width:70%"&gt;
+  &lt;col width="20%"&gt;
+  &lt;col width="20%"&gt;
+  &lt;col width="20%"&gt;
+  &lt;tr style="padding:20px;background-color:white"&gt;
+  &lt;td style="padding:20px;text-align:center"&gt;
+    &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Microsoft_Office_Excel_%282013%E2%80%932019%29.svg/2048px-Microsoft_Office_Excel_%282013%E2%80%932019%29.svg.png" height = 150px&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:20px;text-align:center"&gt;
+    &lt;img src="https://upload.wikimedia.org/wikipedia/commons/7/78/SPSS_An_IBM_Company_logo.svg" height = 150px&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:20px;text-align:center"&gt;
+    &lt;img src="https://pbs.twimg.com/profile_images/876198719397474305/DKUPgGWz_400x400.jpg" height = 150px&gt;
+  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;tr style="padding:20px;background-color:white"&gt;
+  &lt;td style="padding:20px;text-align:center"&gt;
+  &lt;img src="https://www.braincourt.com/wp-content/uploads/2017/11/Tableau.png" height = 150px&gt;
+  &lt;td style="padding:20px;text-align:center"&gt;
+&lt;img src="https://teorema-rd.com/storage/2020/05/PowerBI-Logo.png" height = 150px&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:20px;text-align:center"&gt;
+&lt;img src="https://www.excelofficeservices.com/wp-content/uploads/2018/11/IBM-Watson-Logo.jpeg" height = 150px&gt;
+  &lt;/td&gt;
+
+
+
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+---
+
+.pull-left3[
+
+# Der Data Science Prozess
+
+]
+
+.pull-right7[
+&lt;br&gt;&lt;br&gt;
+&lt;p align = "center"&gt;
+  &lt;img src="image/datasciencewheel.png" height = 480px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://www.bytelion.com/services/datascience/"&gt;bytelion.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+
+
+---
+
+# Syntaxbasierte tools
+
+&lt;br&gt;&lt;br&gt;
+&lt;p align = "center"&gt;
+  &lt;img src="image/RvsPython.png" height = 300px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="https://www.sharpsightlabs.com/blog/r-vs-python/"&gt;sharpsightlabs.com&lt;/a&gt;&lt;/font&gt;
+
+---
+
+# Nachfrage
+
+.pull-left45[
+
+&lt;p align = "center"&gt;
+  &lt;img src="image/indeed2019.png" height = 400px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="http://r4stats.com/articles/popularity/"&gt;r4stats.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right45[
+&lt;p align = "center"&gt;
+  &lt;img src="image/indeed2019change.png" height = 400px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;from &lt;a href="http://r4stats.com/articles/popularity/"&gt;r4stats.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+
+&lt;!---
+
+# Charakterzüge &lt;font style="font-size:16px"&gt;siehe auch diese &lt;a href="image/rversuspython.jpeg"&gt;Infographik&lt;/a&gt;
+
+&lt;br&gt;&lt;br&gt;
+&lt;table style="cellspacing:0; cellpadding:0; border:none; width:90%"&gt;
+  &lt;col width="35%"&gt;
+&lt;tr style="padding:20px;background-color:white"&gt;
+  &lt;td&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align:center"&gt;
+  &lt;font style="font-size:20px"&gt;&lt;b&gt;Benutzt von&lt;/b&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  &lt;font style="font-size:20px"&gt;&lt;b&gt;Entwickelt für&lt;/b&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  &lt;font style="font-size:20px"&gt;&lt;b&gt;Besser in&lt;/b&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  &lt;font style="font-size:20px"&gt;&lt;b&gt;Umgebung&lt;/b&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  &lt;font style="font-size:20px"&gt;&lt;b&gt;Für wen?&lt;/b&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;tr style="padding:20px;background-color:white"&gt;
+  &lt;td style="padding:10px;text-align: left"&gt;
+  &lt;img src="image/R.png" height = 100px width = 120px&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Wissenschaftlern, Statistikern und Analysten
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Datenanalyse
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Produktivität und Reporting
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  RStudio
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Programmier Einsteiger
+  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;tr style="padding:20px;background-color:white"&gt;
+  &lt;td style="padding:10px;text-align: left""&gt;
+  &lt;img src="image/Python.png" height = 100px width = 120px&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Softwareentwickler und Programmierer
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Systemprogrammierung
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Einbettung in Systeme und Apps 
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Jupyter Notebooks
+  &lt;/td&gt;
+  &lt;td style="padding:10px;text-align: center"&gt;
+  Erfahrene Programmierer
+  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+# R bleibt relevant
+
+
+.pull-left45[
+### Pro
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;&lt;high&gt;Open-source&lt;/high&gt; = umsonst&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;Community&lt;/high&gt; (e.g., &lt;a href="https://stackoverflow.com/"&gt;stackoverflow&lt;/a&gt;)&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;&lt;high&gt;Erweiterbarkeit&lt;/high&gt; (&lt;a href="https://cran.r-project.org/"&gt;CRAN&lt;/a&gt;)&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m4"&gt;&lt;span&gt;&lt;a href="https://www.tidyverse.org/"&gt;&lt;high&gt;Tidyverse&lt;/high&gt;&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m5"&gt;&lt;span&gt;&lt;a href="https://www.rstudio.com/"&gt;&lt;high&gt;RStudio&lt;/high&gt;&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m6"&gt;&lt;span&gt;&lt;high&gt;Produktivitätsoptionen&lt;/high&gt;: &lt;a href="(https://www.latex-project.org/"&gt;Latex&lt;/a&gt;), &lt;a href="https://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt;, &lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+]
+
+
+
+.pull-right45[
+### (Ehemals) Contra
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;&lt;high&gt;Unschön&lt;/high&gt;e Sprache wird überarbeitet &lt;a href="https://www.tidyverse.org/"&gt;Tidyverse&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;&lt;high&gt;Langsam&lt;/high&gt;e Elemente werden ersetzt (&lt;a href="http://www.rcpp.org/"&gt;Rcpp&lt;/a&gt;)&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;&lt;high&gt;Brücken&lt;/high&gt; zu externen Tools/Sprachen (e.g., &lt;a href="http://rpython.r-forge.r-project.org/"&gt;rPython&lt;/a&gt;, &lt;a href="https://tensorflow.rstudio.com/"&gt;tensorflow&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+---&gt;
+
+---
+
+# R bleibt relevant
+&lt;br&gt;
+&lt;table class="tg"  style="cellspacing:0; cellpadding:0; border:none;" width="95%"&gt;
+&lt;col width="25%"&gt;
+&lt;col width="35%"&gt;
+&lt;col width="25%"&gt;
+&lt;tr valign="top"&gt;
+  &lt;td style="padding:20px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;R&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/R.png" height = 130px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://cei.org/file/internet-server-farm"&gt;cei.org&lt;/a&gt;&lt;/font&gt;
+  &lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:20px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;RStudio&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/rstudio2.png" height = 130px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://rstudio.com/"&gt;rstudio.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+  &lt;td style="padding:20px"&gt;
+  &lt;p align = "center"&gt;
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;R Packages&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/packages.png" height = 130px&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;adapted from &lt;a href="https://towardsdatascience.com/ten-random-useful-things-in-r-that-you-might-not-know-about-54b2044a3868"&gt;towardsdatascience.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+---
+class: middle, center
+
+&lt;h1&gt;&lt;a href=https://therbootcamp.github.io/I2R_2020Aug/index.html&gt;Schedule&lt;/a&gt;&lt;/h1&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
