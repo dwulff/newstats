@@ -1,0 +1,477 @@
+---
+title: "Neue Statistik"
+author: "<table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0'><col width='10%'><col width='10%'>
+  <tr style='border:none'>
+    <td style='display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none' nowrap>
+      <font style='font-style:normal'>Statistik mit R</font><br>
+      <a href='https://therbootcamp.github.io/SmR_2021Apr/'>
+        <i class='fas fa-clock' style='font-size:.9em;' ></i>
+      </a>
+      <a href='https://therbootcamp.github.io'>
+        <i class='fas fa-home' style='font-size:.9em;'></i>
+      </a>
+      <a href='mailto:therbootcamp@gmail.com'>
+        <i class='fas fa-envelope' style='font-size: .9em;'></i>
+      </a>
+      <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
+        <i class='fab fa-linkedin' style='font-size: .9em;'></i>
+      </a>
+      <a href='https://therbootcamp.github.io'>
+        <font style='font-style:normal'>The R Bootcamp</font>
+      </a>
+    </td>
+    <td style='width:100%;vertical-align:bottom;text-align:right;padding:0;margin:0;border:none'>
+      <img src='https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png' style='height:15px;width:80px'/>
+    </td>
+  </tr></table>"
+output:
+  html_document:
+    css: practical.css
+    self_contained: no
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(comment = NA, 
+                      fig.width = 6, 
+                      fig.height = 6,
+                      fig.align = 'center',
+                      echo = TRUE, 
+                      eval = TRUE, 
+                      warning = FALSE)
+
+options(digits = 3)
+
+# Load packages
+library(tidyverse)
+
+# Load packages
+#wein <- read_csv("_sessions/LinearModelsIII/1_Data/wein.csv")
+#bigmart <- read_csv("_sessions/LinearModelsIII/1_Data/bigmart.csv")
+#avocado <- read_csv("TheRBootcamp/1_Data/avocado.csv")
+#avocado_cali <- read_csv("TheRBootcamp/1_Data/avocado_cali.csv")
+# psi1 <- read_csv("TheRBootcamp/1_Data/psi_exp1.csv")
+# psi2 <- read_csv("TheRBootcamp/1_Data/psi_exp2.csv")
+```
+
+<p align="center" width="100%">
+
+  <a href="https://www.youtube.com/watch?v=fn7-JZq0Yxs">  
+  <img src="image/psi.jpg" alt="Trulli" style="width:100%"></a>
+  <br>
+  <font style="font-size:10px">Steven Tash as a psi-test subject in Ghostbusters, from 
+    <a href="https://www.imdb.com/name/nm0850865/">
+      imdb.com
+    </a>
+  </font>
+</p>
+
+
+# {.tabset}
+
+## Overview
+
+<p align ="center">
+"The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process."<br><i>Daryl J. Bem, professor emeritus, Cornell University</i>
+
+</p>
+
+In diesem Practical, analysierst du die Daten von Daryl Bem`s berüchtigter Studie über menschliche *psi*-Fähigkeieten und übst währendessen neue und neu-erlangten Statistikfähigkeiten. 
+
+Am Ende des Practicals wirst du wissen...
+
+1. Wie du <i>p</i>-Hacking betreibst.
+2. Wie du sample sizes bestimmsts. 
+3. Wie du Konfidenzintervalle berechnest. 
+4. Wie du Bayesianische Statistiken rechnest. 
+
+## Aufgaben
+
+### A - Setup
+
+1. Öffne dein `TheRBootcamp` R project. Es sollte die Ordner `1_Data` und `2_Code` enthalten. Stelle sicher, dass du alle Datensätze, welche im `Datensätze` Tab aufgelistet sind, in deinem `1_Data` Ordner hast. 
+
+2. Öffne ein neues R Skript. Schreibe deinen Namen, das Datum und "Neue Statistik Practical" als Kommentare an den Anfang des Skripts.
+
+```{r, eval = FALSE, echo = TRUE}
+## NAME
+## DATUM
+## Neue Statistik Practical
+```
+
+3. Speichere das neue Skript unter dem Namen `neue_statistik_practical.R` im `2_Code` Ordner.
+
+4. Lade die nötigen Pakete. Siehe unten. 
+
+```{r, echo = T}
+# Lade die nötigen Pakete
+library(tidyverse)
+library(pwr)
+library(rstanarm)
+library(BayesFactor)
+
+```
+
+5. Verwende die `read_csv()` Funktion um `psi1`, die Daten des ersten Experiments, und `psi2`, die Daten des zweiten Experiments einzulesen.
+
+```{r, echo = T, message = F, eval = TRUE}
+# Lade die Daten
+psi1 <- read_csv(file = "1_Data/psi_exp1.csv")
+psi2 <- read_csv(file = "1_Data/psi_exp2.csv")
+```
+
+6. Printe die Datensätze. 
+
+7. Verwende `names(XX)`, `summary(XX)`, und `View(XX)` um einen weiteren Überblick über die Daten zu bekommen.
+
+8. Wiederum, führe den Code unten aus um sicherzustellen, dass alle `character` Variablen als Faktoren vorliegen, was den statistischen Modellen hilft kategoriale Variablen richtig zu interpretieren. 
+
+```{r, echo = TRUE, eval = TRUE}
+# Konvertiere alle character zu factor
+psi1 <- psi1 %>% mutate_if(is.character, factor)
+psi2 <- psi2 %>% mutate_if(is.character, factor)
+```
+
+
+### B - p(si)-Hacking Wettbewerb
+
+1. Der erste Abschnitt besteht aus zwei <i>p</i>-Hacking Wettbewerben! Der Wettbewerb endet in
+
+<font style="font-size:32px"><p id="demo" align="center"></p></font>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Apr 17, 2021 17:20:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+2. Das Ziel beider Wettbewerbe ist es den kleinstmöglichen <i>p</i>-Wert durch das fortwährende Massieren Bem's experimenteller Daten zu extrahieren. Finde dafür bis zu drei Analysen, die zeigen, dass a) Menschen *psi*-Fähigkeiten besitzen, d.h., dass die `Trefferrate` signifikant höher als Chance ist und b) dass es andere Variablen gibt die *psi*-Fähigkeiten signifikant vorhersagen, was ebenso ein Beleg für die Existenz solcher Fähigkeiten wäre. Es gibt keine Regeln, ausser dass `Trefferrate` als Kriterium zu wählen ist. Du kannst jeden möglichen Test verwenden. Dir ist es auch erlaubt nur Komponenten der Daten mit `data %>% filter(condition)` auszuwählen.
+
+3. Für jede der beiden Wettbewerbe - jeweils ein Wettbewerb pro Experiment - darfst du drei Ergebnisse einreichen. Mehr Informationen über den Datensatz findet ihr unter dem  *Datasets* tab. Die Person mit dem niedrigsten <i>p</i>-Wert gewinnt &#x1F36B;&#x1F36B;&#x1F36B;.  
+
+4. Reiche als Ergebnisse ein Pseudonym, den p-Wert und den Code-Schnipsel des Tests (inkl. Datenvorverarbeitung, falls relevant) ein über die folgenden Fragebögen:
+
+<table align="center">
+  <tr>
+    <td>Wettbewerb 1</td>
+    <td><a href="https://docs.google.com/forms/d/e/1FAIpQLScVefMfFoLj9GzL8hdXbCp91WcSiI6cVrg_K1b2tMhdPvIERA/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a></td>
+  </tr>
+    <td>Wettbewerb 2</td>
+    <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSf9zbn6kxkIvn3k4bkqjEzz4OXCxE3HGEIBB_aL8rYT5mY7pQ/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a></td>
+  </tr>
+</table>
+
+
+### C - Poweranalyse
+
+1. Bem's erste Analyse in seinem Paper ist, ob `Trefferrate` grösser ist als `50%`. Für diese Bedingung (`Bedingung == 'erotic'`) hat Bem eine durchschnittliche Trefferrate von `53.13%` beobachtet. Bestimme für Experiment 1, welcher Cohen's *d* Wert der Abweichung von `3.13%`-Punkte von der Trefferrate unter H0 (`50%`), entspricht. Benutze das Template. 
+
+```{r, echo = TRUE, eval = FALSE}
+# Extrahiere die Trefferraten für erotic
+Trefferrate_erotic <- psi1 %>% filter(Bedingung == "erotic") %>% pull(Trefferrate)
+
+# Berechne die Abweichung von H0
+Trefferrate_erotic_delta <- mean(XX) - 50
+
+# Berechne d
+d <- Trefferrate_erotic_delta / sd(XX)
+```
+
+```{r, eval = TRUE}
+# Extrahiere die Trefferraten für erotic
+Trefferrate_erotic <- psi1 %>% filter(Bedingung == "erotic") %>% pull(Trefferrate)
+
+# Berechne die Abweichung von H0
+Trefferrate_erotic_delta <- mean(Trefferrate_erotic) - 50
+
+# Berechne d
+d <- Trefferrate_erotic_delta / sd(Trefferrate_erotic)
+```
+
+2. Ein Cohen's d von `.25` wird allgemein als klein, aber bedeutsam angesehen. Nimm nun die Perspektive eines rivalisierenden Forschers ein, der Bem's Effekt von `d = .25` in einer neuen Studie mit einer Falsch-Positiv-Rate von $\alpha = .05$ einer hohen Power von $power = 1-\beta = .95$ replizieren möchte. Welche Stichprobengrösse wäre nötig? Verwende das Template.
+
+```{r, echo = TRUE, eval = FALSE}
+# N um d=.25, alpha = .05, power = .95
+stichprobe <- pwr.t.test(d = XX, 
+                         sig.level = XX, 
+                         power = XX, 
+                         alternative = "greater")
+stichprobe
+```
+
+```{r}
+# N um d=.25, alpha = .05, power = .95
+stichprobe <- pwr.t.test(d = .25, 
+                         sig.level = .05, 
+                         power = .95, 
+                         alternative = "greater")
+stichprobe
+```
+
+3. Laut Poweranalyse wäre eine Stichprobe von 347 Individuen nötig. Versuche dies einmal mit der `plot.power.htest()`-Funktion zu visualisieren. Wende sie einfach auf das `stichprobe`-Objekt an. 
+
+```{r}
+# Stichprobe-Visualisierung
+plot.power.htest(stichprobe) 
+```
+
+4. Mittels des Plots kannst du nun auch evaluieren, wie gross die Power von Bem's ursprünglicher Studie war. In Bem's `'erotic'` condition waren `r length(Trefferrate_erotic)` Beobachtungen. Finde den entsprechenden Punkt auf der x-Achse und gehe dann nach oben um die dazugehörige Power zu finden. Alternativ kannst du nochmals die `pwr.t.test()` Funktion verwenden und anstatt `power` die Stichprobengrösse `n` definieren. Siehe Template.    
+
+```{r, echo = TRUE, eval = FALSE}
+# Bems post-hoc power
+power <- pwr.t.test(n = XX, 
+                    d = .25, 
+                    sig.level = .05, 
+                    alternative = "greater")
+power
+```
+
+```{r}
+# Bems post-hoc power
+power <- pwr.t.test(n = length(Trefferrate_erotic), 
+                    d = .25, 
+                    sig.level = .05, 
+                    alternative = "greater")
+power
+```
+
+5. Die letzte Analyse, das bestimmen der Power für einen gegebenen Effekt und Stichprobengrösse nennt man eine Post-hoc Poweranalyse, welche nicht mit einer eigentlichen Poweranalyse verwechselt werden darf. In Bem's Fall war die Power `.547`, das heisst, dass Bem nur ungefähr eine 50/50 Chance hatte einen Effekt von der gefundenen Stärke zu beobachten. Überprüfe nun was gewesen wäre, wenn der Effekt klein gewesen wäre, d.h., `d = .1`. Wiederhole die Powerberechnung für Bem's Stichprobengrösse und berechne die Stichprobengrösse die nötig ist für eine `power = 1-\beta = .95`.      
+
+```{r}
+# Bems post-hoc power
+power <- pwr.t.test(n = length(Trefferrate_erotic), 
+                    d = .1, 
+                    sig.level = .05, 
+                    alternative = "greater")
+power
+
+# Sample
+stichprobe <- pwr.t.test(d = .1, 
+                        sig.level = .05, 
+                        power = .95, 
+                        alternative = "greater")
+stichprobe
+```
+
+6. Für einen kleinen Effekt, welchen man vielleicht höchstens erwarten würde für etwas so ungewöhnliches wie menschliche *psi*-Fähigkeiten, hatte Bem's Studie nur eine power von `17.4%` und die Stichprobe die für eine hohe power notwendig war lag oberhalb von 2000 Personen. Das bedeutet, dass Bem entweder wusste, dass er einen grösseren Effekt beobachten würde oder, dass er eher schlechte Studienplanung betrieben hat. 
+
+### D - Konfidenzintervalle
+
+1. Konfidenzintervalle sind ein anderer Weg Signifikanztests durchzuführen, welcher eher auf Schätzung als auf Testung von Effekten beruht. Die grundlegende Idee ist, dass man die Schätzgrössen (z.B. Regressionsgewichte) nicht durch den Standardfehler teilt, sondern den Standardfehler verwendet um eine Spannweite um die Schätzgrössen aufzuspannen. Rechnen wir zunächst einen `t.test()` für abhängigen Stichproben für `psi1`, welcher die `Trefferrate` für die beiden `Bedingung`en vergleicht. 
+
+```{r, eval = FALSE, echo = TRUE}
+# t.test 
+psi_ttest <- t.test(XX ~ XX, data = XX, paired = TRUE)
+
+# Testergebnisse
+psi_ttest
+```
+
+```{r}
+# t.test 
+psi_ttest <- t.test(Trefferrate ~ Bedingung, data = psi1, paired = TRUE)
+
+# Testergebnisse
+psi_ttest
+```
+
+2. Extrahiere nun das Konfidenzintervalle für den t-Test. 
+
+```{r, echo = TRUE}
+# Konfidenzintrval
+psi_ttest$conf.int
+```
+
+3. Das Konfidenezinterval für den Unterschied liegt zwischen zwischen `-6.84` und `.23`. Das Konfidenzintervalle enthält also die Null. Das heisst, dass obgleich der Mittelwert für die Erotic-Bedingung signifikant von `50%` verschieden ist die beiden Bedingungen sich nicht signifikant unterscheiden. Beginne nun das Konfidenzintervall für den Unterschied der Gruppen nachzubauen. Extrahiere dafür zunächst den Unterschied, den entsprechenden Standardfehler, und die Freiheitsgrade. 
+
+```{r, echo = TRUE}
+# Gewicht b und Standardfehler se
+delta <- psi_ttest$estimate
+se <- psi_ttest$stderr
+df <- psi_ttest$parameter
+```
+
+4. Jetzt benötigst du nur noch die entsprechenden <i>t</i>-Werte um das Konfidenzintervall aufzuspannen. Da das Konfidenzintervall in beide Richtungen zu gleichen Teilen aufgespannt werden soll suchen wir nicht den <i>t</i>-Wert für $1-\alpha$ sondern für $1-\frac{\alpha}{2}$ und $\frac{\alpha}{2}$, d.h., wir suchen die kritischen t-Werte für einen zweiseitigen Test mit $\alpha = .05$. Verwende das Template.
+
+```{r, echo = TRUE, eval = FALSE}
+# Kritische t-Werte
+t_25 <- qt(p = XX, df = XX)
+t_97.5 <- qt(p = XX, df = XX)
+```
+
+```{r}
+# Kritische t-Werte
+t_.25 <- qt(p = .025, df = df)
+t_97.5 <- qt(p = .975, df = df)
+```
+
+5. Schaue dir zunächst die beiden <i>t</i>-Werte an. Überrascht, dass es die selben Werte sind nur einmal positiv und einmal negativ? Das ergibt sich daraus, dass die t-Verteilung symmetrisch um Null liegt. Um nun damit das Konfidenzintervall zu berechnen verwende das Template unten. Es geht darum `t*se` nach oben und `t*se` nach unten vom Unterschied `delta` zu gehen. Denk an die unterschiedlichen Vorzeichen der beiden t-Werte.
+
+```{r, echo = TRUE, eval = FALSE}
+# confidence limits
+delta_lower <- XX + XX * XX
+delta_upper <- XX + XX * XX
+```
+
+```{r}
+# confidence limits
+delta_lower <- delta + t_.25 * se
+delta_upper <- delta + t_97.5 * se
+```
+
+8. Jetzt kannst du das Konfidenzintervall mit dem aus dem <i>t</i>-Wert vergleichen. Ist es identisch?
+
+9. Probiere andere Konfidenzintervalle aus. Wie verändern sich dei Grenzen, wenn $\alpha = .01$ oder $\alpha = .1$, d.h., wenn die Konfidenzintervalle 99% bzw. 90% umspannen?
+
+### E - Bayesianische Statistik
+
+1. Bayesianische Statistik kann in R mittlerweile ebenso leicht verwendet werden, wie klassische (frequentistische) Statistik durch Pakete wie `rstanarm` und `Bayesfactor`. Beide Pakete erlauben dir  beinahe identisch zur bekannten Form Modelle zu implementieren, die jedoch einer ganz anderen statistischen Philosophie. Verwende `rstanarm` im Template um die Trefferrate durch `Geschlecht` und `Stimulus_seeking` für die `'erotic'` Bedingung vorherzusagen. 
+
+```{r, echo = TRUE, message=F, warning=F}
+# Bayesianische Regression
+Trefferrate_bm <- stan_glm(formula = Trefferrate ~ Geschlecht + Stimulus_seeking, 
+                           data = psi1 %>% filter(Bedingung == 'erotic'))
+```
+
+2. Printe das Objekt und betrachte den Output. Er sieht sehr anders aus als der Output der normalen Regression. Trotzdem solltest du einen Part wiedererkennen. Im Teil nach dem ersten mal `-----` stehen die Gewichte und deren Standardabweichung, welche du analog zum Standardfehler interpretieren kannst. Darüber stehen grundlegenden Informationen zum Modell, die du üblicherweise ignoriere kannst. Darunter stehen zu `Auxiliary parameter(s)` stehen Parameter, die das Modell zusätzlich geschätzt hat. Der eine Parameter `sigma` ist die Standardabweichung um die Regressionsgerade, welche im Bayesianischen Modell auch eine Standardabweichung besitzt. 
+
+3. Statistische Entscheidungen werden im Bayesianischen Ansatz auf unterschiedliche Weisen getroffen (je nachdem welcher Schule man angehört). Am verbreitetsten ist jedoch das *credible interval*, welches analog zum Konfidenzintervall zu interprieren ist. Es ist dasjenige Intervall in dem der wahre Populationsparameter mit 95%iger Wahrscheinlichkeit liegt, eine Aussage, die für das normale Konfidenzintervall nicht getroffene werden kann. Berechne die *credible intervals* mit der `posterior_interval()` Funktion für `Trefferrate_bm`.    
+
+```{r, message=F, warning=F}
+# Bayesian posterior credible interval
+posterior_interval(Trefferrate_bm, prob = .95)
+```
+
+4. Wenn Null nicht enthalten ist, dann ist die Wahrscheinlichkeit, dass ein Effekt Null ist tatsächlich kleiner als 5%. 
+
+
+## Beispiele
+
+```{r, eval = FALSE, echo = TRUE}
+
+# Poweranalyse -----------
+
+# N für einen einseitigen t.test auf Mittelwertsunterschiede
+pwr.t.test(d = .3, 
+           sig.level = .05, 
+           power = .95, 
+           alternative = "greater")
+
+# Power für einen einseitigen t.test auf Mittelwertsunterschiede
+pwr.t.test(n = 100,
+           d = .3, 
+           sig.level = .05, 
+           power = .95, 
+           alternative = "greater")
+
+
+# Konfidenzintervalle -----------
+
+#  Berechne test
+t_test <- t.test(hwy ~ class, data = mpg %>% filter(class %in% c('suv','compact')))
+
+# Extrahiere Werte
+delta <- diff(t_test$estimate)
+se <- t_test$stderr
+df <- t_test$parameter
+
+# Obere und untere Grenze
+delta + qt(.025, df) * se
+delta + qt(.975, df) * se
+
+# Beide zur selben Zeit
+delta + qt(.975, df) * se * c(-1,1)
+
+# Bayesianische Regression -----------
+
+# mit rstanarm
+bm1 <- stan_glm(hwy ~ displ, data = mpg)
+
+# rstanarm credible intervals
+posterior_interval(bm1)
+
+# mit BayesFactor
+bm2 <- regressionBF(hwy ~ displ, data = mpg)
+
+# sample from posterior
+posterior(bm2, iterations = 1000)
+```
+
+
+## Datasets
+
+|Datei | Zeilen | Spalten |
+|:----|:-----|:------|
+|[psi_exp1.csv](https://therbootcamp.github.io/SmR_2020Mai/1_Data/psi_exp1.csv) | 200 | 7 |
+|[psi_exp2.csv](https://therbootcamp.github.io/SmR_2020Mai/1_Data/psi_exp2.csv)  | 150 | 5 |
+
+Die Daten stammen von einer tatsächlichen (para-) psychologischen Studie, die die menschliche Fähigkeit in die Zukunft zu sehen überprüft hat (["Feel the future"](https://therbootcamp.github.io/SmR_2020Mai/_sessions/NewStats/literature/Bem_Psi_2011.pdf)). Die mittlerweile berüchtigte Studie wurde in einem etablierten Journal der Sozialpsychologie publiziert, was damit nicht unerheblich zu einer Bewegung der methodischen Revision in der Psychologie geführt hat. Die Dateien enthalten die Daten der ersten beiden Experimente. Das erste Experiment untersuchte ob Menschen besser als eine Zufallsrate von 50% vorhersagen können, hinter welchem von zwei Vorhängen ein Bild versteckt ist, insbesondere in dem Fall in dem sich ein erotisches Bild dahinter versteckt. Experiment zwei ist ein Replikationsversuch der erste Studie. Beide Studien haben auch das Konstrukt *Stimulus seeking* mituntersucht, was ähnlich zu Extraversion zu interpetieren ist, um zu untersuchen, ob Leute mit hohem *Stimulus seeking* vielleicht höhere *psi* Fähigkeiten aufweisen. 
+
+#### psi_exp1.csv & psi_exp2.csv
+
+| Name | Description |
+|:-------------|:-------------------------------------|
+| `Geschlecht` | Das Geschlecht der Versuchsperson. |
+| `Alter` | Das Alter der Versuchsperson |
+| `Stimulus_seeking` | Der Grad des Stimululs seeking des Versuchsperson. |
+| `Uhrzeit` | Die Uhrzeit der Testung. |
+| `Bedingung` | Die Studienbedingung: "erotic" oder "control" für neutrale Bilder |
+| `Präsentiertes_geschlecht` | The gender on the presented photo: "Female" or "Male" (only psi1) |
+| `Anzahl_trials` | Die Anzahl korrekter Entscheidungen. |
+| `Trefferrate` | %-korrekte Entscheidungen (> 50% bedeutet *psi*). |
+
+## Funktion
+
+### Pakte
+
+|Pakete| Installation|
+|:------|:------|
+|`tidyverse`|`install.packages("tidyverse")`|
+| `pwr` | `install.packages("pwr")` |
+| `rstanarm` | `install.packages("rstanarm")` |
+
+
+### Funktionen
+
+| Function| Package | Description |
+|:---|:------|:---------------------------------------------|
+| `pwr.t.test`|`pwr`| Poweranalyse für t-Tests | 
+| `plot.power.htest`|`pwr`| Plotte Powerverlauf | 
+| `qt`, `anorm`, `qF`, etc. | `stats`| Verteilungsfunktionen für Konfidenzintervalle | 
+| `stan_lm` | `rstanarm`| Bayesianische Regression mit `rstanarm` | 
+| `posterior_interval` | `rstanarm`| Bayesianisches credible interval mit `rstanarm` | 
+| `regressionBF` | `BayesFactor`| Bayesianische Regression mit `BayesFactor` | 
+| `posterior` | `BayesFactor`| Sample aus der Posterior mit `BayesFactor` | 
+
+
+## Resourcen
+
+### Vignetten
+
+Find vignettes to these packages: [pwr](https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html), [rstanarm](http://mc-stan.org/rstanarm/articles/rstanarm.html), [BayesFactor](https://richarddmorey.github.io/BayesFactor/)
+
+

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Wrap up!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="New Statistics                    " />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="baselrbootcamp.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Wrap up!
+### New Statistics<br> <a href='https://therbootcamp.github.io'> </a> <br> <a href='https://dwulff.github.io/newstats/'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://www.dirkwulff.org/'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a>  <a href='https://www.linkedin.com/in/dirk-wulff-phd-723a7772/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a>
+### September 2021
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+  &lt;span style="text-align:center"&gt;
+    &lt;span&gt; 
+      &lt;img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/&gt;
+    &lt;/span&gt;
+    &lt;a href="https://www.dirkwulff.org/"&gt;
+      &lt;span style="padding-left:82px"&gt; 
+        &lt;font color="#7E7E7E"&gt;
+          dirkwulff.org
+        &lt;/font&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="https://therbootcamp.github.io/"&gt;
+      &lt;font color="#7E7E7E"&gt;
+      New Statistics | September 2021
+      &lt;/font&gt;
+    &lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/div&gt; 
+
+---
+
+
+
+
+
+.pull-left45[
+
+&lt;br&gt;
+# Schedule 
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Der Workshop beinhaltet fünf &lt;high&gt;halbstündige R Blöcke&lt;/high&gt; (in grau).&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Blöcke&lt;/span&gt;&lt;/li&gt;
+  &lt;ul class="level"&gt;
+    &lt;li&gt;&lt;span&gt;Folien-basierten &lt;high&gt;Einführung (10min)&lt;/high&gt;&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Selbsständige &lt;high&gt;Übung (15min)&lt;/high&gt;&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Interaktive &lt;high&gt;Lösungen (5min)&lt;/high&gt;&lt;/span&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+
+]
+
+.pull-right4[
+&lt;br&gt;&lt;br&gt;
+&lt;img src="image/schedule.png" height="525" align="center" style="padding-top:16px"&gt;
+
+]
+
+---
+
+
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:50px" width=90%&gt;
+  &lt;col width="42%"&gt;
+  &lt;col width="5%"&gt;
+  &lt;col width="42%"&gt;
+  &lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/box_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a href="https://anomaly.io/about/"&gt;nomaly.io&lt;/a&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/tukey_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a     href="https://artsandculture.google.com/entity/m025r9k"&gt;artsandculture.google.com&lt;/a&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center" width="50%"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"All models are wrong, but some are useful."&lt;/high&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem."&lt;/high&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;font style="font-size:22px"&gt;George E. P. Box&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1919-2013&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;font style="font-size:22px"&gt;John W. Tukey&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1915-2000&lt;/font&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+---
+
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:50px" width=90%&gt;
+  &lt;col width="42%"&gt;
+  &lt;col width="5%"&gt;
+  &lt;col width="42%"&gt;
+  &lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/fisher_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a href="https://www.hamhigh.co.uk/news/heritage/"&gt;hamhigh.co.uk&lt;/a&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/lang_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a     href="https://en.wikiquote.org/wiki/Andrew_Lang "&gt;wikiquote.org&lt;/a&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center" width="50%"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"To call in the statistician after the experiment is done may be no more than asking him to perform a post-mortem examination: he may be able to say what the experiment died of."&lt;/high&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"[He] uses statistics like a drunken man uses a lamp post, more for support than illumination."&lt;/high&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;font style="font-size:22px"&gt;Ronald A. Fisher&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1890-1962&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;font style="font-size:22px"&gt;Andrew Lang&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1844-1912&lt;/font&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+---
+
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:50px" width=90%&gt;
+  &lt;col width="42%"&gt;
+  &lt;col width="5%"&gt;
+  &lt;col width="42%"&gt;
+  &lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/wells_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a href="https://www.independent.co.uk/arts-entertainment/"&gt;independent.co.uk&lt;/a&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/mosteller_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a href="https://www.americanscientist.org/"&gt;americanscientist.org&lt;/a&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center" width="50%"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"Statistical thinking will one day be as necessary a qualification for efficient citizenship as the ability to read and write."&lt;/high&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"It's easy to lie with statistics; it is easier to lie without them."&lt;/high&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;font style="font-size:22px"&gt;H. G. Wells&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1866-1946&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;font style="font-size:22px"&gt;C. Frederick Mosteller&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1916-2006&lt;/font&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+---
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:50px" width=90%&gt;
+  &lt;col width="42%"&gt;
+  &lt;col width="5%"&gt;
+  &lt;col width="42%"&gt;
+  &lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/good_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a href="http://www.bigear.org/CSMO/HTML/CS06/cs06p13.htm"&gt;bigear.org&lt;/a&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;img src="image/rutherford_fit.png" height = 300px style="border-radius:50px"&gt;&lt;br&gt;
+    &lt;font style="font-size:10px"&gt; from &lt;a href="https://de.wikipedia.org/wiki/Ernest_Rutherford"&gt;wikipedia.org&lt;/a&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center" width="50%"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"The subjectivist (i.e. Bayesian) states his judgements, whereas the objectivist sweeps them under the carpet by calling assumptions knowledge, and he basks in the glorious objectivity of science."&lt;/high&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;br&gt;&lt;font style="font-size:22px"&gt;&lt;high&gt;"If your experiment needs statistics, you ought to have done a better experiment."&lt;/high&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    
+  &lt;/td&gt;  
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+     &lt;font style="font-size:22px"&gt;I. J. Good&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1916-2009&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white" align="center"&gt;
+    &lt;font style="font-size:22px"&gt;Ernest Rutherford&lt;/font&gt;&lt;br&gt;
+     &lt;font style="font-size:14px"&gt;1871-1937&lt;/font&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+---
+
+# Dos and Don'ts
+
+.pull-left5[
+
+&lt;p align="center"&gt;
+
+  &lt;img src="image/exploration.png" width = 440px&gt;
+
+  &lt;h style="font-size:60px;position:absolute;bottom:390px;left:168px;color:white"&gt;Exploration&lt;/h&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;Columbus looking for India, from &lt;a href="https://www.history.com/topics/exploration"&gt;history.com&lt;/a&gt;&lt;/font&gt;
+  &lt;br&gt;&lt;br&gt;
+  
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Do&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br2&gt;
+  
+  Alles&lt;br&gt;&lt;bt&gt;
+
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;font style="font-size:28px"&gt;&lt;i&gt;Don't&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br2&gt;
+  
+  Die Ergebnisse als konfirmatorisch präsentieren.&lt;br&gt;&lt;br&gt;
+  
+  &lt;/font&gt;
+
+&lt;/p&gt;
+
+]
+
+
+.pull-right5[
+
+&lt;p align="center"&gt;
+
+  &lt;img src="image/confirmation.png" width = 440px&gt;
+
+  &lt;h style="font-size:60px;position:absolute;bottom:390px;left:675px;color:white"&gt;Konfirmation&lt;/h&gt;&lt;br&gt;
+  &lt;font style="font-size:10px"&gt;Villemard vision for 2000, from &lt;a href="https://www.sadanduseless.com/world-in-2000/"&gt;sadanduseless.com&lt;/a&gt;&lt;/font&gt;
+  &lt;br&gt;&lt;br&gt;
+
+  &lt;font style="font-size:28px"&gt;&lt;i&gt;Do&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br2&gt;
+  
+  Stelle Vorhersagen auf.&lt;br&gt;
+  Plane die Stichprobengrösse.&lt;br&gt;
+  Lege den Analyseplan fest.&lt;br&gt;
+  Registriere.&lt;br&gt;
+
+  &lt;br&gt;&lt;font style="font-size:28px"&gt;&lt;i&gt;Don't&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;br2&gt;
+  
+  Führe nicht-geplante Analysen durch.&lt;br&gt;&lt;br&gt;
+  
+  &lt;/font&gt;
+
+&lt;/p&gt;
+
+&lt;/p&gt;
+
+]
+
+
+
+---
+class: middle, center
+
+&lt;h1&gt;&lt;a href=https://therbootcamp.github.io/I2R_2020Aug/index.html&gt;Schedule&lt;/a&gt;&lt;/h1&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

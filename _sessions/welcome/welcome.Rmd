@@ -1,0 +1,249 @@
+---
+title: "Welcome!"
+author: "New Statistics<br>
+  <a href='https://therbootcamp.github.io'>
+  </a>
+  <br>
+  <a href='https://dwulff.github.io/newstats/'>
+    <i class='fas fa-clock' style='font-size:.9em;'></i>
+  </a>&#8239; 
+  <a href='https://www.dirkwulff.org/'>
+    <i class='fas fa-home' style='font-size:.9em;' ></i>
+  </a>&#8239;
+  <a href='mailto:dirk.wulff@unibas.ch'>
+    <i class='fas fa-envelope' style='font-size: .9em;'></i>
+  </a>&#8239;
+  <a href='https://www.linkedin.com/in/dirk-wulff-phd-723a7772/'>
+    <i class='fab fa-linkedin' style='font-size: .9em;'></i>
+  </a>"
+date: "September 2021"
+output:
+  xaringan::moon_reader:
+    css: ["default", "baselrbootcamp.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+layout: true
+
+<div class="my-footer">
+  <span style="text-align:center">
+    <span> 
+      <img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/>
+    </span>
+    <a href="https://www.dirkwulff.org/">
+      <span style="padding-left:82px"> 
+        <font color="#7E7E7E">
+          dirkwulff.org
+        </font>
+      </span>
+    </a>
+    <a href="https://therbootcamp.github.io/">
+      <font color="#7E7E7E">
+      New Statistics | September 2021
+      </font>
+    </a>
+    </span>
+  </div> 
+
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(width=110)
+options(digits = 4)
+
+knitr::opts_chunk$set(fig.align = 'center')
+```
+
+.pull-left45[
+<br><br><br><br><br>
+# Materials
+
+
+Everything available at
+
+<font style="font-size:28px"><a href="https://dwulff.github.io/newstats/"><b>dwulff.github.io/newstats</b></a></font>
+
+]
+
+.pull-right5[
+
+<br><br>
+<iframe src="https://dwulff.github.io/newstats/" width="500" height="500"></iframe>
+
+]
+
+---
+
+.pull-left6[
+
+<br><br><br><br><br>
+
+
+# Goal
+
+
+>###The goal of this course is to introduce you to the background and implementation in R of statistical approaches beyond basic NHST that can help address the replication crisis. 
+
+]
+
+.pull-right4[
+
+<br><br><br><br>
+<p align="center"><img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/target.png" height="350"></p>
+
+]
+
+---
+
+# Replication crisis
+
+.pull-left4[
+
+<ul>
+  <li class="m1"><span>Mutiple academic fields incl. Psychology are dealing with replication crises.</span></li>
+  <li class="m2"><span>The replication effort of OSF yieled <high>only 36% successful replications</high>.</span></li>
+  <li class="m3"><span>The low replication rate has been attributed to multiple factors including <high>Questionable Research Practices</high>.</span></li>
+</ul>
+
+<br><br>
+Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Ioannidis2005.pdf), [**Economics**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Camerer2016.pdf), [**Marketing**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Hunter2001.pdf), [**Social sciences**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Camerer2018.pdf). 
+
+]
+
+
+.pull-right5[
+
+<p align = "center">
+<img src="image/crisis.png" height=410px><br>
+<font style="font-size:10px">from <a href="https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6256&context=lkcsb_research">Open Science Collaboration</a></font>
+</p>
+
+]
+
+---
+
+# Proposals
+
+.pull-left4[
+<ul>
+  <li class="m1"><span>Stronger theories</span></li>
+  <li class="m2"><span>Informative Designs</span></li>
+  <li class="m3"><span><high>Sample size planning</high></span></li>
+  <li class="m4"><span><high>Focus on estimation</high></span></li>
+  <li class="m5"><span>Registrations </span></li>
+  <li class="m6"><span>Don't <i>p</i>-hack</span></li>
+  <li class="m7"><span>Complete reporting</span></li>
+  <li class="m8"><span>Replikation</span></li>
+  <li class="m9"><span>Open materials</span></li>
+</ul>
+
+]
+
+.pull-right5[
+
+<p align = "center">
+<img src="image/filedrawer_bw.png"><br>
+<font style="font-size:10px">adapted from <a href="https://www.someecards.com/usercards/viewcard/MjAxMy0zOGE1Mzg3YjY4YzE1NTA0/?tagSlug=birthday">Someecards.com</a></font>
+</p>
+
+]
+
+
+---
+
+# Three perspectives
+
+<table width="100%" style="cellspacing:0; cellpadding:0; border:none;">
+
+  <tr>    
+
+  <td style="padding:40px"> 
+  <p align="center">
+  <img src="image/fisher.jpeg" height="250" style="border-radius:10%">
+  <br><b>R. A. Fisher</b><br>(1890-1962)
+  </p>
+  </td>
+
+  <td style="padding:40px">
+  <p align="center">
+  <img border="0" src="image/neyman_pearson.png" height="250"  style="border-radius:10%">
+  <br><b>J. Neyman</b> (1894-1981) and<br><b>K. Pearson</b> (1857-1936)
+  </p>
+  </td>
+
+  <td style="padding:40px"> 
+  <p align="center">
+  <img border="0" src="image/bayes.jpeg" height="250" style="border-radius:10%">
+  <br><b>T. Bayes</b><br>(1702-1761)
+  </p>
+  </td>
+
+  </tr>
+
+</table>
+
+
+---
+
+.pull-left45[
+
+<br>
+# Schedule 
+
+<ul>
+  <li class="m1"><span>Der Workshop beinhaltet fünf <high>halbstündige R Blöcke</high> (in grau).</span></li>
+  <li class="m2"><span>Blöcke</span></li>
+  <ul class="level">
+    <li><span>Folien-basierten <high>Einführung (10min)</high></span></li> 
+    <li><span>Selbsständige <high>Übung (15min)</high></span></li> 
+    <li><span>Interaktive <high>Lösungen (5min)</high></span></li> 
+  </ul>
+</ul>
+
+
+]
+
+.pull-right4[
+<br><br>
+<img src="image/schedule.png" height="525" align="center" style="padding-top:16px">
+
+]
+
+´
+---
+
+# Introductions
+
+.pull-left5[    
+
+<ul>
+  <li class="m1"><span>Who are you?</span></li>
+  <li class="m2"><span>Warum möchtest Du R lernen?</span></li>
+</ul>
+
+
+]
+
+.pull-right45[
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/introductions.jpg" height="360px">
+<br>
+<font style="font-size:10px">from <a href="www.artofmanliness.com">artofmanliness.com</a></font>
+</p>
+
+]
+
+---
+class: middle, center
+
+<h1><a href=https://therbootcamp.github.io/I2R_2020Aug/index.html>Schedule</a></h1>
+
+
