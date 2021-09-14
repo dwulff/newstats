@@ -198,12 +198,12 @@ Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR
 # Schedule 
 
 <ul>
-  <li class="m1"><span>Der Workshop beinhaltet fünf <high>halbstündige R Blöcke</high> (in grau).</span></li>
-  <li class="m2"><span>Blöcke</span></li>
+  <li class="m1"><span>The Workshop consists of <high> three central blocks</high>.</span></li>
+  <li class="m2"><span>Blocks</span></li>
   <ul class="level">
-    <li><span>Folien-basierten <high>Einführung (10min)</high></span></li> 
-    <li><span>Selbsständige <high>Übung (15min)</high></span></li> 
-    <li><span>Interaktive <high>Lösungen (5min)</high></span></li> 
+    <li><span>Slide-based introduction</high></span></li> 
+    <li><span>Step-by-step <high>practical exercises</high></span></li> 
+    <li><span>Interaktive discussion of <high>solutions</high></span></li> 
   </ul>
 </ul>
 
