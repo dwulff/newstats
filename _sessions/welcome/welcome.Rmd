@@ -158,6 +158,7 @@ Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR
 
 ---
 
+<!---
 # Three perspectives
 
 <table width="100%" style="cellspacing:0; cellpadding:0; border:none;">
@@ -189,8 +190,7 @@ Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR
 
 </table>
 
-
----
+--->
 
 .pull-left45[
 

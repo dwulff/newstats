@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Power analysis</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="New Statistics                    " />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="baselrbootcamp.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Power analysis
+### New Statistics<br> <a href='https://therbootcamp.github.io'> </a> <br> <a href='https://dwulff.github.io/newstats/'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://www.dirkwulff.org/'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a>  <a href='https://www.linkedin.com/in/dirk-wulff-phd-723a7772/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a>
+### September 2021
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+  &lt;span style="text-align:center"&gt;
+    &lt;span&gt; 
+      &lt;img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/&gt;
+    &lt;/span&gt;
+    &lt;a href="https://www.dirkwulff.org/"&gt;
+      &lt;span style="padding-left:82px"&gt; 
+        &lt;font color="#7E7E7E"&gt;
+          dirkwulff.org
+        &lt;/font&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="https://therbootcamp.github.io/"&gt;
+      &lt;font color="#7E7E7E"&gt;
+      New Statistics | September 2021
+      &lt;/font&gt;
+    &lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+
+.pull-left4[
+
+# Bem
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;In 2011, Bem published his infamous psi-study, that played a significant role in the early days of the replication crisis.&lt;/span&gt;&lt;/li&gt;
+&lt;li class="m2"&gt;&lt;span&gt;These are the instructions to study 1:&lt;br&gt;&lt;br&gt;&lt;img src="image/bem_instructions.png"&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li class="m3"&gt;&lt;span&gt;Bem recorded hit rates &gt; 50%. Is this possible?&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+]
+
+
+.pull-right5[
+&lt;p align = "center" &gt;
+&lt;br&gt;&lt;br&gt;
+  &lt;img src="image/bem_pornception.jpeg" height="460"&gt;&lt;br&gt;
+  &lt;font style="font-size:16px"&gt;from &lt;a href="https://www.scientificamerican.com/article/extrasensory-pornception/"&gt;Scientific American&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+
+.pull-left35[
+
+# Fundamental model
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Assume there is some model or population underlying the data.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Using the model and the data we hope to make inferences back on the popoulation.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+&lt;br&gt;
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/model.png" height="520"&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+
+.pull-left3[
+
+# H0 model
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Every statistical inference begins with assumptions about the populations.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Oftentimes this model is a counterfactual that we hope to discredit.&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/mechanism_1.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Data model
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The data model describes how empirical data should be distributed according to the H0.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Also known as the likelihood function.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+`$$Pr(Data|H0) = Distribution$$`
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/mechanism_2.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Data under H0
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Using the data model we can simulate random draws to observe how statistics of the data should be distrbuted under H0&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/mechanism_3.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Test statistic
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Test statistics are specific statistics derived from samples.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;In many cases test statistics follow specific distributions carrying the same name, such as, &lt;mono&gt;t&lt;/mono&gt;.&lt;/li&gt;&lt;/span&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/mechanism_4.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Sample distribution
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The sample distribution is the distribition of sample test statistics, e.g., t.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/mechanism_5.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# &lt;i&gt;p&lt;/i&gt;-value
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;p-value is used to determine the weirdness of the data given the H0 model.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;It is defined as the probability of obtaining this or more extreme result under H0.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/mechanism_5.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Test distribition
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;In reality we have typically access to an analytical distribution because of smart people.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;These distributions depend often on degrees of freedom (df).&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/mechanism_6.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+
+# What's p-value
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align="center" style="font-size:30px"&gt;
+1: The probability that H0 is true.
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+2: The probability the result will replicate. 
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+3: A measure of evidence against the H0.
+&lt;/p&gt;
+
+---
+
+.pull-left45[
+
+# Beyond p-values
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Problems with &lt;i&gt;p&lt;/i&gt;-values&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Commonly misinterpreted.&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Highly influenced by sample size.&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Not the most informative metric.&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;&lt;br&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;"New" statistics.&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Focus location / magnitude of effect.&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Consider uncertainty.&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`$$Confidence\,Interval\,(CI) = \bar{x} \pm t_{1-\alpha} \sigma_{\bar{x}}$$`
+
+]
+
+.pull-right45[
+
+&lt;br&gt;
+&lt;p align = "center"&gt;
+&lt;img src="image/confint.png" height=550px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left45[
+
+# Confidence interval
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Rearranged statistical tests.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:10px"&gt;
+  &lt;col width="30%"&gt;
+  &lt;col width="70%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    t-test
+  &lt;/td&gt;
+  &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px"&gt;
+    &lt;img src="image/form0.png" height=74px&gt;&lt;br&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    Step 1
+  &lt;/td&gt;
+  &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px"&gt;
+    &lt;img src="image/form1.png" height=34px&gt;&lt;br&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    Step2
+  &lt;/td&gt;
+  &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px;bgcolor:white"&gt;
+    &lt;img src="image/form2.png" height=34px&gt;&lt;br&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    CI
+  &lt;/td&gt;
+  &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px"&gt;
+    &lt;img src="image/form3a.png" height=27px&gt;
+    &lt;img src="image/form3b.png" height=27px&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+]
+
+.pull-right45[
+
+&lt;br&gt;
+&lt;p align = "center"&gt;
+&lt;img src="image/confint.png" height=550px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+# Effect sizes
+
+.pull-left45[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Whether or not an effect is significant is irrelevant, if the effect is not of meaningful magnitude&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;There are several related effect size statistics depending on the test.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:10px"&gt;
+  &lt;col width="50%"&gt;
+  &lt;col width="50%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Situation&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Mass&lt;/b&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    Mittelwertsvergleiche
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Cohen's &lt;i&gt;d&lt;/i&gt;&lt;br&gt;Hedge's &lt;i&gt;g&lt;/i&gt;&lt;br&gt;&amp;eta;&lt;sup&gt;2&lt;/sup&gt;&lt;br&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    Korrelation, Regression 
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+   &lt;i&gt;r&lt;/i&gt;&lt;br&gt;R&lt;sup&gt;2&lt;/sup&gt;&lt;br&gt;f&lt;sup&gt;2&lt;/sup&gt;
+  &lt;/td&gt;  
+&lt;/tr&gt;
+&lt;/table&gt;
+
+]
+
+.pull-right5[
+
+&lt;br&gt;
+&lt;p align = "center"&gt;
+&lt;img src="image/effectsize.png" height=400px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+
+# Power
+
+.pull-left4[
+
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;&lt;/high&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+
+.pull-right5[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/power.png" height=420px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Sample size planning
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/power_large.png" height=420px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Sample size planning in R
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+
+```r
+# Lade pwr Paket
+library(pwr)
+
+# N für einen grossen Effekt im t-test
+pwr.t.test(sig.level = .05, 
+           power = .95, 
+           d = .2) # grosser Effekt
+```
+
+```
+## 
+##      Two-sample t test power calculation 
+## 
+##               n = 650.7
+##               d = 0.2
+##       sig.level = 0.05
+##           power = 0.95
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group
+```
+
+]
+---
+
+# Sample size planning in R
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+
+```r
+# Lade pwr Paket
+library(pwr)
+
+# N für einen grossen Effekt im t-test
+pwr.t.test(sig.level = .05, 
+           power = .95, 
+           d = .8) # grosser Effekt
+```
+
+```
+## 
+##      Two-sample t test power calculation 
+## 
+##               n = 41.59
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 0.95
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group
+```
+
+]
+
+---
+
+# Sample size planning in R
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+
+```r
+# Lade pwr Paket
+library(pwr)
+
+# N für einen grossen Effekt im t-test
+pwr.t.test(sig.level = .05, 
+           power = .95, 
+           d = .8) # grosser Effekt
+```
+
+```
+## 
+##      Two-sample t test power calculation 
+## 
+##               n = 41.59
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 0.95
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group
+```
+
+]
+
+
+---
+
+# Stichprobenplanung in R
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;In some cases, &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+
+```r
+# Lade pwr Paket
+library(pwr)
+
+# N für einen grossen Effekt im t-test
+pwr.t.test(sig.level = .05, 
+           power = .95, 
+           d = .8) # grosser Effekt
+```
+
+```
+## 
+##      Two-sample t test power calculation 
+## 
+##               n = 41.59
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 0.95
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group
+```
+
+]
+
+---
+
+# Simulation packages
+
+
+Superpower 
+
+simr
+
+---
+
+class: middle, center
+
+&lt;h1&gt;&lt;a href="https://therbootcamp.github.io/SmR_2021Apr/_sessions/NewStats/NewStats_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

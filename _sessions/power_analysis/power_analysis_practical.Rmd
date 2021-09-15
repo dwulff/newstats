@@ -366,5 +366,5 @@ sample_size
 ## Resourcen
 
 [**pwr vignette**](https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html)
-
+[**simr tutorial**](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6646942/) by Brysbaert & Stevens (2018)
 
