@@ -221,11 +221,12 @@ Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR
 
 # Introductions
 
-.pull-left5[    
+.pull-left4[    
 
 <ul>
   <li class="m1"><span>Who are you?</span></li>
-  <li class="m2"><span>Warum möchtest Du R lernen?</span></li>
+  <li class="m2"><span>What types of statistical analysis are central in your work?</span></li>
+  <li class="m3"><span>What statistical software do you use most in your work?</span></li>
 </ul>
 
 
@@ -244,6 +245,6 @@ Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR
 ---
 class: middle, center
 
-<h1><a href=https://therbootcamp.github.io/I2R_2020Aug/index.html>Schedule</a></h1>
+<h1><a href=https://dwulff.github.io/newstats/index.html>Schedule</a></h1>
 
 

@@ -69,16 +69,6 @@ require(boot)
 
 print2 <- function(x, nlines=10,...) {
    cat(head(capture.output(print(x,...)), nlines), sep="\n")}
-
-# Load data
-baselers <- readr::read_csv("1_Data/baselers.csv")
-
-# get color palette functions
-source("../../_materials/palette/therbootcamp_palettes.R")
-colors = baselrbootcamp_colors
-
-knitr::opts_chunk$set(dpi = 300, echo = FALSE, warning = FALSE, fig.align = 'center', message= FALSE)
-
 ```
 
 
@@ -902,6 +892,43 @@ print2(bf_res, 21)
 ```
 
 ]
+
+---
+
+Bayes factor is generalization of bayes factor
+
+
+--- 
+
+# Critiques of bayes factors
+
+sensitivity to prior
+
+Single value assessment
+
+Model selection, rather than model comparison
+
+Often associated with improbable point nulls
+
+--- 
+
+# Benefits
+
+generalization of likelihood ratio
+
+insensitive to optional stopping
+
+
+
+---
+
+# Bayes factor
+
+Posterior odds = Evidence + prior odds
+
+Marginal likelihood!!!
+
+Bayes factor is ratio of average likelihood of model
 
 ---
 

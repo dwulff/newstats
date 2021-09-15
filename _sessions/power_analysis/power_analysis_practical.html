@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Power analysis</title>
+
+<script src="power_analysis_practical_files/header-attrs-2.10/header-attrs.js"></script>
+<script src="power_analysis_practical_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="power_analysis_practical_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="power_analysis_practical_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="power_analysis_practical_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="power_analysis_practical_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="power_analysis_practical_files/navigation-1.1/tabsets.js"></script>
+<link href="power_analysis_practical_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="power_analysis_practical_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="practical.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Power analysis</h1>
+<h4 class="author"><table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0'>
+<col width='10%'>
+<col width='10%'>
+<tr style="border:none">
+<td style="display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none" nowrap>
+<a href='https://dwulff.github.io/newstats'> <i class='fas fa-clock' style='font-size:.9em;' ></i> </a> <a href='https://www.dirkwulff.org/'> <i class='fas fa-home' style='font-size:.9em;'></i> </a> <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a> <a href='https://www.linkedin.com/in/dirk-wulff-phd-723a7772/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a> <font style='font-style:normal'>| New statistics</font>
+</td>
+<td style="width:100%;vertical-align:bottom;text-align:right;padding:0;margin:0;border:none">
+<img src='https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png' style='height:15px;width:80px'/>
+</td>
+</tr>
+</table></h4>
+
+</div>
+
+
+<p align="center" width="100%">
+<a href="https://www.youtube.com/watch?v=fn7-JZq0Yxs"><br />
+<img src="image/psi.jpg" alt="Trulli" style="width:100%"></a> <br> <font style="font-size:10px">Steven Tash as a psi-test subject in Ghostbusters, from <a href="https://www.imdb.com/name/nm0850865/"> imdb.com </a> </font>
+</p>
+<div id="section" class="section level1 tabset">
+<h1 class="tabset"></h1>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p align="center">
+<p>“The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process.”<br><i>Daryl J. Bem, professor emeritus, Cornell University</i></p>
+</p>
+<p>In this practical, you will analyze the data of Daryl Bem`s imfamous study on human <em>psi</em>-abilities to evaluate power and sample planning.</p>
+<p>By the end of this practical, you will know how to conduct power analysis using the <code>pwr</code> R package and simulations.</p>
+</div>
+<div id="tasks" class="section level2">
+<h2>Tasks</h2>
+<div id="a---setup" class="section level3">
+<h3>A - Setup</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open the <code>NewStats</code> R project.</p></li>
+<li><p>Open a new R script. Add your name, date, and “Power analysis practical” as comments at the beginning of the script.</p></li>
+</ol>
+<pre class="r"><code>## NAME
+## DATE
+## Power analysis practical</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Save the new script as “power_analysis_practical.R” in the <code>2_code</code> folder.</p></li>
+<li><p>Load the necessary packages. See below.</p></li>
+</ol>
+<pre class="r"><code># Load packages
+library(tidyverse)
+library(pwr)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Use the <code>read_csv()</code> function to read in <code>psi_exp_1.csv</code>, the data of Bem’s first experiment.</li>
+</ol>
+<pre class="r"><code># Read in data
+psi &lt;- read_csv(file = &quot;1_data/psi_exp_1.csv&quot;)</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Print the data set and familiarize yourself with the columns included. You can also use <code>View()</code> or <code>str()</code>.</li>
+</ol>
+</div>
+<div id="b---power-analysis-one-sample-t-test" class="section level3">
+<h3>B - Power analysis: One-sample t-test</h3>
+<ol style="list-style-type: decimal">
+<li>Bem’s first analysis evaluates whether the hit rate for erotic images is larger than chance, i.e., <code>50%</code>. For this condition, Bem observed an average hit rate of <code>53.13</code>%-points implying a <code>3.13</code>%-points deviation from random expectations. You can use the template below.</li>
+</ol>
+<pre class="r"><code># extract hit rate
+hitrate_erotic &lt;- psi %&gt;% pull(erotic)
+
+# determine difference to H0
+difference_to_h0 &lt;- mean(XX) - 50
+
+# calculate Cohen&#39;s d
+d &lt;- difference_to_h0 / sd(XX)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>A Cohen’s d of <code>.25</code> is generally considered small, but relevant. Now put yourself in the shoes of a rival researcher, who wants to replicate Bem’s effect of this size assuming an expected false positive rate of <span class="math inline">\(\alpha = .05\)</span>, a power of <span class="math inline">\(power = 1-\beta = .95\)</span>, and a directed alternative (<code>alternative = "greater"</code>). How large a sample is necessary?</li>
+</ol>
+<pre class="r"><code># determine sample size
+sample_size &lt;- pwr.t.test(d = XX, 
+                          sig.level = XX, 
+                          power = XX,
+                          alternative = &quot;XX&quot;,
+                          type = &quot;one.sample&quot;)
+sample_size</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>According to the power analysis, a sample of 175 individuals would have been necessary. Visualize this result using the <code>plot.power.htest()</code> function. You can simply apply on the <code>sample_size</code> object.</p></li>
+<li><p>Using the plot you can also evaluate the power that Bem’s original test had. There were 100 participants in his first study. Look for the corresponding point on the x-axis of your plot and then move up to identify the power.</p></li>
+<li><p>To determine the power of a completed study based on the empirical effect size is called a post-hoc power analysis. The <code>pwr.t.test</code> also allows you to carry such analyses. Simply specify <code>n</code> rather than power. Try it out and determine the exact post-hoc power value for Bem’s empirical effect size.</p></li>
+</ol>
+<pre class="r"><code># Bem&#39;s post-hoc power
+power &lt;- pwr.t.test(n = XX, 
+                    d = .25, 
+                    sig.level = .05, 
+                    alternative = &quot;greater&quot;,
+                    type = &quot;one.sample&quot;)
+power</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Note that post-hoc power analysis shouldn’t be confused with a proper power analysis. Power analysis really only makes sense a priori. Besides post-hoc power analysis ignores the fact that the empirical effect size is an potentially unreliable estimate. Nevertheless it can sometimes be illustrative to consider what power level was present for a given effect size in a completed study. For instance, Bem might have reasoned prior to conducting any studies that the effect of <em>psi</em>-abilities is likely very small, possibly not larger than <code>d = .1</code>. Evaluate for Bem how power his design had to detect effects of that magnitude.</li>
+</ol>
+<pre class="r"><code># Bem&#39;s post-hoc power for very small effects
+power &lt;- pwr.t.test(n = XX, 
+                    d = XX, 
+                    sig.level = .05, 
+                    alternative = &quot;greater&quot;,
+                    type = &quot;one.sample&quot;)
+power</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>For very small effects Bem’s study only had a power of <code>25.7</code>%. So, given that Bem couldn’t know that his effect would be as large as <code>d = .25</code>, should probably have conducted a larger study? How large should his sample have been to detect effects of size <code>d = .1</code> with power <code>.95</code>.</li>
+</ol>
+<pre><code>
+     One-sample t test power calculation 
+
+              n = 1084
+              d = 0.1
+      sig.level = 0.05
+          power = 0.95
+    alternative = greater</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>To be able to confidently (<code>power = .95</code>) detect very small effects using <span class="math inline">\(\alpha = .05\)</span>, Bem should have conducted a study with 1084 participants, that is more than ten times as many as he collected for his actual study 1. Now let’s consider Bem would have wanted to be sure that he is not committing a Type 1 error (false positive) by setting <span class="math inline">\(\alpha = .005\)</span>, the level suggest in a recent proposal to combat the replication crisis.</li>
+</ol>
+<pre><code>
+     One-sample t test power calculation 
+
+              n = 1785
+              d = 0.1
+      sig.level = 0.005
+          power = 0.95
+    alternative = greater</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>For this stricter test, Bem would have required a sample of 1785 participants. Good thing Bem didn’t need to worry about false positives, given the substantial effect that human <em>psi</em>-abilities produce for erotic images.</li>
+</ol>
+</div>
+<div id="c---power-analysis-alternative-analyses" class="section level3">
+<h3>C - Power analysis: Alternative analyses</h3>
+<ol style="list-style-type: decimal">
+<li><p>It is important to note that power calculations depend on the hypothesis and corresponding analysis. To see this, let’s suppose that Bem actually didn’t know whether <code>erotic</code> images would increase or decrease predictive accuracy, implying an undirected statistical test. Determine the sample size needed for a small effect of <code>d = .1</code> in either direction (i.e., <code>alternative = two.sided</code>), assuming <span class="math inline">\(\alpha = .05\)</span> and <span class="math inline">\(\beta = .05\)</span>.</p></li>
+<li><p>For a two-sided test, roughly an additional 300 participants are required to obtain the same level of power. The increase is caused by <span class="math inline">\(\alpha\)</span> being split in half so that there are rejection areas corresponding to <span class="math inline">\(\alpha/2\)</span> in either directions. Hence, determining sample sizes for two-sided tests is equivlent to testing one-sided with <span class="math inline">\(\alpha/2\)</span>. Confirm this by setting <code>type</code> back to <code>"greater"</code> and by using <span class="math inline">\(\alpha = .025\)</span>.</p></li>
+<li><p>Now let’s assume actually wanted to test whether there is a difference in the hit rate for <code>erotic</code> between men and women. Let’s assume the the expected effect size is again <code>d = .1</code>, what is the sample needed for <span class="math inline">\(alpha = .05\)</span> and <span class="math inline">\(power = .95\)</span>. To reflect the difference in design set <code>type = "two.sample"</code> in the <code>pwr.t.test()</code> function.</p></li>
+<li><p>For the two-sample test a sample of about twice the size of the sample required for the one sample test would have been necessary. Why do you think is that the case?</p></li>
+</ol>
+</div>
+<div id="d---power-analysis-simulation" class="section level3">
+<h3>D - Power analysis: Simulation</h3>
+<ol style="list-style-type: decimal">
+<li>There situations where it is not straightforward to determine power. This can be because the appropriate effect sizes are not intuitive, the design is complex with imbalanced sampling of cells, one expects violations of assumptiosn, or, for instance, when using mixed models. In those cases, one must rely on simulations to determine power. Such simulations specify a plausible population model and then observe, how often a test is able to detect a true effect. The function below does this for a two sample t-test. Per default, it assumes normal distributions with mean 0 (<code>mus</code>) and standard deviation 1 (<code>sigmas</code>) and samples sizes of 100 (<code>ns</code>). Using these settings, the function than takes repeated random samples and stores the p-value associated with a two-sample t-test. It returns a vector containing the p-value for each repeat. Run the function definition in the console, so that you can use the function in the next task.</li>
+</ol>
+<pre class="r"><code># define t-test simulation function
+simulate_two_sample &lt;- function(ns = c(100, 100), 
+                                mus = c(0, 0), 
+                                sigmas = c(1, 1),
+                                var_equal = TRUE, 
+                                repeats = 10000){
+  
+  # container
+  ps &lt;- numeric(repeats)
+  
+  for(i in 1:repeats){
+    
+    # sample
+    x1 &lt;- rnorm(ns[1], mus[1], sigmas[1])
+    x2 &lt;- rnorm(ns[2], mus[2], sigmas[2])
+    
+    # run t-test
+    test &lt;- t.test(x1, x2, var_equal = var_equal)
+    
+    # store p
+    ps[i] &lt;- test$p.value
+    
+  }
+  
+  # out
+  ps
+}</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Use the <code>simulate_two_sample()</code> function using its default settings, which implicity assume the absence of an effect. Then test the proportion of significant results assuming <span class="math inline">\(\alpha = .05\)</span>. What should the result be? Think about it before you run it.</li>
+</ol>
+<pre class="r"><code># run rimulation
+sim &lt;- simulate_two_sample()
+
+# determine proportion significant results
+mean(sim &lt; .05)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>You have confirmed <span class="math inline">\(\alpha\)</span>, that is the probability to call a result significant although there is no effect! Now let’s introduce an effect by setting <code>mus = c(0, .1)</code>, which is equivalent to setting <code>d = .1</code>, and rerun the simulation.</li>
+</ol>
+<pre class="r"><code># run rimulation
+sim &lt;- simulate_two_sample(mus = c(0, .1))
+
+# determine proportion significant results
+mean(sim &lt; .05)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Given that there now is a true effect, your are observing power, not <span class="math inline">\(\alpha\)</span>, and power is rather small. You can confirm this result using the <code>pwr.t.test()</code> function. See below.</li>
+</ol>
+<pre class="r"><code># Confirm result using power analysis
+sample_size &lt;- pwr.t.test(n = 100, 
+                          d = .1, 
+                          sig.level = .05, 
+                          alternative = &quot;two.sided&quot;,
+                          type = &quot;two.sample&quot;)
+sample_size</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Play around with the <code>simulate_two_sample()</code> function. You can increase or decrease sample sizes or change the standard deviations. You can also introduce violations of assumptions. Since <code>var_equal = TRUE</code>, the t-Test assumes equal variances. So when the make the standard deviations different, the test will no longer match the underlying population model, resulting in changes to both <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>.</li>
+</ol>
+</div>
+</div>
+<div id="datasets" class="section level2">
+<h2>Datasets</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Datei</th>
+<th align="left">Zeilen</th>
+<th align="left">Spalten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://therbootcamp.github.io/SmR_2020Mai/1_Data/psi_exp1.csv">psi_exp1.csv</a></td>
+<td align="left">200</td>
+<td align="left">7</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://therbootcamp.github.io/SmR_2020Mai/1_Data/psi_exp2.csv">psi_exp2.csv</a></td>
+<td align="left">150</td>
+<td align="left">5</td>
+</tr>
+</tbody>
+</table>
+<p>Die Daten stammen von einer tatsächlichen (para-) psychologischen Studie, die die menschliche Fähigkeit in die Zukunft zu sehen überprüft hat (<a href="https://therbootcamp.github.io/SmR_2020Mai/_sessions/NewStats/literature/Bem_Psi_2011.pdf">“Feel the future”</a>). Die mittlerweile berüchtigte Studie wurde in einem etablierten Journal der Sozialpsychologie publiziert, was damit nicht unerheblich zu einer Bewegung der methodischen Revision in der Psychologie geführt hat. Die Dateien enthalten die Daten der ersten beiden Experimente. Das erste Experiment untersuchte ob Menschen besser als eine Zufallsrate von 50% vorhersagen können, hinter welchem von zwei Vorhängen ein Bild versteckt ist, insbesondere in dem Fall in dem sich ein erotisches Bild dahinter versteckt. Experiment zwei ist ein Replikationsversuch der erste Studie. Beide Studien haben auch das Konstrukt <em>Stimulus seeking</em> mituntersucht, was ähnlich zu Extraversion zu interpetieren ist, um zu untersuchen, ob Leute mit hohem <em>Stimulus seeking</em> vielleicht höhere <em>psi</em> Fähigkeiten aufweisen.</p>
+<div id="psi_exp1.csv-psi_exp2.csv" class="section level4">
+<h4>psi_exp1.csv &amp; psi_exp2.csv</h4>
+<table>
+<colgroup>
+<col width="26%" />
+<col width="73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>Geschlecht</code></td>
+<td align="left">Das Geschlecht der Versuchsperson.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Alter</code></td>
+<td align="left">Das Alter der Versuchsperson</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Stimulus_seeking</code></td>
+<td align="left">Der Grad des Stimululs seeking des Versuchsperson.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Uhrzeit</code></td>
+<td align="left">Die Uhrzeit der Testung.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Bedingung</code></td>
+<td align="left">Die Studienbedingung: “erotic” oder “control” für neutrale Bilder</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Präsentiertes_geschlecht</code></td>
+<td align="left">The gender on the presented photo: “Female” or “Male” (only psi1)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Anzahl_trials</code></td>
+<td align="left">Die Anzahl korrekter Entscheidungen.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Trefferrate</code></td>
+<td align="left">%-korrekte Entscheidungen (&gt; 50% bedeutet <em>psi</em>).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="resourcen" class="section level2">
+<h2>Resourcen</h2>
+<p><a href="https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html"><strong>pwr vignette</strong></a></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

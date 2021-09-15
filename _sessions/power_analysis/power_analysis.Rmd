@@ -604,6 +604,17 @@ print2(boot.ci(boot_res), n = 10)
 ]
 
 
+---
+
+# Simulation packages
+
+
+Superpower 
+
+simr
+
+
+
 
 ---
 

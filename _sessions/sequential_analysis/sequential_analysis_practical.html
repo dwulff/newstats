@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Sequential analysis</title>
+
+<script src="sequential_analysis_practical_files/header-attrs-2.10/header-attrs.js"></script>
+<script src="sequential_analysis_practical_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="sequential_analysis_practical_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="sequential_analysis_practical_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="sequential_analysis_practical_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="sequential_analysis_practical_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="sequential_analysis_practical_files/navigation-1.1/tabsets.js"></script>
+<link href="sequential_analysis_practical_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="sequential_analysis_practical_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="practical.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Sequential analysis</h1>
+<h4 class="author"><table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0'>
+<col width='10%'>
+<col width='10%'>
+<tr style="border:none">
+<td style="display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none" nowrap>
+<a href='https://dwulff.github.io/newstats'> <i class='fas fa-clock' style='font-size:.9em;' ></i> </a> <a href='https://www.dirkwulff.org/'> <i class='fas fa-home' style='font-size:.9em;'></i> </a> <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a> <a href='https://www.linkedin.com/in/dirk-wulff-phd-723a7772/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a> <font style='font-style:normal'>| New statistics</font>
+</td>
+<td style="width:100%;vertical-align:bottom;text-align:right;padding:0;margin:0;border:none">
+<img src='https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png' style='height:15px;width:80px'/>
+</td>
+</tr>
+</table></h4>
+
+</div>
+
+
+<p align="center" width="100%">
+<a href="https://www.youtube.com/watch?v=fn7-JZq0Yxs"><br />
+<img src="image/psi.jpg" alt="Trulli" style="width:100%"></a> <br> <font style="font-size:10px">Steven Tash as a psi-test subject in Ghostbusters, from <a href="https://www.imdb.com/name/nm0850865/"> imdb.com </a> </font>
+</p>
+<div id="section" class="section level1 tabset">
+<h1 class="tabset"></h1>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p align="center">
+<p>“The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process.”<br><i>Daryl J. Bem, professor emeritus, Cornell University</i></p>
+</p>
+<p>In this practical, you will explore the merits of sequential analysis with a chance, at the end, to help out Bem’s to design more effective study designs.</p>
+<p>By the end of this practical, you will know how to conduct sequential analysis using a basic example.</p>
+</div>
+<div id="tasks" class="section level2">
+<h2>Tasks</h2>
+<div id="a---setup" class="section level3">
+<h3>A - Setup</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open the <code>NewStats</code> R project.</p></li>
+<li><p>Open a new R script. Add your name, date, and “Power analysis practical” as comments at the beginning of the script.</p></li>
+</ol>
+<pre class="r"><code>## NAME
+## DATE
+## Power analysis practical</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Save the new script as “power_analysis_practical.R” in the <code>2_code</code> folder.</p></li>
+<li><p>Load the necessary packages. See below.</p></li>
+</ol>
+<pre class="r"><code># Load packages
+library(tidyverse)
+library(BayesFactor)
+library(bayestestR)
+library(rstanarm)
+library(bridgesampling)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Use the <code>read_csv()</code> function to read in <code>psi_exp_1.csv</code>, the data of Bem’s first experiment.</li>
+</ol>
+<pre class="r"><code># Read in data
+psi &lt;- read_csv(file = &quot;1_data/psi_exp_1.csv&quot;)</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Print the data set and familiarize yourself with the columns included. You can also use <code>View()</code> or <code>str()</code>.</li>
+</ol>
+</div>
+<div id="b---improper-sequential-analysis" class="section level3">
+<h3>B - Improper sequential analysis</h3>
+<ol style="list-style-type: decimal">
+<li>The function below allows you to illustrate the problem of sequential analysis. It simulates incremental data collection of a one-sample t-Test scenario, where the test is carried out for every sample size specified by the argument <code>stops</code> and data collection is terminated whenever a test yields a p-value smaller than <code>alpha</code>. The default is <code>stops = 2:100</code>, which means that beginning with a sample size of 2, the t-Test will be run after every individual observation until the final sample size is reached or the process process aborts because the p-value is smaller than alpha. Run the function definition in the console, so that you can use the function in the next step.</li>
+</ol>
+<pre class="r"><code># incremental one sample t-test simulation 
+simulate_sequential_onesample &lt;- function(stops = 2:100,
+                                          alpha = .05,
+                                          mu = 0, 
+                                          sigma = 1, 
+                                          repeats = 1000){
+    stops = c(0, stops)
+  ps &lt;- numeric(repeats)
+  ns &lt;- numeric(repeats)
+  for(i in 1:repeats){
+    x = rep(NA, max(stops))
+    for(j in 1:(length(stops)-1)){
+      pos = (stops[j]+1):stops[j+1]
+      x[pos] &lt;- rnorm(length(pos), mu, sigma)
+      p &lt;- t.test(x)$p.value
+      if(p &lt; alpha) break
+      }
+    ps[i] &lt;- p
+    ns[i] &lt;- stops[j+1]
+    }
+  # out
+  cbind(&quot;p_value&quot; = ps, &quot;sample_size&quot; = ns)
+}</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Run the function using its default arguments and test how frequently the process yields a significant result. Note that the <code>mu</code> of the data is 0, which implies that any significant result is a false positive. The function returns a matrix with two columns, one for the p-values and one for the number of samples.</li>
+</ol>
+<pre class="r"><code># simulate p-values
+result &lt;- simulate_sequential_onesample()
+
+# count significant p-values
+mean(result[,&quot;p_value&quot;] &lt; .05)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>About 40% of experiments yielded significant results, even though there is no effect in the population. Play around with <code>alpha</code> and try to find a value so that for default <code>stops = 2:100</code> the overall number of significant results is approximately <code>.05</code>.</li>
+</ol>
+<pre class="r"><code>#define alpha
+alpha &lt;- XX
+  
+# simulate p-values
+result &lt;- simulate_sequential_onesample(alpha = alpha)
+
+# count significant p-values
+mean(result[,&quot;p_value&quot;] &lt; alpha)</code></pre>
+<pre class="r"><code>#define alpha
+alpha &lt;- .004
+
+# simulate p-values
+result &lt;- simulate_sequential_onesample(alpha = alpha)
+
+# count significant p-values
+mean(result[,&quot;p_value&quot;] &lt; alpha)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Each individual alpha needs to a lot smaller, if the overall alpha shall not exceed <code>.05</code>. Now keep the alpha at that level and introduce a small effect with <code>mu = .3</code>, which is equivalent to <code>d = .3</code>, and run the simulation twice. Once with <code>stops = 2:100</code> and the alpha value you have just determined, and once with <code>stops = 100</code> and <code>alpha = .05</code>, so that we can compare sequential and non-sequential analysis approaches. Then evaluate both the number of significant results and the number of samples taken.</li>
+</ol>
+<pre class="r"><code># simulate sequential
+result_sequential &lt;- simulate_sequential_onesample(alpha = XX, 
+                                                   mu = .3)
+
+# simulate non-sequential
+result_nonsequential &lt;- simulate_sequential_onesample(stops = 100, 
+                                                      alpha = .05, 
+                                                      mu = .3)
+
+# evaluate power
+mean(result_sequential[,&quot;p_value&quot;] &lt; XX)
+mean(result_nonsequential[,&quot;p_value&quot;] &lt; .05)
+
+# evaluate sample sizes
+mean(result_sequential[,&quot;sample_size&quot;])
+mean(result_nonsequential[,&quot;sample_size&quot;])</code></pre>
+<pre class="r"><code># simulate sequential
+result_sequential &lt;- simulate_sequential_onesample(alpha = .004, 
+                                                   mu = .3)
+
+# simulate non-sequential
+result_nonsequential &lt;- simulate_sequential_onesample(stops = 100, 
+                                                      alpha = .05, 
+                                                      mu = .3)
+
+# evaluate power
+mean(result_sequential[,&quot;p_value&quot;] &lt; .004)
+mean(result_nonsequential[,&quot;p_value&quot;] &lt; .05)
+
+# evaluate sample sizes
+mean(result_sequential[,&quot;sample_size&quot;])
+mean(result_nonsequential[,&quot;sample_size&quot;])</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>The result is kind of mixed. The probability to detect the effect (aka power) is smaller, when using smaller, constant alpha levels in sequential analysis. However, in return we see that the still pretty sizable level power in the sequential analysis was achieved with only 70% of the samples. Numbers may vary depending on the level of <code>alpha</code>. So this kind of sequential analysis is neither really bad, nor a real improvement. What do you think how could we do better.</li>
+</ol>
+</div>
+<div id="c---proper-sequential-analysis" class="section level3">
+<h3>C - Proper sequential analysis</h3>
+<ol style="list-style-type: decimal">
+<li>Before we start running better types of sequential analyses, let us define an adapted simulation function that, in place of the old <code>alpha</code> argument, has a new argument <code>alphas</code>, which expects a numeric of the same length as <code>stops</code> specifying the level of alpha used for each individual stop. Run the function definition, so that you can use it in the next step.</li>
+</ol>
+<pre class="r"><code># incremental one sample t-test simulation 
+simulate_sequential_proper &lt;- function(stops,
+                                       alphas,
+                                       mu = 0, 
+                                       sigma = 1, 
+                                       repeats = 1000){
+  if(length(stops) != length(alphas)) stop(&quot;stops and alphas need to be equally long.&quot;)
+  stops = c(0, stops)
+  ps &lt;- numeric(repeats)
+  ns &lt;- numeric(repeats)
+  for(i in 1:repeats){
+    x = rep(NA, max(stops))
+    for(j in 1:(length(stops)-1)){
+      pos = (stops[j]+1):stops[j+1]
+      x[pos] &lt;- rnorm(length(pos), mu, sigma)
+      p &lt;- t.test(x)$p.value
+      if(p &lt; alphas[j]) break
+      }
+    ps[i] &lt;- p &lt; alphas[j] 
+    ns[i] &lt;- stops[j+1]
+    }
+  # out
+  cbind(&quot;signficant&quot; = ps, &quot;sample_size&quot; = ns)
+}</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Now take a look at the <code>getDesignGroupSequential()</code> function from the <code>rpact</code> package. Provided with some necessary inputs this functions determines for you appropriate levels of alpha for each of the testing steps that you would like to perform. Determine alphas for ten steps in a two sided design with a maximum alpha of <code>.05</code> by setting <code>alpha = .05</code>, <code>informationRates = seq(.1, 1, .1)</code>, and <code>sided = 2</code>. Print the object and try to make sense of the presented information.</li>
+</ol>
+<pre class="r"><code># determine alphas
+alphas &lt;- getDesignGroupSequential(alpha = .05, 
+                                   informationRates = seq(.1, 1, .1), 
+                                   sided = 2)
+
+# print
+alphas</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>One element in the print is <code>Cumulative alpha spending</code>. This is the alpha values we should use to optimize the sequential analysis process, at least according to the O’Brien &amp; Fleming approach, which is the default implemented in <code>getDesignGroupSequential()</code>. As you can see an apporpiate sequence of alpha values is not composed of constant alpha values, but of very small values in the beginning and increasing larger values towards the maximum sample size planned. Extract this element containing the alpha sequence and store in an object.</li>
+</ol>
+<pre class="r"><code># determine alphas
+alpha_spending &lt;- alphas$alphaSpent</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Now use the <code>simulate_sequential_proper()</code> function equipped with <code>alpha_spending</code> and <code>stops = seq(10, 100, 10)</code>, to evaluate whether we have an false error rate of 5% in the absence of an effect (<code>mu = 0</code>). Note that we are not using the same stops, since the function has a maximum number of stops of <code>20</code>. Also note that the relevant column in the output of <code>simulate_sequential_proper()</code> is now called <code>"significant"</code>.</li>
+</ol>
+<pre class="r"><code># simulate sequential
+result_sequential &lt;- simulate_sequential_proper(stops = XX,
+                                                alphas = XX,
+                                                mu = 0)
+
+# evaluate power
+mean(result_sequential[,&quot;signficant&quot;])</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>The false error rate is higher than it should be, but not by much. Let’s see how power and sample size has been affected. Use the function to compare again the sequential and the non-sequential approach for a small effect (<code>mu = .3</code>), while using <code>alpha_spending</code> for the sequential approach. Set alpha of the non-sequntial approach to the false error just determined, so that everything stays comparable.</li>
+</ol>
+<pre class="r"><code># simulate sequential
+result_sequential &lt;- simulate_sequential_proper(stops = XX,
+                                                alphas = XX,
+                                                mu = XX)
+
+# simulate sequential
+result_nonsequential &lt;- simulate_sequential_proper(stops = XX,
+                                                alphas = XX,
+                                                mu = XX)
+
+# evaluate power
+mean(result_sequential[,&quot;signficant&quot;])
+mean(result_nonsequential[,&quot;signficant&quot;])
+
+# evaluate power
+mean(result_sequential[,&quot;sample_size&quot;])
+mean(result_nonsequential[,&quot;sample_size&quot;])</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Power is now pretty comparable, maybe still tad smaller, but certainly much higher than, when using a constant reduced alpha. however there is a substantial difference in the number of samples used to achieve this level of power. Specifically, the sequential approach still relies on average on only about 70% of the samples. Feel free to play around with the <code>getDesignGroupSequential()</code> function. For instance try out different methods to determine the alpha sequence using the <code>type</code> argument.</li>
+</ol>
+</div>
+<div id="x---back-to-bem" class="section level3">
+<h3>X - Back to Bem</h3>
+<ol style="list-style-type: decimal">
+<li>Remember the number of samples that Bem needed to detect a small effect of <code>d = .1</code>? Try to use the examples above to determine how many samples Bem could have saved by using a sequential analysis approach.</li>
+</ol>
+</div>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>time</code></td>
+<td align="left">Hour of day</td>
+</tr>
+<tr class="even">
+<td align="left"><code>gender</code></td>
+<td align="left">Gender of participant</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>age</code></td>
+<td align="left">Age of participant</td>
+</tr>
+<tr class="even">
+<td align="left"><code>presented_gender</code></td>
+<td align="left">Gender of person on presented picture</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>erotic</code></td>
+<td align="left">Hit rate on erortic pictures</td>
+</tr>
+<tr class="even">
+<td align="left"><code>control</code></td>
+<td align="left">Hit rate on control pictures</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>stimulus_seeking</code></td>
+<td align="left">Level of stimulus seeking of person.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p><a href="https://www.researchgate.net/profile/Stephen-Poon-5/post/Totally-Different-Alpha-values-for-the-same-questionnaire-from-different-Cities-sample-Should-i-use-data-with-low-Alpha-values-for-final-analysis/attachment/59d6488f79197b80779a33ae/AS%3A467386026467330%401488444920245/download/INTERIM+analysis.pdf"><strong>Overview</strong></a> on the alpha sending function approach by DeMets and Lan (1994). <a href="https://psyarxiv.com/x4azm/download?format=pdf"><strong>Tutorial</strong></a> on group sequential designs by Lakens and colleagus (2021)</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

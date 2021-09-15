@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Bayesian analysis</title>
+
+<script src="bayesian_statistics_practical_files/header-attrs-2.10/header-attrs.js"></script>
+<script src="bayesian_statistics_practical_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="bayesian_statistics_practical_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="bayesian_statistics_practical_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="bayesian_statistics_practical_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="bayesian_statistics_practical_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="bayesian_statistics_practical_files/navigation-1.1/tabsets.js"></script>
+<link href="bayesian_statistics_practical_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="bayesian_statistics_practical_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="practical.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Bayesian analysis</h1>
+<h4 class="author"><table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0'>
+<col width='10%'>
+<col width='10%'>
+<tr style="border:none">
+<td style="display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none" nowrap>
+<a href='https://dwulff.github.io/newstats'> <i class='fas fa-clock' style='font-size:.9em;' ></i> </a> <a href='https://www.dirkwulff.org/'> <i class='fas fa-home' style='font-size:.9em;'></i> </a> <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a> <a href='https://www.linkedin.com/in/dirk-wulff-phd-723a7772/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a> <font style='font-style:normal'>| New statistics</font>
+</td>
+<td style="width:100%;vertical-align:bottom;text-align:right;padding:0;margin:0;border:none">
+<img src='https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png' style='height:15px;width:80px'/>
+</td>
+</tr>
+</table></h4>
+
+</div>
+
+
+<p align="center" width="100%">
+<a href="https://www.youtube.com/watch?v=fn7-JZq0Yxs"><br />
+<img src="image/psi.jpg" alt="Trulli" style="width:100%"></a> <br> <font style="font-size:10px">Steven Tash as a psi-test subject in Ghostbusters, from <a href="https://www.imdb.com/name/nm0850865/"> imdb.com </a> </font>
+</p>
+<div id="section" class="section level1 tabset">
+<h1 class="tabset"></h1>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p align="center">
+<p>“The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process.”<br><i>Daryl J. Bem, professor emeritus, Cornell University</i></p>
+</p>
+<p>In this practical, you will again analyze the data of Daryl Bem`s imfamous study on human <em>psi</em>-abilities to evaluate power and sample planning.</p>
+<p>By the end of this practical, you will know how to conduct and evaluate Bayesian t-tests and regressions.</p>
+</div>
+<div id="tasks" class="section level2">
+<h2>Tasks</h2>
+<div id="a---setup" class="section level3">
+<h3>A - Setup</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open the <code>NewStats</code> R project.</p></li>
+<li><p>Open a new R script. Add your name, date, and “Power analysis practical” as comments at the beginning of the script.</p></li>
+</ol>
+<pre class="r"><code>## NAME
+## DATE
+## Power analysis practical</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Save the new script as “power_analysis_practical.R” in the <code>2_code</code> folder.</p></li>
+<li><p>Load the necessary packages. See below.</p></li>
+</ol>
+<pre class="r"><code># Load packages
+library(tidyverse)
+library(BayesFactor)
+library(bayestestR)
+library(rstanarm)
+library(bridgesampling)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Use the <code>read_csv()</code> function to read in <code>psi_exp_1.csv</code>, the data of Bem’s first experiment.</li>
+</ol>
+<pre class="r"><code># Read in data
+psi &lt;- read_csv(file = &quot;1_data/psi_exp_1.csv&quot;)</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Print the data set and familiarize yourself with the columns included. You can also use <code>View()</code> or <code>str()</code>.</li>
+</ol>
+</div>
+<div id="b---bayesian-t-test" class="section level3">
+<h3>B - Bayesian t-test</h3>
+<ol style="list-style-type: decimal">
+<li>Let’s begin with the same example as in the previous practical, namely to test whether the average hit rate for <code>erotic</code> pictures is higher than 50. Use the <code>ttestBF()</code> function to test against <span class="math inline">\(H_0 = 50\)</span> by setting <code>mu = 50</code>. Then print the result. Make do you make of it?</li>
+</ol>
+<pre class="r"><code># Bayesian t-test
+bayes_ttest = ttestBF(psi$XX, mu = XX)
+
+# print result
+bayes_ttest</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The results show a Bayes factor of <span class="math inline">\(B_{10} = 2.18\)</span> for the <span class="math inline">\(H_1\)</span> against <span class="math inline">\(H_0\)</span>, which according to Jeffreys (1961) is “no worth more than a bare mention”. What does that imply for evidence in favor of the <span class="math inline">\(H_0\)</span>? Find out using the code below.</li>
+</ol>
+<pre class="r"><code># Evidence for 0
+1/bayes_ttest</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>The Bayes factor for <span class="math inline">\(H_0\)</span> against <span class="math inline">\(H_1\)</span> is <span class="math inline">\(B_{01} = 0.46\)</span>. Since this value is smaller than 1, we have confirmed that the data favors <span class="math inline">\(H_1\)</span> more than <span class="math inline">\(H_0\)</span>, albeit only by a small margin.</li>
+</ol>
+</div>
+<div id="c---bayesian-t-test-posterior-distributions" class="section level3">
+<h3>C - Bayesian t-test: Posterior distributions</h3>
+<ol style="list-style-type: decimal">
+<li>Another way to look at the t-Test is through the lense of the posterior distribution of the numerator model. Using the <code>posterior()</code> function you can generate samples of the posterior distribution. Run it and then print the object.</li>
+</ol>
+<pre class="r"><code># generate samples of posterior 
+chains &lt;- posterior(bayes_ttest, iterations = 5000)
+
+# print chains
+chains</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The two columns of interest are <code>mu</code> and <code>sig2</code>, the mean and variance of the <span class="math inline">\(H_1\)</span> model. Use <code>plot()</code> to inspect the chain and distribution of the posterior samples. See below. The plots labeled <code>trace</code> show you the sampling process from the posterior. When you solid black horizontal region then all good. The plots labeled <code>density</code> is what we are really interested in. They show our posterior distribution of the model parameters after integrating evidence from the data. Try to make sense of the two distributions, especially the one of <code>mu</code>.</li>
+</ol>
+<pre class="r"><code># show sample of posteriors
+plot(chains[,1:2])</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>The <code>mu</code> distribution shows our diversified belief in the location of the mean under <span class="math inline">\(H_1\)</span>. We see that most weight is given to values around 53, which is also where the empirical mean lies. Using this distribution, you can now conduct, depending on your school of Bayesian analysis, follow up analyses to further characterize the distribition. For instance, oftentimes people derive a highest density interval (HDI) or credible interval (CI), not to be confused with the frequentist confidence interval. Use the <code>hdi()</code> function from the <code>bayestestR</code> package to do so.</li>
+</ol>
+<pre class="r"><code># compute hdi of posterior
+hdi(chains[,1])</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Instead of assessing the posterior of the mean, we can use both the posterior of the mean and variance to calculate the posterior of the effect size. See below. Note that HDIs need not be symmetric like frequentist confidence intervals.</li>
+</ol>
+<pre class="r"><code># posterior of effect size
+d_post = (chains[,1] - 50) / sqrt(chains[,2])
+
+# compute hdi of posterior
+hdi(d_post)
+
+# plot distribution with hdi
+plot(density(d_post))
+abline(v = hdi(d_post)[1,3:4])</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Finally, you can use the posterior to derive a Bayesian maxmimum a-posteriori p-value, which compares the posterior density at the maximum of the posterior distribution to the density at the original <span class="math inline">\(H_0\)</span> value. In our case, this means comparing the density at a hit rate at about 53.3 to the density at 50. Use the <code>p_map()</code> function to compute the value. Try to make sense of the illustration.</li>
+</ol>
+<pre class="r"><code># determine the map p-value
+p_map(bayes_ttest)
+
+# illustrate map p-value
+dens = density(chains[,1])
+plot(dens)
+map_x = dens$x[which.max(dens$y)]
+abline(v = c(50, map_x))
+points(c(50, map_x), c(dens$y[which(round(dens$x,2) == 50)[1]], 
+                       dens$y[which.max(dens$y)]), pch=16)</code></pre>
+</div>
+<div id="d---bayesian-t-test-role-of-prior" class="section level3">
+<h3>D - Bayesian t-test: Role of prior</h3>
+<ol style="list-style-type: decimal">
+<li>The key prior distribution for the t-Test is the Cauchy distribution, which describes the uncertainty of the <code>mu</code> parameter or, to be precised, of the standardized difference between <code>mu</code>s (aka <em>d</em>). The default scaling parameter is <span class="math inline">\(r = \sqrt{2}/2\)</span>, but other values have been proposed, such as <span class="math inline">\(r = 1\)</span> or <span class="math inline">\(r = \sqrt{2}\)</span>. The plot in the chunk below illustrates these distributions. Run it and try to make sense of the distributions.</li>
+</ol>
+<pre class="r"><code># d range
+d &lt;- seq(-5, 5, .1)
+
+# priors
+plot(d, dcauchy(d, scale = sqrt(2)/2), type = &quot;l&quot;, lty = 1)
+lines(d, dcauchy(d, scale = 1), lty = 2)
+lines(d, dcauchy(d, scale = sqrt(2)), lty = 3)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Now rerun the t-test for each of the three prior distribitions. What do you observe.</li>
+</ol>
+<pre class="r"><code># t-Tests using all three priors
+ttestBF(hitrate_erotic, rscale = XX)
+ttestBF(hitrate_erotic, rscale = XX)
+ttestBF(hitrate_erotic, rscale = XX)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Using wider priors has diminished the evidence for the <span class="math inline">\(H_1\)</span> because the wider priors give more weight to extreme effects that are not consistent with the relatively small empirical difference. Many criticism of Bayesian statistics center on the fact that the prior influences the statistical inference. However, the effect of the prior easily washes out with larger sample sizes. Use the code below to replicate the data and then rerun the three tests using the replicated data. What do you observe?</li>
+</ol>
+<pre class="r"><code># replicate data
+hitrate_erotic_replicated = rep(hitrate_erotic, 2)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>There are still differences between the priors for the replicated, however, all tests show now clear evidence for <span class="math inline">\(H_1\)</span>. If you like, try out even higher numbers of replications of the data. You should see that all tests will converge as <code>N</code> goes to infinity.</li>
+</ol>
+</div>
+<div id="e---bayesian-regression" class="section level3">
+<h3>E - Bayesian regression</h3>
+<ol style="list-style-type: decimal">
+<li>In this final section, you will take a look at runnning regressions using the <code>rstanarm</code> package. You can also run regressions using <code>BayesFactor</code> or other popular packages such as <code>brms</code>, but fortunately the implementation across packages is quite analogue. Use the <code>stan_glm</code> function to run a regression predicting <code>erotic</code> using thr variables <code>gender</code> and <code>stimulus_seeking</code>. Specify the model as you would do it in a regular <code>glm()</code> regression.</li>
+</ol>
+<pre class="r"><code># Run regression
+bayes_reg &lt;- stan_glm(formula = XX ~ XX + XX, 
+                           data = XX)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Before taking a look at the results, have a look at the priors of the model. <code>rastanarm</code> offers with <code>prior_summary()</code> a neat summary function. Apply it on the fitted <code>bayes_reg</code> object and try to make sense of the output.</li>
+</ol>
+<pre class="r"><code># Show priors
+prior_summary(XX)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>The output includes several noteworthy elements. First, you can see that all effects (intercept and coefficients) are modeled using normal distributions. Second, the priors are adjusted to reflect the scale of the criterion and the predictors. You can confirm that the scale of the criterion is <span class="math inline">\(2.5 \cdot s_y\)</span>, whereas that of the predictors is <span class="math inline">\(2.5 \cdot s_y/s_x\)</span>. Third, the location of the intercept prior is not set to 0, but to the mean of the criterion, which is a consquence from centering the predictors (also see corresponding note).</p></li>
+<li><p>Ok, it’s time to take a look at the estimates. Simple print the <code>bayes_reg</code> object. What do you make of the output?</p></li>
+<li><p>The output shows you the medians and the mean absolute deviation of the posterior distributions. This highlights one great thing about having access to posteriors, you can choose whatever statistics you like to summarize it. Here, <code>rstanarm</code> expresses a preference for robust statistics. You can also use the standard <code>summary()</code> function to obtain some more information. Go ahead and try it out.</p></li>
+<li><p>The <code>summary()</code> shows confidence intervals, as well as some fit and MCMC diagnostics. The posterior predictive uses the posterior to make predictions of the criterion. Essentially it shows how well the criterion is recovered by the regression model. As you can see, the mean is recovered well, but the standard deviation is too small, which you can confirm using <code>sd(psi$erotic)</code>. The mcmc diagnostics tell you more about the quality if convergence of the mcmc chains. Poeple often consult <span class="math inline">\(\hat{R}\)</span> (<code>Rhat</code>), which compares the estimates of chains across multiple chains. A value of <span class="math inline">\(\hat{R}\)</span> means all is good.</p></li>
+<li><p>Let’s take a look at some posteriors. You can extract them from the the regression object using <code>as.matrix()</code>, which will return a matrix samples for each model parameter. These you can then visualize or plug into the <code>hdi()</code> function to obtain highest density intervals.</p></li>
+<li><p>Finally, <code>rstanarm</code> also provides<code>bayes_R2()</code>, a function to compute the posterior of <span class="math inline">\(R^2\)</span>. Try it out.</p></li>
+</ol>
+</div>
+<div id="x---bayesian-regression-model-comparison" class="section level3">
+<h3>X - Bayesian regression: Model comparison</h3>
+<ol style="list-style-type: decimal">
+<li><code>rstanarm</code> does not calculate marginal likelihoods for you. In order to obtain Bayes factors that evaluate the relative evidence for different hypotheses or models we must rely on other packages, such as the <code>bridgesampler</code> package. The code below shows you how you can compare two nested models with different predictors. Try it out. Is there more evidence for the model with or without <code>stimulus_seeking</code> included?</li>
+</ol>
+<pre class="r"><code># define model one
+mod_0 &lt;- stan_glm(formula = erotic ~ gender, data = psi,
+                   diagnostic_file = file.path(tempdir(), &quot;df.csv&quot;))
+
+# define model two
+mod_1 &lt;- stan_glm(formula = erotic ~ gender + stimulus_seeking, data = psi,
+                   diagnostic_file = file.path(tempdir(), &quot;df.csv&quot;))
+
+# obtain samples for model 0
+mod_0_samples &lt;- bridge_sampler(mod_0)
+
+# obtain samples for model 1
+mod_1_samples &lt;- bridge_sampler(mod_1)
+
+# determine Bayes factor
+bayes_factor(mod_1_samples, mod_0_samples)</code></pre>
+</div>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>time</code></td>
+<td align="left">Hour of day</td>
+</tr>
+<tr class="even">
+<td align="left"><code>gender</code></td>
+<td align="left">Gender of participant</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>age</code></td>
+<td align="left">Age of participant</td>
+</tr>
+<tr class="even">
+<td align="left"><code>presented_gender</code></td>
+<td align="left">Gender of person on presented picture</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>erotic</code></td>
+<td align="left">Hit rate on erortic pictures</td>
+</tr>
+<tr class="even">
+<td align="left"><code>control</code></td>
+<td align="left">Hit rate on control pictures</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>stimulus_seeking</code></td>
+<td align="left">Level of stimulus seeking of person.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p><a href="http://mc-stan.org/rstanarm/articles/rstanarm.html"><strong>rstanarm vignette</strong></a> <a href="https://richarddmorey.github.io/BayesFactor/"><strong>BayesFactor vignette</strong></a></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
