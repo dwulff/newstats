@@ -350,28 +350,18 @@ sample_size
 
 5. Play around with the `simulate_two_sample()` function. You can increase or decrease sample sizes or change the standard deviations. You can also introduce violations of assumptions. Since `var_equal = TRUE`, the t-Test assumes equal variances. So when the make the standard deviations different, the test will no longer match the underlying population model, resulting in changes to both $\alpha$ and $\beta$.  
 
-## Datasets
 
-|Datei | Zeilen | Spalten |
-|:----|:-----|:------|
-|[psi_exp1.csv](https://therbootcamp.github.io/SmR_2020Mai/1_Data/psi_exp1.csv) | 200 | 7 |
-|[psi_exp2.csv](https://therbootcamp.github.io/SmR_2020Mai/1_Data/psi_exp2.csv)  | 150 | 5 |
-
-Die Daten stammen von einer tatsächlichen (para-) psychologischen Studie, die die menschliche Fähigkeit in die Zukunft zu sehen überprüft hat (["Feel the future"](https://therbootcamp.github.io/SmR_2020Mai/_sessions/NewStats/literature/Bem_Psi_2011.pdf)). Die mittlerweile berüchtigte Studie wurde in einem etablierten Journal der Sozialpsychologie publiziert, was damit nicht unerheblich zu einer Bewegung der methodischen Revision in der Psychologie geführt hat. Die Dateien enthalten die Daten der ersten beiden Experimente. Das erste Experiment untersuchte ob Menschen besser als eine Zufallsrate von 50% vorhersagen können, hinter welchem von zwei Vorhängen ein Bild versteckt ist, insbesondere in dem Fall in dem sich ein erotisches Bild dahinter versteckt. Experiment zwei ist ein Replikationsversuch der erste Studie. Beide Studien haben auch das Konstrukt *Stimulus seeking* mituntersucht, was ähnlich zu Extraversion zu interpetieren ist, um zu untersuchen, ob Leute mit hohem *Stimulus seeking* vielleicht höhere *psi* Fähigkeiten aufweisen. 
-
-#### psi_exp1.csv & psi_exp2.csv
+## Data
 
 | Name | Description |
 |:-------------|:-------------------------------------|
-| `Geschlecht` | Das Geschlecht der Versuchsperson. |
-| `Alter` | Das Alter der Versuchsperson |
-| `Stimulus_seeking` | Der Grad des Stimululs seeking des Versuchsperson. |
-| `Uhrzeit` | Die Uhrzeit der Testung. |
-| `Bedingung` | Die Studienbedingung: "erotic" oder "control" für neutrale Bilder |
-| `Präsentiertes_geschlecht` | The gender on the presented photo: "Female" or "Male" (only psi1) |
-| `Anzahl_trials` | Die Anzahl korrekter Entscheidungen. |
-| `Trefferrate` | %-korrekte Entscheidungen (> 50% bedeutet *psi*). |
-
+| `time` | Hour of day |
+| `gender` | Gender of participant |
+| `age` | Age of participant |
+| `presented_gender` | Gender of person on presented picture |
+| `erotic` | Hit rate on erortic pictures |
+| `control` | Hit rate on control pictures |
+| `stimulus_seeking` | Level of stimulus seeking of person. |
 
 ## Resourcen
 
