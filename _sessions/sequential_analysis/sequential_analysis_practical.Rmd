@@ -350,6 +350,6 @@ mean(result_nonsequential[,"sample_size"])
 
 ## Resources
 
-[**Overview**](https://www.researchgate.net/profile/Stephen-Poon-5/post/Totally-Different-Alpha-values-for-the-same-questionnaire-from-different-Cities-sample-Should-i-use-data-with-low-Alpha-values-for-final-analysis/attachment/59d6488f79197b80779a33ae/AS%3A467386026467330%401488444920245/download/INTERIM+analysis.pdf) on the alpha sending function approach by DeMets and Lan (1994).
+[**Overview**](https://www.researchgate.net/profile/Stephen-Poon-5/post/Totally-Different-Alpha-values-for-the-same-questionnaire-from-different-Cities-sample-Should-i-use-data-with-low-Alpha-values-for-final-analysis/attachment/59d6488f79197b80779a33ae/AS%3A467386026467330%401488444920245/download/INTERIM+analysis.pdf) on the alpha sending function approach by DeMets and Lan (1994).<br>
 [**Tutorial**](https://psyarxiv.com/x4azm/download?format=pdf) on group sequential designs by Lakens and colleagus (2021) 
 
