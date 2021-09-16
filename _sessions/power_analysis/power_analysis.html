@@ -254,7 +254,7 @@ layout: true
 ---
 
 
-# What's p-value
+# What's a p-value
 
 &lt;br&gt;&lt;br&gt;
 
@@ -282,13 +282,13 @@ layout: true
   &lt;li class="m2"&gt;&lt;span&gt;"New" statistics.&lt;/span&gt;&lt;/li&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;span&gt;Focus location / magnitude of effect.&lt;/span&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;span&gt;Consider uncertainty.&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Consider and reduce uncertainty.&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/ul&gt;
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-`$$Confidence\,Interval\,(CI) = \bar{x} \pm t_{1-\alpha} \sigma_{\bar{x}}$$`
+`$$\large Confidence\,Interval\,(CI) = \bar{x} \pm t_{1-\alpha} \sigma_{\bar{x}}$$`
 
 ]
 
@@ -308,7 +308,9 @@ layout: true
 # Confidence interval
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Rearranged statistical tests.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Rearranged statistical tests specifying the probable range for repeat experiments.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;The new statistics advocates reporting of confidence intervals&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+
 &lt;/ul&gt;
 
 &lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:10px"&gt;
@@ -319,7 +321,7 @@ layout: true
     t-test
   &lt;/td&gt;
   &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px"&gt;
-    &lt;img src="image/form0.png" height=74px&gt;&lt;br&gt;
+    &lt;img src="image/form0.png" height=60px&gt;&lt;br&gt;
   &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -327,7 +329,7 @@ layout: true
     Step 1
   &lt;/td&gt;
   &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px"&gt;
-    &lt;img src="image/form1.png" height=34px&gt;&lt;br&gt;
+    &lt;img src="image/form1.png" height=28px&gt;&lt;br&gt;
   &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -335,7 +337,7 @@ layout: true
     Step2
   &lt;/td&gt;
   &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px;bgcolor:white"&gt;
-    &lt;img src="image/form2.png" height=34px&gt;&lt;br&gt;
+    &lt;img src="image/form2.png" height=28px&gt;&lt;br&gt;
   &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -343,8 +345,8 @@ layout: true
     CI
   &lt;/td&gt;
   &lt;td bgcolor="white" style="padding-top:15px;padding-bottom:15px"&gt;
-    &lt;img src="image/form3a.png" height=27px&gt;
-    &lt;img src="image/form3b.png" height=27px&gt;
+    &lt;img src="image/form3a.png" height=23px&gt;
+    &lt;img src="image/form3b.png" height=23px&gt;
   &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
@@ -369,11 +371,11 @@ layout: true
 .pull-left45[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Whether or not an effect is significant is irrelevant, if the effect is not of meaningful magnitude&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Quantifies the meaningfulness of a result (assuming it is true).&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m2"&gt;&lt;span&gt;There are several related effect size statistics depending on the test.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;&lt;high&gt;The new statistics advocates reporting of effect sizes&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;br&gt;
 
 &lt;table style="cellspacing:0; cellpadding:0; border:none; padding-top:10px"&gt;
   &lt;col width="50%"&gt;
@@ -419,14 +421,15 @@ layout: true
 ---
 
 
-# Power
+# Alternative hypothesis
 
 .pull-left4[
 
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;&lt;/high&gt;&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;An effect size can be used to specify an alternative hypothesis.&lt;/high&gt;&lt;/high&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Creates a decision theoretic scenario with correct decisions and errors.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;Enables sample size planning.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p align = "center"&gt;
@@ -451,9 +454,95 @@ layout: true
 .pull-left4[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Sample size planning can be used to control the magnitude of expected errors&lt;/high&gt;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;The new statistics advocates the use of sample size planning&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/power.png" height=420px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Sample size planning
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Sample size planning can be used to control the magnitude of expected errors&lt;/high&gt;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;The key mechanism behind sample size planning is the central limit theorem.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/t_test.png" width=260px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/power.png" height=420px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Sample size planning
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Sample size planning can be used to control the magnitude of expected errors&lt;/high&gt;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;The key mechanism behind sample size planning is the central limit theorem.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/t_test.png" width=260px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/power_large.png" height=420px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Sample size planning
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;There are two main approaches&lt;/span&gt;&lt;/li&gt;
+  &lt;ul class="level"&gt;
+    &lt;li&gt;&lt;span&gt;Fix alpha, optimize power.&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Compromise alpha and beta.&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;br&gt;
 
 &lt;p align = "center"&gt;
 &lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
@@ -469,6 +558,7 @@ layout: true
 
 ]
 
+
 ---
 
 # Sample size planning in R
@@ -476,13 +566,124 @@ layout: true
 .pull-left4[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;R has several packages for power analysis.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-bottom:30px"&gt;
+  &lt;col width="20%"&gt;
+  &lt;col width="60%"&gt;
+  &lt;col width="20%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Package&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Description&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Tutorial&lt;/b&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;pwr&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Closed form power analysis for basic statistical designs.
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+  &lt;a href="https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html"&gt;vignette&lt;/a&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;Superpower&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+   Simulation-based power calculation for factorial designs.
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+  &lt;a href="https://cran.r-project.org/web/packages/Superpower/vignettes/intro_to_superpower.html"&gt;vignette&lt;/a&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;simr&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+   Simulation-based power calculation for mixed models.
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+  &lt;a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6646942/"&gt;tutorial&lt;/a&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+]
+
+.pull-right5[
+
 &lt;p align = "center"&gt;
-&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png" height=340px&gt;&lt;/img&gt;
 &lt;/p&gt;
+
+]
+
+---
+
+# Sample size planning in R
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;&lt;mono&gt;pwr&lt;/mono&gt; faciliates power analysis of basic designs.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Specifying three of of the four key arguments returns the fourth.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-bottom:30px"&gt;
+  &lt;col width="35%"&gt;
+  &lt;col width="55%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Arguments&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Description&lt;/b&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;sig.level&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Alpha error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;power&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    1 - beta error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;d&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Cohen's d effect size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;N&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Sample size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 
 ]
 
@@ -490,70 +691,26 @@ layout: true
 
 
 ```r
-# Lade pwr Paket
+# load package
 library(pwr)
 
-# N für einen grossen Effekt im t-test
+# N for one sample t-test
 pwr.t.test(sig.level = .05, 
            power = .95, 
-           d = .2) # grosser Effekt
+           d = .2, 
+           alternative = "greater",
+           type = "one.sample") 
 ```
 
 ```
 ## 
-##      Two-sample t test power calculation 
+##      One-sample t test power calculation 
 ## 
-##               n = 650.7
+##               n = 271.9
 ##               d = 0.2
 ##       sig.level = 0.05
 ##           power = 0.95
-##     alternative = two.sided
-## 
-## NOTE: n is number in *each* group
-```
-
-]
----
-
-# Sample size planning in R
-
-.pull-left4[
-
-&lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p align = "center"&gt;
-&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
-&lt;/p&gt;
-
-]
-
-.pull-right5[
-
-
-```r
-# Lade pwr Paket
-library(pwr)
-
-# N für einen grossen Effekt im t-test
-pwr.t.test(sig.level = .05, 
-           power = .95, 
-           d = .8) # grosser Effekt
-```
-
-```
-## 
-##      Two-sample t test power calculation 
-## 
-##               n = 41.59
-##               d = 0.8
-##       sig.level = 0.05
-##           power = 0.95
-##     alternative = two.sided
-## 
-## NOTE: n is number in *each* group
+##     alternative = greater
 ```
 
 ]
@@ -565,13 +722,54 @@ pwr.t.test(sig.level = .05,
 .pull-left4[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Die Grösse der Stichprobe sollte die nötige &lt;high&gt;Trennschärfe für das Detektieren eines Effekts ermöglichen&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Grössere Stichproben &amp;rarr; &lt;high&gt;schmalere Stichprobenverteilungen&lt;/high&gt; &amp;rarr; höhere Trennschärfe.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;&lt;mono&gt;pwr&lt;/mono&gt; faciliates power analysis of basic designs.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Specifying three of of the four key arguments returns the fourth.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p align = "center"&gt;
-&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
-&lt;/p&gt;
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-bottom:30px"&gt;
+  &lt;col width="35%"&gt;
+  &lt;col width="55%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Arguments&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Description&lt;/b&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;sig.level&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Alpha error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;power&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    1 - beta error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;d&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Cohen's d effect size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;N&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Sample size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 
 ]
 
@@ -579,44 +777,85 @@ pwr.t.test(sig.level = .05,
 
 
 ```r
-# Lade pwr Paket
+# load package
 library(pwr)
 
-# N für einen grossen Effekt im t-test
+# N for one sample t-test
 pwr.t.test(sig.level = .05, 
            power = .95, 
-           d = .8) # grosser Effekt
+           d = .8, 
+           alternative = "greater",
+           type = "one.sample") 
 ```
 
 ```
 ## 
-##      Two-sample t test power calculation 
+##      One-sample t test power calculation 
 ## 
-##               n = 41.59
+##               n = 18.36
 ##               d = 0.8
 ##       sig.level = 0.05
 ##           power = 0.95
-##     alternative = two.sided
-## 
-## NOTE: n is number in *each* group
+##     alternative = greater
 ```
 
 ]
 
-
 ---
 
-# Stichprobenplanung in R
+# Sample size planning in R
 
 .pull-left4[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;In some cases, &lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;&lt;mono&gt;pwr&lt;/mono&gt; faciliates power analysis of basic designs.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Specifying three of of the four key arguments returns the fourth.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p align = "center"&gt;
-&lt;img src="image/error_table.png" width=285px&gt;&lt;br&gt;
-&lt;/p&gt;
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-bottom:30px"&gt;
+  &lt;col width="35%"&gt;
+  &lt;col width="55%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Arguments&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Description&lt;/b&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;sig.level&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Alpha error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;power&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    1 - beta error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;d&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Cohen's d effect size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;N&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Sample size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 
 ]
 
@@ -624,44 +863,121 @@ pwr.t.test(sig.level = .05,
 
 
 ```r
-# Lade pwr Paket
+# load package
 library(pwr)
 
-# N für einen grossen Effekt im t-test
+# N for one sample t-test
 pwr.t.test(sig.level = .05, 
            power = .95, 
-           d = .8) # grosser Effekt
+           d = .8, 
+           alternative = "two.sided",
+           type = "one.sample") 
 ```
 
 ```
 ## 
-##      Two-sample t test power calculation 
+##      One-sample t test power calculation 
 ## 
-##               n = 41.59
+##               n = 22.32
 ##               d = 0.8
 ##       sig.level = 0.05
 ##           power = 0.95
 ##     alternative = two.sided
-## 
-## NOTE: n is number in *each* group
 ```
 
 ]
 
 ---
 
-# Simulation packages
+# Sample size planning in R
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;&lt;mono&gt;pwr&lt;/mono&gt; faciliates power analysis of basic designs.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Specifying three of of the four key arguments returns the fourth.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table style="cellspacing:0; cellpadding:0; border:none; padding-bottom:30px"&gt;
+  &lt;col width="35%"&gt;
+  &lt;col width="55%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Arguments&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Description&lt;/b&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;sig.level&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Alpha error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;power&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    1 - beta error
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;d&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Cohen's d effect size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;N&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Sample size
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+]
+
+.pull-right5[
 
 
-Superpower 
+```r
+# load package
+library(pwr)
 
-simr
+# N for one sample t-test
+pwr.t.test(n = 100,
+           sig.level = .05, 
+           d = .8, 
+           alternative = "greater",
+           type = "one.sample") 
+```
+
+```
+## 
+##      One-sample t test power calculation 
+## 
+##               n = 100
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 1
+##     alternative = greater
+```
+
+]
 
 ---
 
 class: middle, center
 
-&lt;h1&gt;&lt;a href="https://therbootcamp.github.io/SmR_2021Apr/_sessions/NewStats/NewStats_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://dwulff.github.io/newstats/_sessions/NewStats/NewStats_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
