@@ -79,7 +79,7 @@ knitr::opts_chunk$set(dpi = 300, echo = FALSE, warning = FALSE, fig.align = 'cen
 
 .pull-left4[
 
-# Bem
+# Bem's psi abilities
 
 <ul>
   <li class="m1"><span>In 2011, Bem published his infamous psi-study, that played a significant role in the early days of the replication crisis.</span></li>
@@ -243,7 +243,7 @@ $$Pr(Data|H0) = Distribution$$
 
 <ul>
   <li class="m1"><span>p-value is used to determine the weirdness of the data given the H0 model.</span></li>
-  <li class="m2"><span>It is defined as the probability of obtaining this or more extreme result under H0.</span></li>
+  <li class="m2"><span>It is defined as the probability of obtaining this or more extreme results under H0.</span></li>
 </ul>
 ]
 
@@ -308,7 +308,7 @@ $$Pr(Data|H0) = Distribution$$
   </ul><br>
   <li class="m2"><span>"New" statistics.</span></li>
   <ul>
-    <li><span>Focus location / magnitude of effect.</span></li>
+    <li><span>Focus location / magnitude of effects.</span></li>
     <li><span>Consider and reduce uncertainty.</span></li>
   </ul>
 </ul>
@@ -409,15 +409,15 @@ $$\large Confidence\,Interval\,(CI) = \bar{x} \pm t_{1-\alpha} \sigma_{\bar{x}}$
   <col width="50%">
 <tr>
   <td bgcolor="white">
-    <b>Situation</b>
+    <b>Type</b>
   </td>
   <td bgcolor="white">
-    <b>Mass</b>
+    <b>Measure</b>
   </td>  
 </tr>
 <tr>
   <td bgcolor="white">
-    Mittelwertsvergleiche
+    Mean comparisons
   </td>
   <td bgcolor="white">
     Cohen's <i>d</i><br>Hedge's <i>g</i><br>&eta;<sup>2</sup><br>
@@ -425,7 +425,7 @@ $$\large Confidence\,Interval\,(CI) = \bar{x} \pm t_{1-\alpha} \sigma_{\bar{x}}$
 </tr>
 <tr>
   <td bgcolor="white">
-    Korrelation, Regression 
+    Correlation, regression 
   </td>
   <td bgcolor="white">
    <i>r</i><br>R<sup>2</sup><br>f<sup>2</sup>
@@ -485,7 +485,6 @@ $$\large Confidence\,Interval\,(CI) = \bar{x} \pm t_{1-\alpha} \sigma_{\bar{x}}$
   <li class="m2"><span><high>The new statistics advocates the use of sample size planning</high>.</span></li>
 </ul>
 
-<br><br>
 
 <p align = "center">
 <img src="image/error_table.png" width=285px><br>
@@ -651,7 +650,8 @@ $$\large Confidence\,Interval\,(CI) = \bar{x} \pm t_{1-\alpha} \sigma_{\bar{x}}$
 .pull-right5[
 
 <p align = "center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png" height=340px></img>
+<br><br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png" height=300px></img>
 </p>
 
 ]

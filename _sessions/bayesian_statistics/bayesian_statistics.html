@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Bayesian statistics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="New Statistics                    " />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="baselrbootcamp.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Bayesian statistics
+### New Statistics<br> <a href='https://therbootcamp.github.io'> </a> <br> <a href='https://dwulff.github.io/newstats/'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://www.dirkwulff.org/'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a>  <a href='https://www.linkedin.com/in/dirk-wulff-phd-723a7772/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a>
+### September 2021
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+  &lt;span style="text-align:center"&gt;
+    &lt;span&gt; 
+      &lt;img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/&gt;
+    &lt;/span&gt;
+    &lt;a href="https://www.dirkwulff.org/"&gt;
+      &lt;span style="padding-left:82px"&gt; 
+        &lt;font color="#7E7E7E"&gt;
+          dirkwulff.org
+        &lt;/font&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="https://therbootcamp.github.io/"&gt;
+      &lt;font color="#7E7E7E"&gt;
+      New Statistics | September 2021
+      &lt;/font&gt;
+    &lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+.pull-left35[
+
+# Bayesian statistics
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Introduces &lt;high&gt;priors&lt;/high&gt; so that potseriors can be derived from &lt;high&gt;Bayes theorem&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Advantages&lt;/span&gt;&lt;/li&gt;
+  &lt;ul class="level"&gt;
+    &lt;li&gt;&lt;span&gt;Key statistics of interest&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Making prior assumptions explicit&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Characterization of uncertainty&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Facilitates estimation&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Naturally accounts for model complexity&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+    
+&lt;/ul&gt;
+
+
+
+
+]
+
+.pull-right55[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p align = "center" style="padding-top:20px"&gt;
+&lt;img src="image/bayes_theorem.png"&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left35[
+
+# Bayesian statistics
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Introduces &lt;high&gt;priors&lt;/high&gt; so that potseriors can be derived from &lt;high&gt;Bayes theorem&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;Advantages&lt;/span&gt;&lt;/li&gt;
+  &lt;ul class="level"&gt;
+    &lt;li&gt;&lt;span&gt;Key statistics of interest&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Making prior assumptions explicit&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Characterization of uncertainty&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Facilitates estimation&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Naturally accounts for model complexity&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+    
+&lt;/ul&gt;
+
+
+]
+
+.pull-right55[
+
+&lt;br&gt;
+&lt;p align = "center"&gt;
+&lt;img src="image/bayes.png" height=520px&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a = href="https://xkcd.com/1132/"&gt;xkcd.com&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+.pull-left3[
+
+# Parameter priors
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Hypotheses in Bayesian statistics are usually sets of hypotheses, which are described by a prior distribution.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;The prior distribution on parameters is what enables us to characterize the uncertainty in our effect estimation.&lt;/span&gt;&lt;/li&gt;  
+&lt;/ul&gt;
+
+]
+
+.pull-right6[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/parprior.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+
+# Parameter posteriors
+
+.pull-left35[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Bayes theorem can be employed to derive posterior distributions for each parameter.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;The posterior distribution of parameters is what enables us to characterize the uncertainty in our effect estimation.&lt;/span&gt;&lt;/li&gt;  
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "left" &gt;
+  &lt;img src="image/parpost.png" style='margin-top:20px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Example t-test
+
+.pull-left35[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;In Bayesian analyses the t-test is often parameterized in terms of Cohen's &lt;i&gt;d&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;The prior on Cohen's &lt;i&gt;d&lt;/i&gt; is those cases a &lt;a href="https://en.wikipedia.org/wiki/Cauchy_distribution"&gt;Cauchy distribution&lt;/a&gt;.&lt;/span&gt;&lt;/li&gt;  
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+![](bayesian_statistics_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+
+]
+
+
+---
+
+# Evaluating the posterior
+
+.pull-left35[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Shows us how believable the possible values of a parameter are, after the data has been observed.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;Difference proposals exist to evaluate the distribtion.&lt;/span&gt;&lt;/li&gt;  
+  &lt;ul class="level"&gt;
+    &lt;li&gt;&lt;span&gt;&lt;high&gt;Bayesian maximum a posteriori p-value&lt;/high&gt;&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;Highest density / credibility interval&lt;/span&gt;&lt;/li&gt;  
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+![](bayesian_statistics_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+
+]
+
+
+---
+
+# Evaluating the posterior
+
+.pull-left35[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Shows us how believable the possible values of a parameter are, after the data has been observed.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;Difference proposals exist to evaluate the distribtion.&lt;/span&gt;&lt;/li&gt;  
+  &lt;ul class="level"&gt;
+    &lt;li&gt;&lt;span&gt;Bayesian maximum a posteriori p-value.&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;&lt;high&gt;Highest density / credibility interval&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;  
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+![](bayesian_statistics_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+]
+
+
+---
+
+# Sampling
+
+.pull-left4[
+
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;In most cases, the posterior distribution cannot be calculated, but must be sampled instead.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;One way to sample would be to draw values from the prior, but that would be very inefficient.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m3"&gt;&lt;span&gt;There exist many more efficient algorithms, such as Metropolis Hastings or Gibbs algorithms.&lt;/span&gt;&lt;/li&gt;  
+&lt;/ul&gt;
+
+&lt;p align = "center" &gt;
+  &lt;img src="image/parpost.png" height=170px style='margin-top:10px'&gt;
+&lt;/p&gt;
+
+]
+
+.pull-right5[
+
+![](bayesian_statistics_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+
+]
+
+
+---
+
+# Marginal likelihood
+
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The likelihood of the data not in light of a single parameter values (as in, e.g., maximum likelihood) but &lt;high&gt;in light of the full prior&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;Automatically accounts for the precision of the prior and, thus, model complexity.&lt;/span&gt;&lt;/li&gt; 
+  &lt;li class="m3"&gt;&lt;span&gt;Must typically be sampled.&lt;/span&gt;&lt;/li&gt; 
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "center" &gt;
+  &lt;img src="image/marginal.png" height=300px style='margin-top:10px'&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+# Bayes factor
+
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Generalization of the likelihood ratio.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;Quantifies evidence in favor of considered hypotheses.&lt;/span&gt;&lt;/li&gt; 
+  &lt;li class="m3"&gt;&lt;span&gt;Can show evidence for the NULL.&lt;/span&gt;&lt;/li&gt; 
+  &lt;li class="m4"&gt;&lt;span&gt;BF&lt;sub&gt;01&lt;/sub&gt; = 1/BF&lt;sub&gt;01&lt;/sub&gt;.&lt;/span&gt;&lt;/li&gt; 
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "center" &gt;
+  &lt;img src="image/bf.png" height=340px style='margin-top:10px'&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Evaluating Bayes factors
+
+
+
+.pull-left4[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Several systems for evaluating Bayes factors.&lt;/span&gt;&lt;/li&gt; 
+  &lt;li class="m2"&gt;&lt;span&gt;Obviously all are arbitrary to an extend.&lt;/span&gt;&lt;/li&gt; 
+
+&lt;/ul&gt;
+
+]
+
+.pull-right5[
+
+&lt;p align = "center" &gt;
+  &lt;img src="image/bf_eval.png" height=420px&gt;&lt;br&gt;
+  &lt;font style="font-size:12px"&gt;from Kass &amp; Raftery (1994)&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Bayesian statistics in R
+
+.pull-left45[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;There are several great R packages that &lt;high&gt;make Bayesian statistics easy&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+&lt;table align="center" style="cellspacing:0; cellpadding:0; border:none; padding-bottom:30px"&gt;
+  &lt;col width="25%"&gt;
+  &lt;col width="50%"&gt;
+  &lt;col width="25%"&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Package&lt;/b&gt;
+  &lt;/td&gt;  
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Description&lt;/b&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;b&gt;Tutorial&lt;/b&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;BayesFactor&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Standard statistical models; has focus on model comparison
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+  &lt;a href="https://cran.r-project.org/web/packages/BayesFactor/vignettes/manual.html"&gt;vignettes&lt;/a&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;rstanarm&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Most statistical models fitted via &lt;a href="https://mc-stan.org/"&gt;stan&lt;/a&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+  &lt;a href="https://mc-stan.org/rstanarm/"&gt;vignettes&lt;/a&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td bgcolor="white"&gt;
+    &lt;mono&gt;brms&lt;/mono&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+    Most statistical models via &lt;a href="https://mc-stan.org/"&gt;stan&lt;/a&gt;
+  &lt;/td&gt;
+  &lt;td bgcolor="white"&gt;
+  &lt;a href="https://mc-stan.org/rstanarm/"&gt;vignettes&lt;/a&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+]
+
+.pull-right45[
+
+&lt;p align = "center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png" height=300px&gt;&lt;/img&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+# Bayes factor
+
+.pull-left45[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The `BayesFactor` package is great for Bayes factor analyses of standard statistical hypothesis test.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+
+```r
+# load BayesFactor
+library(BayesFactor)
+
+# run one-sample t-test 
+psi_test &lt;- ttestBf(x = psi$erotic, 
+                    mu = 50)
+
+#print results
+psi_test
+```
+
+]
+
+.pull-right45[
+
+
+
+
+```
+## Bayes factor analysis
+## --------------
+## [1] Alt., r=0.707 : 2.184 ±0%
+## 
+## Against denominator:
+##   Null, mu = 50 
+## ---
+## Bayes factor type: BFoneSample, JZS
+```
+
+]
+
+---
+
+# Posterior
+
+.pull-left45[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The package relies on efficient shortcuts to the Bayes factor, that do not involve traditional samples from the poster.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+
+```r
+# load BayesFactor
+library(BayesFactor)
+
+# run one-sample t-test 
+psi_test &lt;- ttestBF(x = psi$erotic, 
+                    mu = 50)
+
+#extract chains
+chains &lt;- posterior(psi_test, 
+                    iterations = 1000)
+```
+
+]
+
+.pull-right45[
+
+
+
+
+```
+##          mu  sig2 delta       g
+##  [1,] 53.33 151.3 4.336  28.988
+##  [2,] 50.46 175.0 3.814   3.611
+##  [3,] 54.44 201.0 3.839   3.201
+##  [4,] 52.64 197.9 3.742   1.445
+##  [5,] 52.47 244.0 3.359   8.762
+##  [6,] 53.89 149.1 4.414  43.142
+##  [7,] 52.10 135.8 4.471   3.264
+##  [8,] 53.38 169.5 4.100   7.883
+##  [9,] 53.72 125.1 4.803   3.535
+## [10,] 54.27 189.5 3.942   7.731
+## [11,] 53.16 155.0 4.269   4.453
+## [12,] 54.22 155.7 4.345   4.705
+## [13,] 53.67 193.7 3.856   3.010
+## [14,] 52.89 153.6 4.268 211.816
+## [15,] 53.32 197.4 3.795  18.918
+## [16,] 53.33 177.5 4.003  17.559
+## [17,] 50.74 182.1 3.760   2.485
+## [18,] 52.82 157.6 4.207  72.806
+## [19,] 56.10 160.9 4.422  45.997
+## [20,] 54.59 174.0 4.138   9.089
+```
+
+]
+
+---
+
+# Posterior
+
+.pull-left45[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The package relies on efficient shortcuts to the Bayes factor, that do not involve traditional samples from the poster.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+
+```r
+# load BayesFactor
+library(BayesFactor)
+
+# run one-sample t-test 
+psi_test &lt;- ttestBF(x = psi$erotic, 
+                    mu = 50)
+
+#extract chains
+chains &lt;- posterior(psi_test, 
+                    iterations = 1000)
+
+# visualize
+plot(chains[,c("mu", "sig2")])
+```
+
+]
+
+.pull-right45[
+
+
+
+![](bayesian_statistics_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+]
+
+
+---
+
+# Posterior HDI
+
+.pull-left45[
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The `bayestestR` package helps with analyzing posterior distributions.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+
+```r
+# load BayesFactor
+library(BayesFactor)
+library(bayestestR)
+
+# run one-sample t-test 
+psi_test &lt;- ttestBF(x = psi$erotic, 
+                    mu = 50)
+
+#extract chains
+chains &lt;- posterior(psi_test, 
+                    iterations = 1000)
+
+# hdi of mu
+hdi(chains[,c("mu")])
+```
+
+]
+
+.pull-right45[
+
+
+
+![](bayesian_statistics_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+
+```
+## Highest Density Interval
+## 
+## Parameter |        95% HDI
+## --------------------------
+## var1      | [50.82, 55.67]
+```
+
+]
+
+
+---
+
+.pull-left45[
+
+# Regression
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Rival packages focusing on parameter estimation rather than model comparisons are `rstanarm` and `brms`.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+
+```r
+# load rstanarm
+library(rstanarm)
+
+# run multiple regression
+bayes_reg &lt;- stan_glm(
+  formula = erotic ~ gender + stimulus_seeking, 
+  data = psi)
+
+# show summary
+summary(bayes_reg)
+```
+
+]
+
+.pull-right45[
+
+&lt;br&gt;
+
+
+
+
+```
+## 
+## Model Info:
+##  function:     stan_glm
+##  family:       gaussian [identity]
+##  formula:      erotic ~ gender + stimulus_seeking
+##  algorithm:    sampling
+##  sample:       4000 (posterior sample size)
+##  priors:       see help('prior_summary')
+##  observations: 100
+##  predictors:   3
+## 
+## Estimates:
+##                    mean   sd   10%   50%
+## (Intercept)      43.1    5.3 36.6  43.1 
+## genderMale        2.6    2.5 -0.6   2.6 
+## stimulus_seeking  3.3    1.8  0.9   3.3 
+## sigma            12.4    0.9 11.3  12.4 
+##                    90%
+## (Intercept)      49.8 
+## genderMale        5.8 
+## stimulus_seeking  5.6 
+## sigma            13.6 
+## 
+## Fit Diagnostics:
+##            mean   sd   10%   50%   90%
+## mean_PPD 53.2    1.8 50.8  53.2  55.4
+```
+
+]
+
+
+
+---
+
+class: middle, center
+
+&lt;h1&gt;&lt;a href="https://dwulff.github.io/newstats/_sessions/bayesian_statistics/bayesian_staistics_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
