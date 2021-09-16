@@ -209,7 +209,7 @@ $$Pr(Data|H0) = Distribution$$
 .pull-right6[
 
 <p align = "left" >
-  <img src="image/mechanism_4.png" style='margin-top:20px'>
+  <img src="image/mechanism_35.png" style='margin-top:20px'>
 </p>
 
 ]
@@ -230,7 +230,7 @@ $$Pr(Data|H0) = Distribution$$
 .pull-right6[
 
 <p align = "left" >
-  <img src="image/mechanism_5.png" style='margin-top:20px'>
+  <img src="image/mechanism_55.png" style='margin-top:20px'>
 </p>
 
 ]
