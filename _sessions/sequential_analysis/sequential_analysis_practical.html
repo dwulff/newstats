@@ -189,9 +189,6 @@ pre code {
 <h1 class="tabset"></h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p align="center">
-<p>“The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process.”<br><i>Daryl J. Bem, professor emeritus, Cornell University</i></p>
-</p>
 <p>In this practical, you will explore the merits of sequential analysis with a chance, at the end, to help out Bem’s to design more effective study designs.</p>
 <p>By the end of this practical, you will know how to conduct sequential analysis using a basic example.</p>
 </div>
@@ -201,29 +198,23 @@ pre code {
 <h3>A - Setup</h3>
 <ol style="list-style-type: decimal">
 <li><p>Open the <code>NewStats</code> R project.</p></li>
-<li><p>Open a new R script. Add your name, date, and “Power analysis practical” as comments at the beginning of the script.</p></li>
+<li><p>Open a new R script. Add your name, date, and “Sequential analysis practical” as comments at the beginning of the script.</p></li>
 </ol>
 <pre class="r"><code>## NAME
 ## DATE
-## Power analysis practical</code></pre>
+## Sequential analysis practical</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Save the new script as “power_analysis_practical.R” in the <code>2_code</code> folder.</p></li>
 <li><p>Load the necessary packages. See below.</p></li>
 </ol>
 <pre class="r"><code># Load packages
 library(tidyverse)
-library(BayesFactor)
-library(bayestestR)
-library(rstanarm)
-library(bridgesampling)</code></pre>
+library(rpact)</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Use the <code>read_csv()</code> function to read in <code>psi_exp_1.csv</code>, the data of Bem’s first experiment.</li>
 </ol>
 <pre class="r"><code># Read in data
 psi &lt;- read_csv(file = &quot;1_data/psi_exp_1.csv&quot;)</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>Print the data set and familiarize yourself with the columns included. You can also use <code>View()</code> or <code>str()</code>.</li>
-</ol>
 </div>
 <div id="b---improper-sequential-analysis" class="section level3">
 <h3>B - Improper sequential analysis</h3>
@@ -281,7 +272,7 @@ result &lt;- simulate_sequential_onesample(alpha = alpha)
 # count significant p-values
 mean(result[,&quot;p_value&quot;] &lt; alpha)</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Each individual alpha needs to a lot smaller, if the overall alpha shall not exceed <code>.05</code>. Now keep the alpha at that level and introduce a small effect with <code>mu = .3</code>, which is equivalent to <code>d = .3</code>, and run the simulation twice. Once with <code>stops = 2:100</code> and the alpha value you have just determined, and once with <code>stops = 100</code> and <code>alpha = .05</code>, so that we can compare sequential and non-sequential analysis approaches. Then evaluate both the number of significant results and the number of samples taken.</li>
+<li>Each individual alpha needs to be a lot smaller, if the overall alpha shall not exceed <code>.05</code>. Now keep the alpha at that level and introduce a small effect with <code>mu = .3</code>, which is equivalent to <code>d = .3</code>, and run the simulation twice. Once with <code>stops = 2:100</code> and the alpha value you have just determined, and once with <code>stops = 100</code> and <code>alpha = .05</code>, so that we can compare sequential and non-sequential analysis approaches. Then evaluate both the number of significant results and the number of samples taken.</li>
 </ol>
 <pre class="r"><code># simulate sequential
 result_sequential &lt;- simulate_sequential_onesample(alpha = XX, 
@@ -316,7 +307,7 @@ mean(result_nonsequential[,&quot;p_value&quot;] &lt; .05)
 mean(result_sequential[,&quot;sample_size&quot;])
 mean(result_nonsequential[,&quot;sample_size&quot;])</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>The result is kind of mixed. The probability to detect the effect (aka power) is smaller, when using smaller, constant alpha levels in sequential analysis. However, in return we see that the still pretty sizable level power in the sequential analysis was achieved with only 70% of the samples. Numbers may vary depending on the level of <code>alpha</code>. So this kind of sequential analysis is neither really bad, nor a real improvement. What do you think how could we do better.</li>
+<li>The result is kind of mixed. The probability to detect the effect (aka power) is smaller, when using smaller, constant alpha levels in sequential analysis. However, in return, we see that the still pretty sizable level of power in the sequential analysis was achieved with only 70% of the samples. Numbers may vary depending on the level of <code>alpha</code>. So this kind of sequential analysis is neither really bad, nor a real improvement. What do you think how could we do better.</li>
 </ol>
 </div>
 <div id="c---proper-sequential-analysis" class="section level3">
@@ -394,7 +385,7 @@ mean(result_nonsequential[,&quot;signficant&quot;])
 mean(result_sequential[,&quot;sample_size&quot;])
 mean(result_nonsequential[,&quot;sample_size&quot;])</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Power is now pretty comparable, maybe still tad smaller, but certainly much higher than, when using a constant reduced alpha. however there is a substantial difference in the number of samples used to achieve this level of power. Specifically, the sequential approach still relies on average on only about 70% of the samples. Feel free to play around with the <code>getDesignGroupSequential()</code> function. For instance try out different methods to determine the alpha sequence using the <code>type</code> argument.</li>
+<li>Power is now pretty comparable, maybe still tad smaller, but certainly much higher than when using a constant reduced alpha. however there is a substantial difference in the number of samples used to achieve this level of power. Specifically, the sequential approach still relies on average on only about 70% of the samples. Feel free to play around with the <code>getDesignGroupSequential()</code> function. For instance try out different methods to determine the alpha sequence using the <code>type</code> argument.</li>
 </ol>
 </div>
 <div id="x---back-to-bem" class="section level3">

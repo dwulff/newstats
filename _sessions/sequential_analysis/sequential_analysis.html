@@ -49,39 +49,13 @@ layout: true
 
 
 
-.pull-left2[
-
-# &lt;i&gt;p&lt;/i&gt;-hacking
-
-&lt;high&gt;&lt;i&gt;“If you torture the data long enough, it will confess.”&lt;/i&gt;&lt;/high&gt;
-
-Ronald Coase
-
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-&lt;p align="right"&gt;&lt;font style="font-size:10px"&gt;from &lt;a href="https://fivethirtyeight.com/features/science-isnt-broken/#part1"&gt;fivethirtyeight.com&lt;/a&gt;&lt;/font&gt;
-&lt;/p&gt;
-
-
-]
-
-
-.pull-right75[
-&lt;br&gt;
-&lt;iframe src="https://projects.fivethirtyeight.com/p-hacking/index.html?initialWidth=1024&amp;amp;childId=phacking&amp;amp;parentTitle=Science%20Isn%E2%80%99t%20Broken%20%7C%20FiveThirtyEight&amp;amp;parentUrl=https%3A%2F%2Ffivethirtyeight.com%2Ffeatures%2Fscience-isnt-broken%2F" width="100%" scrolling="yes" marginheight="0" frameborder="0" height="550px"&gt;&lt;/iframe&gt;
-
-]
-
----
-
 .pull-left45[
 
-# &lt;i&gt;p&lt;/i&gt;-hacking
+# Optional stopping
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;&lt;i&gt;p&lt;/i&gt;-hacking bezeichnet des Missbrauch von Datenanalyse, um &lt;high&gt;Effekte zu zeigen wo es eigentlich keine gibt&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;Optionales Stoppen&lt;/high&gt;&lt;br&gt;&lt;br&gt;Stoppen der Datenanalyse sobald Signifikanz erreicht wurde.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;&lt;high&gt;HARKing&lt;/high&gt;&lt;br&gt;&lt;br&gt;Hypothesizing After the Data are Known. Geschieht wenn nicht-geplante Analysen als geplant dargestellt werden.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;To stop data collection after significance or some other threshold is reached is often considered a questionable research practice (QRP).&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;In a NHST approach, optional stopping results in an inflation of false positive decisions.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 ]
@@ -90,7 +64,7 @@ Ronald Coase
 .pull-right45[
 &lt;br&gt;
 &lt;p align = "center"&gt;
-&lt;img src="image/P-hacking.png" height=550px&gt;&lt;br&gt;
+&lt;img src="image/P-hacking_frequentist.png" height=550px&gt;&lt;br&gt;
 &lt;/p&gt;
 
 ]
@@ -98,9 +72,163 @@ Ronald Coase
 
 ---
 
+.pull-left45[
+
+# Bayesian optional stopping
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Bayesian statistics is less susceptible to optional stopping.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;The false positive rate will not be larger than the posterior probability used as the theshold. &lt;span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;Example implements BF10 &gt; 3 as the threshold, implying a false positive rate under optional stopping of at most .33.&lt;span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right45[
+
+&lt;br&gt;
+&lt;p align = "center"&gt;
+&lt;img src="image/P-hacking_bayes.png" height=550px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+.pull-left45[
+
+# Alpha reduction
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;One approach to dealing with the inflation of false positiv rates is to reduce each alpha sufficiently so the overall false positive rate is limited to alpha.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Constant alpha approaches come with a heavy price in power.&lt;/span&gt;&lt;/li&gt;  
+&lt;/ul&gt;
+
+]
+
+
+.pull-right45[
+&lt;br&gt;
+&lt;p align = "center"&gt;
+&lt;img src="image/const_alpha.png" height=550px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left45[
+
+# Alpha spending
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Alpha spending approaches attempt to distribute alpha in a way that the false positive rate is held constant, and power is optimized.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Several proposals exist, that achieve comparable power to non-sequential tests, but do so with fewer samples.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+$$\alpha_t = 4 - 4*\Phi\Bigg(\frac{\Phi^{-1}(1-\frac{\alpha}{4})}{\sqrt{t}}\Bigg) $$
+
+]
+
+
+.pull-right45[
+&lt;br&gt;
+&lt;p align = "center"&gt;
+&lt;img src="image/spend_alpha.png" height=550px&gt;&lt;br&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+.pull-left25[
+
+# Sequential analysis in R
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;The &lt;mono&gt;rpact&lt;/mono&gt; package gives access to all sorts of methods to determine appropriate alpha levels.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+```r
+# determine appropriate 
+# sequential analysis 
+getDesignGroupSequential(
+  alpha = .05, 
+  informationRates = 
+    seq(.1, 1, .1), 
+  sided = 2)
+```
+]
+
+
+.pull-right7[
+&lt;br&gt;&lt;br&gt;
+
+```
+## Design parameters and output of group sequential design:
+## 
+## User defined parameters:
+##   Information rates                            : 0.100, 0.200, 0.300, 0.400, 0.500, 0.600, 0.700, 0.800, 0.900, 1.000 
+##   Significance level                           : 0.0500 
+##   Test                                         : two-sided 
+## 
+## Derived from user defined parameters:
+##   Maximum number of stages                     : 10 
+##   Stages                                       : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
+## 
+## Default parameters:
+##   Type of design                               : O'Brien &amp; Fleming 
+##   Type II error rate                           : 0.2000 
+##   Two-sided power                              : FALSE 
+##   Tolerance                                    : 1e-08 
+## 
+## Output:
+##   Cumulative alpha spending                    : 0.0000, 3.078e-06, 0.0001405, 0.001021, 0.00352, 0.008263, 0.01546, 0.02501, 0.03664, 0.0500 
+##   Critical values                              : 6.598, 4.666, 3.809, 3.299, 2.951, 2.694, 2.494, 2.333, 2.199, 2.087 
+##   Stage levels (one-sided)                     : 0.0000, 1.539e-06, 6.965e-05, 0.0004851, 0.001585, 0.003534, 0.006318, 0.00983, 0.01393, 0.01847
+```
+]
+
+---
+
+.pull-left25[
+
+# Sequential analysis in R
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;The &lt;mono&gt;rpact&lt;/mono&gt; package gives access to all sorts of methods to determine appropriate alpha levels.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+```r
+# determine appropriate 
+# sequential analysis 
+getDesignGroupSequential(
+  alpha = .05, 
+  informationRates = 
+    seq(.1, 1, .1), 
+  sided = 2) %&gt;% 
+  plot()
+```
+]
+
+
+.pull-right7[
+&lt;br&gt;&lt;br&gt;
+&lt;img src="sequential_analysis_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
 class: middle, center
 
-&lt;h1&gt;&lt;a href="https://therbootcamp.github.io/SmR_2021Apr/_sessions/NewStats/NewStats_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://dwulff.github.io/newstats/_sessions/sequential_analysis/sequential_analysis_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -11,7 +11,7 @@
 
 
 
-<title>Bayesian analysis</title>
+<title>Bayesian statistics</title>
 
 <script src="bayesian_statistics_practical_files/header-attrs-2.10/header-attrs.js"></script>
 <script src="bayesian_statistics_practical_files/jquery-1.11.3/jquery.min.js"></script>
@@ -164,7 +164,7 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Bayesian analysis</h1>
+<h1 class="title toc-ignore">Bayesian statistics</h1>
 <h4 class="author"><table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0'>
 <col width='10%'>
 <col width='10%'>
@@ -189,9 +189,6 @@ pre code {
 <h1 class="tabset"></h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p align="center">
-<p>“The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process.”<br><i>Daryl J. Bem, professor emeritus, Cornell University</i></p>
-</p>
 <p>In this practical, you will again analyze the data of Daryl Bem`s imfamous study on human <em>psi</em>-abilities to evaluate power and sample planning.</p>
 <p>By the end of this practical, you will know how to conduct and evaluate Bayesian t-tests and regressions.</p>
 </div>
@@ -201,11 +198,11 @@ pre code {
 <h3>A - Setup</h3>
 <ol style="list-style-type: decimal">
 <li><p>Open the <code>NewStats</code> R project.</p></li>
-<li><p>Open a new R script. Add your name, date, and “Power analysis practical” as comments at the beginning of the script.</p></li>
+<li><p>Open a new R script. Add your name, date, and “Bayesian statistics practical” as comments at the beginning of the script.</p></li>
 </ol>
 <pre class="r"><code>## NAME
 ## DATE
-## Power analysis practical</code></pre>
+## Bayesian statistics practical</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Save the new script as “power_analysis_practical.R” in the <code>2_code</code> folder.</p></li>
 <li><p>Load the necessary packages. See below.</p></li>
@@ -228,7 +225,7 @@ psi &lt;- read_csv(file = &quot;1_data/psi_exp_1.csv&quot;)</code></pre>
 <div id="b---bayesian-t-test" class="section level3">
 <h3>B - Bayesian t-test</h3>
 <ol style="list-style-type: decimal">
-<li>Let’s begin with the same example as in the previous practical, namely to test whether the average hit rate for <code>erotic</code> pictures is higher than 50. Use the <code>ttestBF()</code> function to test against <span class="math inline">\(H_0 = 50\)</span> by setting <code>mu = 50</code>. Then print the result. Make do you make of it?</li>
+<li>Let’s begin with the same example as in the previous practical, namely to test whether the average hit rate for <code>erotic</code> pictures is higher than 50. Use the <code>ttestBF()</code> function to test against <span class="math inline">\(H_0 = 50\)</span> by setting <code>mu = 50</code>. Then print the result. What do you make of it?</li>
 </ol>
 <pre class="r"><code># Bayesian t-test
 bayes_ttest = ttestBF(psi$XX, mu = XX)
@@ -255,7 +252,7 @@ chains &lt;- posterior(bayes_ttest, iterations = 5000)
 # print chains
 chains</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>The two columns of interest are <code>mu</code> and <code>sig2</code>, the mean and variance of the <span class="math inline">\(H_1\)</span> model. Use <code>plot()</code> to inspect the chain and distribution of the posterior samples. See below. The plots labeled <code>trace</code> show you the sampling process from the posterior. When you solid black horizontal region then all good. The plots labeled <code>density</code> is what we are really interested in. They show our posterior distribution of the model parameters after integrating evidence from the data. Try to make sense of the two distributions, especially the one of <code>mu</code>.</li>
+<li>The two columns of interest are <code>mu</code> and <code>sig2</code>, the mean and variance of the <span class="math inline">\(H_1\)</span> model. Use <code>plot()</code> to inspect the chain and distribution of the posterior samples. See below. The plots labeled <code>trace</code> show you the sampling process from the posterior. When you a solid black horizontal region then all good. The plots labeled <code>density</code> is what we are really interested in. They show our posterior distribution of the model parameters after integrating evidence from the data. Try to make sense of the two distributions, especially the one of <code>mu</code>.</li>
 </ol>
 <pre class="r"><code># show sample of posteriors
 plot(chains[,1:2])</code></pre>
@@ -293,7 +290,7 @@ points(c(50, map_x), c(dens$y[which(round(dens$x,2) == 50)[1]],
 <div id="d---bayesian-t-test-role-of-prior" class="section level3">
 <h3>D - Bayesian t-test: Role of prior</h3>
 <ol style="list-style-type: decimal">
-<li>The key prior distribution for the t-Test is the Cauchy distribution, which describes the uncertainty of the <code>mu</code> parameter or, to be precised, of the standardized difference between <code>mu</code>s (aka <em>d</em>). The default scaling parameter is <span class="math inline">\(r = \sqrt{2}/2\)</span>, but other values have been proposed, such as <span class="math inline">\(r = 1\)</span> or <span class="math inline">\(r = \sqrt{2}\)</span>. The plot in the chunk below illustrates these distributions. Run it and try to make sense of the distributions.</li>
+<li>The key prior distribution for the t-Test is the Cauchy distribution, which describes the uncertainty of the <code>mu</code> parameter or, to be precise, of the standardized difference between <code>mu</code>s (aka <em>d</em>). The default scaling parameter is <span class="math inline">\(r = \sqrt{2}/2\)</span>, but other values have been proposed, such as <span class="math inline">\(r = 1\)</span> or <span class="math inline">\(r = \sqrt{2}\)</span>. The plot in the chunk below illustrates these distributions. Run it and try to make sense of the distributions.</li>
 </ol>
 <pre class="r"><code># d range
 d &lt;- seq(-5, 5, .1)
@@ -310,7 +307,7 @@ ttestBF(hitrate_erotic, rscale = XX)
 ttestBF(hitrate_erotic, rscale = XX)
 ttestBF(hitrate_erotic, rscale = XX)</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Using wider priors has diminished the evidence for the <span class="math inline">\(H_1\)</span> because the wider priors give more weight to extreme effects that are not consistent with the relatively small empirical difference. Many criticism of Bayesian statistics center on the fact that the prior influences the statistical inference. However, the effect of the prior easily washes out with larger sample sizes. Use the code below to replicate the data and then rerun the three tests using the replicated data. What do you observe?</li>
+<li>Using wider priors has diminished the evidence for the <span class="math inline">\(H_1\)</span> because the wider priors give more weight to extreme effects that are not consistent with the relatively small empirical difference. Many critiques of Bayesian statistics center on the fact that the prior influences the statistical inference. However, the effect of the prior easily washes out with larger sample sizes. Use the code below to replicate the data and then rerun the three tests using the replicated data. What do you observe?</li>
 </ol>
 <pre class="r"><code># replicate data
 hitrate_erotic_replicated = rep(hitrate_erotic, 2)</code></pre>

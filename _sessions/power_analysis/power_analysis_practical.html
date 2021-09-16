@@ -246,9 +246,9 @@ sample_size &lt;- pwr.t.test(d = XX,
                           type = &quot;one.sample&quot;)
 sample_size</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li><p>According to the power analysis, a sample of 175 individuals would have been necessary. Visualize this result using the <code>plot.power.htest()</code> function. You can simply apply on the <code>sample_size</code> object.</p></li>
+<li><p>According to the power analysis, a sample of 175 individuals would have been necessary. Visualize this result using the <code>plot.power.htest()</code> function. You can simply apply it on the <code>sample_size</code> object.</p></li>
 <li><p>Using the plot you can also evaluate the power that Bem’s original test had. There were 100 participants in his first study. Look for the corresponding point on the x-axis of your plot and then move up to identify the power.</p></li>
-<li><p>To determine the power of a completed study based on the empirical effect size is called a post-hoc power analysis. The <code>pwr.t.test</code> also allows you to carry such analyses. Simply specify <code>n</code> rather than power. Try it out and determine the exact post-hoc power value for Bem’s empirical effect size.</p></li>
+<li><p>To determine the power of a completed study based on the empirical effect size is called a post-hoc power analysis. The <code>pwr.t.test</code> also allows you to carry out such analyses. Simply specify <code>n</code> rather than power. Try it out and determine the exact post-hoc power value for Bem’s empirical effect size.</p></li>
 </ol>
 <pre class="r"><code># Bem&#39;s post-hoc power
 power &lt;- pwr.t.test(n = XX, 
@@ -258,7 +258,7 @@ power &lt;- pwr.t.test(n = XX,
                     type = &quot;one.sample&quot;)
 power</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Note that post-hoc power analysis shouldn’t be confused with a proper power analysis. Power analysis really only makes sense a priori. Besides post-hoc power analysis ignores the fact that the empirical effect size is an potentially unreliable estimate. Nevertheless it can sometimes be illustrative to consider what power level was present for a given effect size in a completed study. For instance, Bem might have reasoned prior to conducting any studies that the effect of <em>psi</em>-abilities is likely very small, possibly not larger than <code>d = .1</code>. Evaluate for Bem how power his design had to detect effects of that magnitude.</li>
+<li>Note that post-hoc power analysis shouldn’t be confused with a proper power analysis. Power analysis really only makes sense a priori. Besides post-hoc power analysis ignores the fact that the empirical effect size is a potentially unreliable estimate. Nevertheless it can sometimes be illustrative to consider what power level was present for a given effect size in a completed study. For instance, Bem might have reasoned prior to conducting any studies that the effect of <em>psi</em>-abilities is likely very small, possibly not larger than <code>d = .1</code>. Evaluate for Bem what power his design had to detect effects of that magnitude.</li>
 </ol>
 <pre class="r"><code># Bem&#39;s post-hoc power for very small effects
 power &lt;- pwr.t.test(n = XX, 
@@ -268,7 +268,7 @@ power &lt;- pwr.t.test(n = XX,
                     type = &quot;one.sample&quot;)
 power</code></pre>
 <ol start="7" style="list-style-type: decimal">
-<li>For very small effects Bem’s study only had a power of <code>25.7</code>%. So, given that Bem couldn’t know that his effect would be as large as <code>d = .25</code>, should probably have conducted a larger study? How large should his sample have been to detect effects of size <code>d = .1</code> with power <code>.95</code>.</li>
+<li>For very small effects Bem’s study only had a power of <code>25.7</code>%. So, given that Bem couldn’t know that his effect would be as large as <code>d = .25</code>, he should probably have conducted a larger study? How large should his sample have been to detect effects of size <code>d = .1</code> with power <code>.95</code>.</li>
 </ol>
 <pre><code>
      One-sample t test power calculation 
@@ -297,15 +297,15 @@ power</code></pre>
 <h3>C - Power analysis: Alternative analyses</h3>
 <ol style="list-style-type: decimal">
 <li><p>It is important to note that power calculations depend on the hypothesis and corresponding analysis. To see this, let’s suppose that Bem actually didn’t know whether <code>erotic</code> images would increase or decrease predictive accuracy, implying an undirected statistical test. Determine the sample size needed for a small effect of <code>d = .1</code> in either direction (i.e., <code>alternative = two.sided</code>), assuming <span class="math inline">\(\alpha = .05\)</span> and <span class="math inline">\(\beta = .05\)</span>.</p></li>
-<li><p>For a two-sided test, roughly an additional 300 participants are required to obtain the same level of power. The increase is caused by <span class="math inline">\(\alpha\)</span> being split in half so that there are rejection areas corresponding to <span class="math inline">\(\alpha/2\)</span> in either directions. Hence, determining sample sizes for two-sided tests is equivlent to testing one-sided with <span class="math inline">\(\alpha/2\)</span>. Confirm this by setting <code>type</code> back to <code>"greater"</code> and by using <span class="math inline">\(\alpha = .025\)</span>.</p></li>
-<li><p>Now let’s assume actually wanted to test whether there is a difference in the hit rate for <code>erotic</code> between men and women. Let’s assume the the expected effect size is again <code>d = .1</code>, what is the sample needed for <span class="math inline">\(alpha = .05\)</span> and <span class="math inline">\(power = .95\)</span>. To reflect the difference in design set <code>type = "two.sample"</code> in the <code>pwr.t.test()</code> function.</p></li>
+<li><p>For a two-sided test, roughly an additional 300 participants are required to obtain the same level of power. The increase is caused by <span class="math inline">\(\alpha\)</span> being split in half so that there are rejection areas corresponding to <span class="math inline">\(\alpha/2\)</span> in either directions. Hence, determining sample sizes for two-sided tests is equivalent to testing one-sided with <span class="math inline">\(\alpha/2\)</span>. Confirm this by setting <code>type</code> back to <code>"greater"</code> and by using <span class="math inline">\(\alpha = .025\)</span>.</p></li>
+<li><p>Now let’s assume, Bem actually wanted to test whether there is a difference in the hit rate for <code>erotic</code> between men and women. Let’s assume the the expected effect size is again <code>d = .1</code>, what is the sample needed for <span class="math inline">\(alpha = .05\)</span> and <span class="math inline">\(power = .95\)</span>. To reflect the difference in design set <code>type = "two.sample"</code> in the <code>pwr.t.test()</code> function.</p></li>
 <li><p>For the two-sample test a sample of about twice the size of the sample required for the one sample test would have been necessary. Why do you think is that the case?</p></li>
 </ol>
 </div>
 <div id="d---power-analysis-simulation" class="section level3">
 <h3>D - Power analysis: Simulation</h3>
 <ol style="list-style-type: decimal">
-<li>There situations where it is not straightforward to determine power. This can be because the appropriate effect sizes are not intuitive, the design is complex with imbalanced sampling of cells, one expects violations of assumptiosn, or, for instance, when using mixed models. In those cases, one must rely on simulations to determine power. Such simulations specify a plausible population model and then observe, how often a test is able to detect a true effect. The function below does this for a two sample t-test. Per default, it assumes normal distributions with mean 0 (<code>mus</code>) and standard deviation 1 (<code>sigmas</code>) and samples sizes of 100 (<code>ns</code>). Using these settings, the function than takes repeated random samples and stores the p-value associated with a two-sample t-test. It returns a vector containing the p-value for each repeat. Run the function definition in the console, so that you can use the function in the next task.</li>
+<li>There are situations where it is not straightforward to determine power. This can be because the appropriate effect sizes are not intuitive, the design is complex with imbalanced sampling of cells, one expects violations of assumptiosn, or, for instance, when using mixed models. In those cases, one must rely on simulations to determine power. Such simulations specify a plausible population model and then observe, how often a test is able to detect a true effect. The function below does this for a two sample t-test. Per default, it assumes normal distributions with mean 0 (<code>mus</code>) and standard deviation 1 (<code>sigmas</code>) and samples sizes of 100 (<code>ns</code>). Using these settings, the function than takes repeated random samples and stores the p-value associated with a two-sample t-test. It returns a vector containing the p-value for each repeat. Run the function definition in the console, so that you can use the function in the next task.</li>
 </ol>
 <pre class="r"><code># define t-test simulation function
 simulate_two_sample &lt;- function(ns = c(100, 100), 
@@ -408,7 +408,7 @@ sample_size</code></pre>
 </div>
 <div id="resourcen" class="section level2">
 <h2>Resourcen</h2>
-<p><a href="https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html"><strong>pwr vignette</strong></a></p>
+<p><a href="https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html"><strong>pwr vignette</strong></a> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6646942/"><strong>simr tutorial</strong></a> by Brysbaert &amp; Stevens (2018)</p>
 </div>
 </div>
 

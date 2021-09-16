@@ -89,7 +89,7 @@ Everything available at
 # Goal
 
 
->###The goal of this course is to introduce you to the background and implementation in R of statistical approaches beyond basic NHST that can help address the replication crisis. 
+>###The goal of this course is to introduce you to the background and implementation in R of statistical approaches beyond basic null hypothesis significance testing (NHST) that can help address the replication crisis. 
 
 ]
 
@@ -113,7 +113,8 @@ Everything available at
 </ul>
 
 <br><br>
-Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Ioannidis2005.pdf), [**Economics**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Camerer2016.pdf), [**Marketing**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Hunter2001.pdf), [**Social sciences**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Camerer2018.pdf). 
+See comparable studies<br>
+[**Medicine**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Ioannidis2005.pdf), [**Economics**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Camerer2016.pdf), [**Marketing**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Hunter2001.pdf), [**Social sciences**](https://therbootcamp.github.io/SwR_2019Apr/_sessions/NewStats/literature/Camerer2018.pdf). 
 
 ]
 

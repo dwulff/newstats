@@ -75,39 +75,13 @@ knitr::opts_chunk$set(dpi = 300, echo = FALSE, warning = FALSE, fig.align = 'cen
 ```
 
 
-.pull-left2[
-
-# <i>p</i>-hacking
-
-<high><i>“If you torture the data long enough, it will confess.”</i></high>
-
-Ronald Coase
-
-<br><br><br><br><br><br><br><br><br><br><br><br>
-
-<p align="right"><font style="font-size:10px">from <a href="https://fivethirtyeight.com/features/science-isnt-broken/#part1">fivethirtyeight.com</a></font>
-</p>
-
-
-]
-
-
-.pull-right75[
-<br>
-<iframe src="https://projects.fivethirtyeight.com/p-hacking/index.html?initialWidth=1024&amp;childId=phacking&amp;parentTitle=Science%20Isn%E2%80%99t%20Broken%20%7C%20FiveThirtyEight&amp;parentUrl=https%3A%2F%2Ffivethirtyeight.com%2Ffeatures%2Fscience-isnt-broken%2F" width="100%" scrolling="yes" marginheight="0" frameborder="0" height="550px"></iframe>
-
-]
-
----
-
 .pull-left45[
 
-# <i>p</i>-hacking
+# Optional stopping
 
 <ul>
-  <li class="m1"><span><i>p</i>-hacking bezeichnet des Missbrauch von Datenanalyse, um <high>Effekte zu zeigen wo es eigentlich keine gibt</high>.</span></li><br>
-  <li class="m2"><span><high>Optionales Stoppen</high><br><br>Stoppen der Datenanalyse sobald Signifikanz erreicht wurde.</span></li><br>
-  <li class="m3"><span><high>HARKing</high><br><br>Hypothesizing After the Data are Known. Geschieht wenn nicht-geplante Analysen als geplant dargestellt werden.</span></li>
+  <li class="m1"><span>To stop data collection after significance or some other threshold is reached is often considered a questionable research practice (QRP).</span></li><br>
+  <li class="m2"><span>In a NHST approach, optional stopping results in an inflation of false positive decisions.</span></li>
 </ul>
 
 ]
@@ -116,7 +90,7 @@ Ronald Coase
 .pull-right45[
 <br>
 <p align = "center">
-<img src="image/P-hacking.png" height=550px><br>
+<img src="image/P-hacking_frequentist.png" height=550px><br>
 </p>
 
 ]
@@ -124,7 +98,150 @@ Ronald Coase
 
 ---
 
+.pull-left45[
+
+# Bayesian optional stopping
+
+<ul>
+  <li class="m1"><span>Bayesian statistics is less susceptible to optional stopping.</span></li><br>
+  <li class="m2"><span>The false positive rate will not be larger than the posterior probability used as the theshold. <span></li>
+  <li class="m3"><span>Example implements BF10 > 3 as the threshold, implying a false positive rate under optional stopping of at most .33.<span></li>
+</ul>
+
+]
+
+
+.pull-right45[
+
+<br>
+<p align = "center">
+<img src="image/P-hacking_bayes.png" height=550px><br>
+</p>
+
+]
+
+
+---
+
+.pull-left45[
+
+# Alpha reduction
+
+<ul>
+  <li class="m1"><span>One approach to dealing with the inflation of false positiv rates is to reduce each alpha sufficiently so the overall false positive rate is limited to alpha.</span></li>
+  <li class="m2"><span>Constant alpha approaches come with a heavy price in power.</span></li>  
+</ul>
+
+]
+
+
+.pull-right45[
+<br>
+<p align = "center">
+<img src="image/const_alpha.png" height=550px><br>
+</p>
+
+]
+
+---
+
+.pull-left45[
+
+# Alpha spending
+
+<ul>
+  <li class="m1"><span>Alpha spending approaches attempt to distribute alpha in a way that the false positive rate is held constant, and power is optimized.</span></li>
+  <li class="m2"><span>Several proposals exist, that achieve comparable power to non-sequential tests, but do so with fewer samples.</span></li>
+</ul>
+
+<br><br>
+
+$$\alpha_t = 4 - 4*\Phi\Bigg(\frac{\Phi^{-1}(1-\frac{\alpha}{4})}{\sqrt{t}}\Bigg) $$
+
+]
+
+
+.pull-right45[
+<br>
+<p align = "center">
+<img src="image/spend_alpha.png" height=550px><br>
+</p>
+
+]
+
+
+---
+
+.pull-left25[
+
+# Sequential analysis in R
+
+<ul>
+  <li class="m1">The <mono>rpact</mono> package gives access to all sorts of methods to determine appropriate alpha levels.</span></li>
+</ul>
+
+```{r, eval = FALSE, echo=TRUE}
+# determine appropriate 
+# sequential analysis 
+getDesignGroupSequential(
+  alpha = .05, 
+  informationRates = 
+    seq(.1, 1, .1), 
+  sided = 2)
+
+```
+]
+
+
+.pull-right7[
+<br><br>
+```{r, echo  = FALSE}
+getDesignGroupSequential(
+  alpha = .05, 
+  informationRates = 
+    seq(.1, 1, .1), 
+  sided = 2)
+```
+]
+
+---
+
+.pull-left25[
+
+# Sequential analysis in R
+
+<ul>
+  <li class="m1">The <mono>rpact</mono> package gives access to all sorts of methods to determine appropriate alpha levels.</span></li>
+</ul>
+
+```{r, eval = FALSE, echo=TRUE}
+# determine appropriate 
+# sequential analysis 
+getDesignGroupSequential(
+  alpha = .05, 
+  informationRates = 
+    seq(.1, 1, .1), 
+  sided = 2) %>% 
+  plot()
+
+```
+]
+
+
+.pull-right7[
+<br><br>
+```{r, echo  = FALSE, fig.asp=.7}
+getDesignGroupSequential(
+  alpha = .05, 
+  informationRates = 
+    seq(.1, 1, .1), 
+  sided = 2) %>% plot()
+```
+]
+
+---
+
 class: middle, center
 
-<h1><a href="https://therbootcamp.github.io/SmR_2021Apr/_sessions/NewStats/NewStats_practical.html">Practical</a></h1>
+<h1><a href="https://dwulff.github.io/newstats/_sessions/sequential_analysis/sequential_analysis_practical.html">Practical</a></h1>
 

@@ -151,6 +151,9 @@ print2 <- function(x, nlines=10,...) {
   <li class="m2"><span>The prior distribution on parameters is what enables us to characterize the uncertainty in our effect estimation.</span></li>  
 </ul>
 
+<br><br><br><br>
+
+<font style="font-size:12px">*There are also frequentist hierchical models.</font>
 ]
 
 .pull-right6[
@@ -535,7 +538,7 @@ plot(x = d_post[1:500], y = 1:500, type = 'l', col='#EA4B68', lwd=2, xlim=c(-.1,
 .pull-left45[
 
 <ul>
-  <li class="m1"><span>The `BayesFactor` package is great for Bayes factor analyses of standard statistical hypothesis test.</span></li>
+  <li class="m1"><span>The <mono>BayesFactor</mono> package is great for Bayes factor analyses of standard statistical hypothesis test.</span></li>
 </ul>
 
 <br>
@@ -679,7 +682,7 @@ plot(chains[,c("mu", "sig2")])
 .pull-left45[
 
 <ul>
-  <li class="m1"><span>The `bayestestR` package helps with analyzing posterior distributions.</span></li>
+  <li class="m1"><span>The <mono>bayestestR</mono> package helps with analyzing posterior distributions.</span></li>
 </ul>
 
 <br>
@@ -746,7 +749,7 @@ hdi(chains[,c("mu")])
 # Regression
 
 <ul>
-  <li class="m1"><span>Rival packages focusing on parameter estimation rather than model comparisons are `rstanarm` and `brms`.</span></li>
+  <li class="m1"><span>Rival packages focusing on parameter estimation rather than model comparisons are <mono>rstanarm</mono> and <mono>brms</mono>.</span></li>
 </ul>
 
 <br>

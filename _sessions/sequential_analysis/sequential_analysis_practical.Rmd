@@ -68,11 +68,6 @@ library(pwr)
 
 ## Overview
 
-<p align ="center">
-"The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process."<br><i>Daryl J. Bem, professor emeritus, Cornell University</i>
-
-</p>
-
 In this practical, you will explore the merits of sequential analysis with a chance, at the end, to help out Bem's to design more effective study designs.
 
 By the end of this practical, you will know how to conduct sequential analysis using a basic example. 

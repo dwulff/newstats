@@ -124,6 +124,9 @@ layout: true
   &lt;li class="m2"&gt;&lt;span&gt;The prior distribution on parameters is what enables us to characterize the uncertainty in our effect estimation.&lt;/span&gt;&lt;/li&gt;  
 &lt;/ul&gt;
 
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;font style="font-size:12px"&gt;*There are also frequentist hierchical models.&lt;/font&gt;
 ]
 
 .pull-right6[
@@ -164,7 +167,7 @@ layout: true
 
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;In Bayesian analyses the t-test is often parameterized in terms of Cohen's &lt;i&gt;d&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;  
-  &lt;li class="m2"&gt;&lt;span&gt;The prior on Cohen's &lt;i&gt;d&lt;/i&gt; is those cases a &lt;a href="https://en.wikipedia.org/wiki/Cauchy_distribution"&gt;Cauchy distribution&lt;/a&gt;.&lt;/span&gt;&lt;/li&gt;  
+  &lt;li class="m2"&gt;&lt;span&gt;The prior on Cohen's &lt;i&gt;d&lt;/i&gt; is in those cases a &lt;a href="https://en.wikipedia.org/wiki/Cauchy_distribution"&gt;Cauchy distribution&lt;/a&gt;.&lt;/span&gt;&lt;/li&gt;  
 &lt;/ul&gt;
 
 ]
@@ -288,7 +291,7 @@ layout: true
   &lt;li class="m1"&gt;&lt;span&gt;Generalization of the likelihood ratio.&lt;/span&gt;&lt;/li&gt;  
   &lt;li class="m2"&gt;&lt;span&gt;Quantifies evidence in favor of considered hypotheses.&lt;/span&gt;&lt;/li&gt; 
   &lt;li class="m3"&gt;&lt;span&gt;Can show evidence for the NULL.&lt;/span&gt;&lt;/li&gt; 
-  &lt;li class="m4"&gt;&lt;span&gt;BF&lt;sub&gt;01&lt;/sub&gt; = 1/BF&lt;sub&gt;01&lt;/sub&gt;.&lt;/span&gt;&lt;/li&gt; 
+  &lt;li class="m4"&gt;&lt;span&gt;BF&lt;sub&gt;01&lt;/sub&gt; = 1/BF&lt;sub&gt;10&lt;/sub&gt;.&lt;/span&gt;&lt;/li&gt; 
 &lt;/ul&gt;
 
 ]
@@ -406,7 +409,7 @@ layout: true
 .pull-left45[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;The `BayesFactor` package is great for Bayes factor analyses of standard statistical hypothesis test.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The &lt;mono&gt;BayesFactor&lt;/mono&gt; package is great for Bayes factor analyses of standard statistical hypothesis test.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;br&gt;
@@ -451,7 +454,7 @@ psi_test
 .pull-left45[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;The package relies on efficient shortcuts to the Bayes factor, that do not involve traditional samples from the poster.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The package relies on efficient shortcuts to the Bayes factor, that do not involve traditional samples from the posterior.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;br&gt;
@@ -550,7 +553,7 @@ plot(chains[,c("mu", "sig2")])
 .pull-left45[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;The `bayestestR` package helps with analyzing posterior distributions.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The &lt;mono&gt;bayestestR&lt;/mono&gt; package helps with analyzing posterior distributions.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;br&gt;
@@ -599,7 +602,7 @@ hdi(chains[,c("mu")])
 # Regression
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Rival packages focusing on parameter estimation rather than model comparisons are `rstanarm` and `brms`.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Rival packages focusing on parameter estimation rather than model comparisons are &lt;mono&gt;rstanarm&lt;/mono&gt; and &lt;mono&gt;brms&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;br&gt;

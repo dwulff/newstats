@@ -68,11 +68,6 @@ library(pwr)
 
 ## Overview
 
-<p align ="center">
-"The term psi denotes anomalous processes of information or energy transfer that are currently unexplained in terms of known physical or biological mechanisms. Two variants of psi are precognition (conscious cognitive awareness) and premonition (affective apprehension) of a future event that could not otherwise be anticipated through any known inferential process."<br><i>Daryl J. Bem, professor emeritus, Cornell University</i>
-
-</p>
-
 In this practical, you will again analyze the data of Daryl Bem`s imfamous study on human *psi*-abilities to evaluate power and sample planning. 
 
 By the end of this practical, you will know how to conduct and evaluate Bayesian t-tests and regressions. 
