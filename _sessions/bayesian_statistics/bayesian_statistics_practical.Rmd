@@ -1,5 +1,5 @@
 ---
-title: "Bayesian analysis"
+title: "Bayesian statistics"
 author: "<table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0'><col width='10%'><col width='10%'>
   <tr style='border:none'>
     <td style='display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none' nowrap>
@@ -83,12 +83,12 @@ By the end of this practical, you will know how to conduct and evaluate Bayesian
 
 1. Open the `NewStats` R project. 
 
-2. Open a new R script. Add your name, date, and "Power analysis practical" as comments at the beginning of the script. 
+2. Open a new R script. Add your name, date, and "Bayesian statistics practical" as comments at the beginning of the script. 
 
 ```{r, eval = FALSE, echo = TRUE}
 ## NAME
 ## DATE
-## Power analysis practical
+## Bayesian statistics practical
 ```
 
 3. Save the new script as "power_analysis_practical.R" in the `2_code` folder.
@@ -117,7 +117,7 @@ psi <- read_csv(file = "1_data/psi_exp_1.csv")
 
 ### B - Bayesian t-test
 
-1. Let's begin with the same example as in the previous practical, namely to test whether the average hit rate for `erotic` pictures is higher than 50. Use the `ttestBF()` function to test against $H_0 = 50$ by setting `mu = 50`. Then print the result. Make do you make of it?   
+1. Let's begin with the same example as in the previous practical, namely to test whether the average hit rate for `erotic` pictures is higher than 50. Use the `ttestBF()` function to test against $H_0 = 50$ by setting `mu = 50`. Then print the result. What do you make of it?   
 
 ```{r, eval = FALSE, echo = TRUE}
 # Bayesian t-test
@@ -157,7 +157,7 @@ chains
 
 ```
 
-2. The two columns of interest are `mu` and ` sig2`, the mean and variance of the $H_1$ model. Use `plot()` to inspect the chain and distribution of the posterior samples. See below. The plots labeled `trace` show you the sampling process from the posterior. When you solid black horizontal region then all good. The plots labeled `density` is what we are really interested in. They show our posterior distribution of the model parameters after integrating evidence from the data. Try to make sense of the two distributions, especially the one of `mu`.  
+2. The two columns of interest are `mu` and ` sig2`, the mean and variance of the $H_1$ model. Use `plot()` to inspect the chain and distribution of the posterior samples. See below. The plots labeled `trace` show you the sampling process from the posterior. When you a solid black horizontal region then all good. The plots labeled `density` is what we are really interested in. They show our posterior distribution of the model parameters after integrating evidence from the data. Try to make sense of the two distributions, especially the one of `mu`.  
 
 ```{r, echo = TRUE}
 # show sample of posteriors
@@ -202,7 +202,7 @@ points(c(50, map_x), c(dens$y[which(round(dens$x,2) == 50)[1]],
 
 ### D - Bayesian t-test: Role of prior
 
-1. The key prior distribution for the t-Test is the Cauchy distribution, which describes the uncertainty of the `mu` parameter or, to be precised, of the standardized difference between `mu`s (aka *d*). The default scaling parameter is $r = \sqrt{2}/2$, but other values have been proposed, such as $r = 1$ or $r = \sqrt{2}$. The plot in the chunk below illustrates these distributions. Run it and try to make sense of the distributions. 
+1. The key prior distribution for the t-Test is the Cauchy distribution, which describes the uncertainty of the `mu` parameter or, to be precise, of the standardized difference between `mu`s (aka *d*). The default scaling parameter is $r = \sqrt{2}/2$, but other values have been proposed, such as $r = 1$ or $r = \sqrt{2}$. The plot in the chunk below illustrates these distributions. Run it and try to make sense of the distributions. 
 
 ```{r, echo = TRUE}
 # d range
@@ -230,7 +230,7 @@ ttestBF(hitrate_erotic, mu = 50, rscale = 1)
 ttestBF(hitrate_erotic, mu = 50, rscale = sqrt(2))
 ```
 
-3. Using wider priors has diminished the evidence for the $H_1$ because the wider priors give more weight to extreme effects that are not consistent with the relatively small empirical difference. Many criticism of Bayesian statistics center on the fact that the prior influences the statistical inference. However, the effect of the prior easily washes out with larger sample sizes. Use the code below to replicate the data and then rerun the three tests using the replicated data. What do you observe?
+3. Using wider priors has diminished the evidence for the $H_1$ because the wider priors give more weight to extreme effects that are not consistent with the relatively small empirical difference. Many critiques of Bayesian statistics center on the fact that the prior influences the statistical inference. However, the effect of the prior easily washes out with larger sample sizes. Use the code below to replicate the data and then rerun the three tests using the replicated data. What do you observe?
 
 ```{r, eval = F, echo = TRUE}
 # replicate data

@@ -191,7 +191,7 @@ print2 <- function(x, nlines=10,...) {
 
 <ul>
   <li class="m1"><span>In Bayesian analyses the t-test is often parameterized in terms of Cohen's <i>d</i>.</span></li>  
-  <li class="m2"><span>The prior on Cohen's <i>d</i> is those cases a <a href="https://en.wikipedia.org/wiki/Cauchy_distribution">Cauchy distribution</a>.</span></li>  
+  <li class="m2"><span>The prior on Cohen's <i>d</i> is in those cases a <a href="https://en.wikipedia.org/wiki/Cauchy_distribution">Cauchy distribution</a>.</span></li>  
 </ul>
 
 ]
@@ -417,7 +417,7 @@ plot(x = d_post[1:500], y = 1:500, type = 'l', col='#EA4B68', lwd=2, xlim=c(-.1,
   <li class="m1"><span>Generalization of the likelihood ratio.</span></li>  
   <li class="m2"><span>Quantifies evidence in favor of considered hypotheses.</span></li> 
   <li class="m3"><span>Can show evidence for the NULL.</span></li> 
-  <li class="m4"><span>BF<sub>01</sub> = 1/BF<sub>01</sub>.</span></li> 
+  <li class="m4"><span>BF<sub>01</sub> = 1/BF<sub>10</sub>.</span></li> 
 </ul>
 
 ]
@@ -578,7 +578,7 @@ print2(psi_test, 21)
 .pull-left45[
 
 <ul>
-  <li class="m1"><span>The package relies on efficient shortcuts to the Bayes factor, that do not involve traditional samples from the poster.</span></li>
+  <li class="m1"><span>The package relies on efficient shortcuts to the Bayes factor, that do not involve traditional samples from the posterior.</span></li>
 </ul>
 
 <br>

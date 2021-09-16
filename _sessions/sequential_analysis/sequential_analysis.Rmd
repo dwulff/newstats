@@ -1,5 +1,5 @@
 ---
-title: "Power analysis"
+title: "Sequential analysis"
 author: "New Statistics<br>
   <a href='https://therbootcamp.github.io'>
   </a>
@@ -65,17 +65,10 @@ options(digits = 4)
 
 # Load packages
 require(tidyverse)
-require(boot)
+require(rpact)
 
 print2 <- function(x, nlines=10,...) {
    cat(head(capture.output(print(x,...)), nlines), sep="\n")}
-
-# Load data
-baselers <- readr::read_csv("1_Data/baselers.csv")
-
-# get color palette functions
-source("../../_materials/palette/therbootcamp_palettes.R")
-colors = baselrbootcamp_colors
 
 knitr::opts_chunk$set(dpi = 300, echo = FALSE, warning = FALSE, fig.align = 'center', message= FALSE)
 

@@ -1,0 +1,10 @@
+p(x|\mu_{erotic})=\frac1{\sigma\sqrt{2\pi}}{e}^{-\frac{1}{2}(\frac{x-\mu_{erotic}}{\sigma})^2}
+p(\mu_{erotic}|H)=\frac1{\sigma\sqrt{2\pi}}{e}^{-\frac{1}{2}(\frac{\mu_{erotic}-50}{\sigma})^2}
+
+
+p(\mu|x,H) = \frac{p(x|\mu,H)p(\mu|H)}{p(x|H)}
+
+
+p(x|H) = \int_{-\infty}^{\infty}p(x|\mu,H)p(\mu|H)
+
+BF10 = \frac{p(x|H_1)}{p(x|H_0)} * \frac{p(H_1)}{p(H_0)}

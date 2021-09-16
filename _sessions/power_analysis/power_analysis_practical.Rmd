@@ -159,7 +159,7 @@ sample_size <- pwr.t.test(d = .25,
 sample_size
 ```
 
-3. According to the power analysis, a sample of 175 individuals would have been necessary. Visualize this result using the `plot.power.htest()` function. You can simply apply on the `sample_size` object. 
+3. According to the power analysis, a sample of 175 individuals would have been necessary. Visualize this result using the `plot.power.htest()` function. You can simply apply it on the `sample_size` object. 
 
 ```{r}
 # Visualize power
@@ -168,7 +168,7 @@ plot.power.htest(sample_size)
 
 4. Using the plot you can also evaluate the power that Bem's original test had. There were `r length(hitrate_erotic)` participants in his first study. Look for the corresponding point on the x-axis of your plot and then move up to identify the power.   
 
-5. To determine the power of a completed study based on the empirical effect size is called a post-hoc power analysis. The `pwr.t.test` also allows you to carry such analyses. Simply specify `n` rather than power. Try it out and determine the exact post-hoc power value for Bem's empirical effect size.  
+5. To determine the power of a completed study based on the empirical effect size is called a post-hoc power analysis. The `pwr.t.test` also allows you to carry out such analyses. Simply specify `n` rather than power. Try it out and determine the exact post-hoc power value for Bem's empirical effect size.  
 
 ```{r, echo = TRUE, eval = FALSE}
 # Bem's post-hoc power
@@ -190,7 +190,7 @@ power <- pwr.t.test(n = length(hitrate_erotic),
 power
 ```
 
-6. Note that post-hoc power analysis shouldn't be confused with a proper power analysis. Power analysis really only makes sense a priori. Besides post-hoc power analysis ignores the fact that the empirical effect size is an potentially unreliable estimate. Nevertheless it can sometimes be illustrative to consider what power level was present for a given effect size in a completed study. For instance, Bem might have reasoned prior to conducting any studies that the effect of *psi*-abilities is likely very small, possibly not larger than `d = .1`. Evaluate for Bem how power his design had to detect effects of that magnitude.      
+6. Note that post-hoc power analysis shouldn't be confused with a proper power analysis. Power analysis really only makes sense a priori. Besides post-hoc power analysis ignores the fact that the empirical effect size is a potentially unreliable estimate. Nevertheless it can sometimes be illustrative to consider what power level was present for a given effect size in a completed study. For instance, Bem might have reasoned prior to conducting any studies that the effect of *psi*-abilities is likely very small, possibly not larger than `d = .1`. Evaluate for Bem what power his design had to detect effects of that magnitude.      
 
 ```{r, echo = TRUE, eval = FALSE}
 # Bem's post-hoc power for very small effects
@@ -212,7 +212,7 @@ power <- pwr.t.test(n = length(hitrate_erotic),
 power
 ```
    
-7. For very small effects Bem's study only had a power of `25.7`%. So, given that Bem couldn't know that his effect would be as large as `d = .25`, should probably have conducted a larger study? How large should his sample have been to detect effects of size `d = .1` with power `.95`.     
+7. For very small effects Bem's study only had a power of `25.7`%. So, given that Bem couldn't know that his effect would be as large as `d = .25`, he should probably have conducted a larger study? How large should his sample have been to detect effects of size `d = .1` with power `.95`.     
 
 
 ```{r, eval = TRUE}
@@ -253,7 +253,7 @@ sample_size <- pwr.t.test(d = .1,
 sample_size
 ```
 
-2. For a two-sided test, roughly an additional 300 participants are required to obtain the same level of power. The increase is caused by $\alpha$ being split in half so that there are rejection areas corresponding to $\alpha/2$ in either directions. Hence, determining sample sizes for two-sided tests is equivlent to testing one-sided with $\alpha/2$. Confirm this by setting `type` back to `"greater"` and by using $\alpha = .025$.  
+2. For a two-sided test, roughly an additional 300 participants are required to obtain the same level of power. The increase is caused by $\alpha$ being split in half so that there are rejection areas corresponding to $\alpha/2$ in either directions. Hence, determining sample sizes for two-sided tests is equivalent to testing one-sided with $\alpha/2$. Confirm this by setting `type` back to `"greater"` and by using $\alpha = .025$.  
 
 ```{r}
 # Determine sample size for paired design
@@ -265,7 +265,7 @@ sample_size <- pwr.t.test(d = .1,
 sample_size
 ```
 
-3. Now let's assume actually wanted to test whether there is a difference in the hit rate for `erotic` between men and women. Let's assume the the expected effect size is again `d = .1`, what is the sample needed for $alpha = .05$ and $power = .95$. To reflect the difference in design set `type = "two.sample"` in the `pwr.t.test()` function.  
+3. Now let's assume, Bem actually wanted to test whether there is a difference in the hit rate for `erotic` between men and women. Let's assume the the expected effect size is again `d = .1`, what is the sample needed for $alpha = .05$ and $power = .95$. To reflect the difference in design set `type = "two.sample"` in the `pwr.t.test()` function.  
 
 ```{r}
 # Determine sample size for paired design
@@ -282,7 +282,7 @@ sample_size
 
 ### D - Power analysis: Simulation
 
-1. There situations where it is not straightforward to determine power. This can be because the appropriate effect sizes are not intuitive, the design is complex with imbalanced sampling of cells, one expects violations of assumptiosn, or, for instance, when using mixed models. In those cases, one must rely on simulations to determine power. Such simulations specify a plausible population model and then observe, how often a test is able to detect a true effect. The function below does this for a two sample t-test. Per default, it assumes normal distributions with mean 0 (`mus`) and standard deviation 1 (`sigmas`) and samples sizes of 100 (`ns`). Using these settings, the function than takes repeated random samples and stores the p-value associated with a two-sample t-test. It returns a vector containing the p-value for each repeat. Run the function definition in the console, so that you can use the function in the next task.
+1. There are situations where it is not straightforward to determine power. This can be because the appropriate effect sizes are not intuitive, the design is complex with imbalanced sampling of cells, one expects violations of assumptiosn, or, for instance, when using mixed models. In those cases, one must rely on simulations to determine power. Such simulations specify a plausible population model and then observe, how often a test is able to detect a true effect. The function below does this for a two sample t-test. Per default, it assumes normal distributions with mean 0 (`mus`) and standard deviation 1 (`sigmas`) and samples sizes of 100 (`ns`). Using these settings, the function than takes repeated random samples and stores the p-value associated with a two-sample t-test. It returns a vector containing the p-value for each repeat. Run the function definition in the console, so that you can use the function in the next task.
 
 ```{r, echo = TRUE}
 # define t-test simulation function
