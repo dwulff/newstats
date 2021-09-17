@@ -158,7 +158,7 @@ result <- simulate_sequential_onesample(alpha = alpha)
 mean(result[,"p_value"] < alpha)
 ```
 
-```{r, echo = TRUE, eval = FALSE}
+```{r}
 #define alpha
 alpha <- .004
 
@@ -190,7 +190,7 @@ mean(result_sequential[,"sample_size"])
 mean(result_nonsequential[,"sample_size"])
 ```
 
-```{r, echo = TRUE, eval = FALSE}
+```{r}
 # simulate sequential
 result_sequential <- simulate_sequential_onesample(alpha = .004, 
                                                    mu = .3)

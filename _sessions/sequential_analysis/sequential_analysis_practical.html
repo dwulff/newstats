@@ -263,14 +263,6 @@ result &lt;- simulate_sequential_onesample(alpha = alpha)
 
 # count significant p-values
 mean(result[,&quot;p_value&quot;] &lt; alpha)</code></pre>
-<pre class="r"><code>#define alpha
-alpha &lt;- .004
-
-# simulate p-values
-result &lt;- simulate_sequential_onesample(alpha = alpha)
-
-# count significant p-values
-mean(result[,&quot;p_value&quot;] &lt; alpha)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Each individual alpha needs to be a lot smaller, if the overall alpha shall not exceed <code>.05</code>. Now keep the alpha at that level and introduce a small effect with <code>mu = .3</code>, which is equivalent to <code>d = .3</code>, and run the simulation twice. Once with <code>stops = 2:100</code> and the alpha value you have just determined, and once with <code>stops = 100</code> and <code>alpha = .05</code>, so that we can compare sequential and non-sequential analysis approaches. Then evaluate both the number of significant results and the number of samples taken.</li>
 </ol>
@@ -285,22 +277,6 @@ result_nonsequential &lt;- simulate_sequential_onesample(stops = 100,
 
 # evaluate power
 mean(result_sequential[,&quot;p_value&quot;] &lt; XX)
-mean(result_nonsequential[,&quot;p_value&quot;] &lt; .05)
-
-# evaluate sample sizes
-mean(result_sequential[,&quot;sample_size&quot;])
-mean(result_nonsequential[,&quot;sample_size&quot;])</code></pre>
-<pre class="r"><code># simulate sequential
-result_sequential &lt;- simulate_sequential_onesample(alpha = .004, 
-                                                   mu = .3)
-
-# simulate non-sequential
-result_nonsequential &lt;- simulate_sequential_onesample(stops = 100, 
-                                                      alpha = .05, 
-                                                      mu = .3)
-
-# evaluate power
-mean(result_sequential[,&quot;p_value&quot;] &lt; .004)
 mean(result_nonsequential[,&quot;p_value&quot;] &lt; .05)
 
 # evaluate sample sizes
