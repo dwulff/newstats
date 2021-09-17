@@ -358,7 +358,7 @@ sim <- simulate_two_sample(mus = c(0, .1))
 mean(sim < .05)
 ```
 
-4. Given that there now is a true effect, your are observing power, not $\alpha$, and power is rather small. You can confirm this result using the `pwr.t.test()` function. See below.  
+4. Given that there now is a true effect, you are observing power, not $\alpha$, and power is rather small. You can confirm this result using the `pwr.t.test()` function. See below.  
 
 ```{r, echo = TRUE}
 # Confirm result using power analysis

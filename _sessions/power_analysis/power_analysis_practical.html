@@ -351,7 +351,7 @@ sim &lt;- simulate_two_sample(mus = c(0, .1))
 # determine proportion significant results
 mean(sim &lt; .05)</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Given that there now is a true effect, your are observing power, not <span class="math inline">\(\alpha\)</span>, and power is rather small. You can confirm this result using the <code>pwr.t.test()</code> function. See below.</li>
+<li>Given that there now is a true effect, you are observing power, not <span class="math inline">\(\alpha\)</span>, and power is rather small. You can confirm this result using the <code>pwr.t.test()</code> function. See below.</li>
 </ol>
 <pre class="r"><code># Confirm result using power analysis
 sample_size &lt;- pwr.t.test(n = 100, 
