@@ -215,7 +215,7 @@ power
 7. For very small effects Bem's study only had a power of `25.7`%. So, given that Bem couldn't know that his effect would be as large as `d = .25`, he should probably have conducted a larger study? How large should his sample have been to detect effects of size `d = .1` with power `.95`.     
 
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, echo  = FALSE}
 # Determine sample size for very small effects
 sample_size <- pwr.t.test(d = .1, 
                         sig.level = .05, 
@@ -225,9 +225,20 @@ sample_size <- pwr.t.test(d = .1,
 sample_size
 ```
 
+```{r}
+# Determine sample size for very small effects
+sample_size <- pwr.t.test(d = .1, 
+                        sig.level = .05, 
+                        power = .95, 
+                        alternative = "greater",
+                    type = "one.sample")
+sample_size
+```
+
+
 8. To be able to confidently (`power = .95`) detect very small effects using $\alpha = .05$, Bem should have conducted a study with `r ceiling(sample_size$n)` participants, that is more than ten times as many as he collected for his actual study 1. Now let's consider Bem would have wanted to be sure that he is not committing a Type 1 error (false positive) by setting $\alpha = .005$, the level suggest in a recent proposal to combat the replication crisis. 
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, echo= FALSE}
 # Determine sample size for very small effects
 sample_size <- pwr.t.test(d = .1, 
                         sig.level = .005, 
@@ -236,6 +247,17 @@ sample_size <- pwr.t.test(d = .1,
                     type = "one.sample")
 sample_size
 ```
+
+```{r}
+# Determine sample size for very small effects
+sample_size <- pwr.t.test(d = .1, 
+                        sig.level = .005, 
+                        power = .95, 
+                        alternative = "greater",
+                    type = "one.sample")
+sample_size
+```
+
 
 9. For this stricter test, Bem would have required a sample of `r ceiling(sample_size$n)` participants. Good thing Bem didn't need to worry about false positives, given the substantial effect that human *psi*-abilities produce for erotic images. 
 
