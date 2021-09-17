@@ -331,7 +331,7 @@ polygon(c(x[sel[1]], x[sel], x[sel[length(sel)]]), c(0, y[sel], 0), border=NA, c
 lines(x[sel], y[sel], lwd=4, col='#EA4B68')
 
   
-text(x = (hdi$CI_low + hdi$CI_high)/2, y = 1, labels = "95% HDI", cex=1, col='white')
+text(x = (hdi$CI_low + hdi$CI_high)/2, y = .5, labels = "95% HDI", cex=1, col='white')
 #text(x = -1, y = .4, labels = "Prior", cex=1.2)
 
 text(x = .6, y = 2.5, labels = "Posterior", cex=1.2)
